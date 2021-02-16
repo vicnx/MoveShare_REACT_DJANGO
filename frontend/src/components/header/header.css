@@ -1,0 +1,18 @@
+.navbar {
+  background-color: white;
+  color: #424242;
+}
+.navbar-content {
+  display: flex;
+  justify-content: space-around;
+}
+.button p {
+  margin-left: 5px;
+}
+i {
+  color: black;
+}
+.icon-list button {
+  font-size: 30px;
+  margin: 10px;
+}
