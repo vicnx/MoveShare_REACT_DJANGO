@@ -13,7 +13,7 @@ import {
 } from "@material-ui/core";
 import { StylesProvider } from "@material-ui/core/styles";
 import "./home.css";
-import { MoreVert as MoreVertIcon } from "@material-ui/icons";
+import ExercicePreview from "../../components/exercices/exercice-preview";
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: theme.spacing(3, 2),
@@ -25,8 +25,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SimplePaper() {
-  const classes = useStyles();
-
   return (
     <StylesProvider injectFirst>
       <Container className="home">
@@ -34,6 +32,7 @@ export default function SimplePaper() {
           <Typography variant="h5" className="home-title">
             Top Ejercicios
           </Typography>
+          <ExercicePreview />
         </Paper>
       </Container>
     </StylesProvider>

@@ -1,0 +1,68 @@
+.exercice_preview {
+  width: 280px;
+  height: 450px;
+  background: white;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px 10px 10px 10px;
+  box-shadow: 0;
+  transform: scale(0.95);
+  /* transition: box-shadow 0.5s, transform 0.5s; */
+}
+.exercice_preview_header {
+  height: 65%;
+  width: 100%;
+  overflow: hidden;
+  object-fit: cover;
+}
+.exercice_preview_header img {
+  height: 100%;
+  transform: translate(-25%, 0%);
+}
+.exercice_preview_content {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 22%;
+}
+.exercice_preview_content--title {
+  font-size: 22px;
+  text-align: center;
+  width: 100%;
+  font-weight: bold;
+}
+.exercice_preview_footer {
+  /* background-color: var(--color_principal); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 13%;
+}
+.exercice_preview_footer--button {
+  width: 100%;
+  height: 100%;
+}
+.exercice_preview_footer--button--fav {
+  width: 35%;
+  border-radius: 0;
+  /* background-color: var(--color_segundario); */
+}
+.exercice_preview_footer--button--fav:hover {
+  color: var(--color_segundario);
+  background-color: transparent;
+}
+
+.exercice_preview_footer--button--info {
+  width: 65%;
+  /* background-color: var(--color_principal); */
+  border-radius: 0;
+}
+.exercice_preview_footer--button--info:hover {
+  color: var(--color_principal);
+  background-color: transparent;
+  /* background-color: var(--color_principal_dark); */
+}
