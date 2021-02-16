@@ -24,3 +24,7 @@ i {
   right: 0;
   height: 50px;
 }
+
+.routing_link {
+  text-decoration: none;
+}

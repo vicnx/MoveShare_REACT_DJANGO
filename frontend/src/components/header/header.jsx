@@ -1,21 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import {
-  Button,
-  AppBar,
-  Toolbar,
-  Typography,
-  IconButton,
-  Icon,
-} from "@material-ui/core";
 
-import SimpleBottomNavigation from "./bottomnav";
-
-//ICONS
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import HomeIcon from "@material-ui/icons/Home";
-import FitnessCenterIcon from "@material-ui/icons/FitnessCenter";
-import MenuIcon from "@material-ui/icons/Menu";
+import MobileNav from "./bottomnav";
+import DesktopNav from "./desktopNav";
 
 //It is used to tell the Material Ui framework to search the css first
 import { StylesProvider } from "@material-ui/core/styles";
@@ -34,31 +21,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 const displayMobile = () => {
-  return <SimpleBottomNavigation className="BottomNav" />;
+  return <MobileNav className="BottomNav" />;
 };
 
 const displayDesktop = () => {
-  return (
-    <AppBar position="fixed" className="navbar">
-      <Toolbar className="navbar-content">
-        <Typography variant="h6">MoveShare</Typography>
-        <div className="icon-list">
-          <Button className="button">
-            <FitnessCenterIcon color="primary" />
-            <Typography variant="body2">Entrenamientos</Typography>
-          </Button>
-          <Button className="button">
-            <AccountCircleIcon color="primary" />
-            <Typography variant="body2">Perfil</Typography>
-          </Button>
-          <Button className="button">
-            <HomeIcon color="primary" />
-            <Typography variant="body2">Home</Typography>
-          </Button>
-        </div>
-      </Toolbar>
-    </AppBar>
-  );
+  return <DesktopNav />;
 };
 
 const Header = () => {

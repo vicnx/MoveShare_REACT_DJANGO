@@ -2,14 +2,13 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import LocationOnIcon from "@material-ui/icons/LocationOn";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import HomeIcon from "@material-ui/icons/Home";
 import FitnessCenterIcon from "@material-ui/icons/FitnessCenter";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 const useStyles = makeStyles({});
 
-export default function SimpleBottomNavigation() {
+export default function MobileNav() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
@@ -23,11 +22,29 @@ export default function SimpleBottomNavigation() {
       className="bottomNav"
     >
       <BottomNavigationAction
+        component={Link}
         label="Entrenamientos"
         icon={<FitnessCenterIcon />}
+        to="/entrenamientos"
       />
-      <BottomNavigationAction label="Perfil" icon={<AccountCircleIcon />} />
-      <BottomNavigationAction label="Home" icon={<HomeIcon />} />
+      <BottomNavigationAction
+        component={Link}
+        label="Perfil"
+        icon={<AccountCircleIcon />}
+        to="/profile"
+      />
+      <BottomNavigationAction
+        component={Link}
+        label="Home"
+        icon={<HomeIcon />}
+        to="/home"
+      />
+      <BottomNavigationAction
+        component={Link}
+        label="Login"
+        icon={<AccountCircleIcon />}
+        to="/login"
+      />
     </BottomNavigation>
   );
 }
