@@ -4,6 +4,9 @@ import { Card, Button } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import "./exercice-preview.css";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
+
+import Fav from "./fav/fav";
+
 const useStyles = makeStyles({
   root: {
     maxWidth: 300,
@@ -27,9 +30,13 @@ export default function ExercicePreview() {
         </Typography>
       </div>
       <div className="exercice_preview_footer">
-        <Button className="exercice_preview_footer--button exercice_preview_footer--button--fav">
+        <Fav
+          className="exercice_preview_footer--button exercice_preview_footer--button--info"
+          id="1"
+        ></Fav>
+        {/* <Button className="exercice_preview_footer--button exercice_preview_footer--button--fav">
           <FavoriteBorderIcon />
-        </Button>
+        </Button> */}
         <Button className="exercice_preview_footer--button exercice_preview_footer--button--info">
           More Info
         </Button>
