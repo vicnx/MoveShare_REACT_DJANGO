@@ -10,7 +10,10 @@ export default function Login() {
   const { errors,isLogginLoading, hasLoginError, login, isLogged } = useUser();
 
   useEffect(() => {
-    if (isLogged) history.push("/home");
+    if (isLogged){
+      history.push("/home")
+      window.location.reload();
+    } 
   }, [isLogged]);
 
   const handleSubmit = (e) => {

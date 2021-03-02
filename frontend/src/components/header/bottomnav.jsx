@@ -32,12 +32,23 @@ export default function MobileNav() {
         icon={<FitnessCenterIcon />}
         to="/entrenamientos"
       />
-      <BottomNavigationAction
-        component={Link}
-        label="Perfil"
-        icon={<AccountCircleIcon />}
-        to="/profile"
-      />
+      {
+        isLogged
+        ?
+        <BottomNavigationAction
+          component={Link}
+          label={user.username}
+          icon={<AccountCircleIcon />}
+          to="/profile"
+        />
+        :
+        <BottomNavigationAction
+          component={Link}
+          label="Perfil"
+          icon={<AccountCircleIcon />}
+          to="/profile"
+        />
+      }
       <BottomNavigationAction
         component={Link}
         label="Home"

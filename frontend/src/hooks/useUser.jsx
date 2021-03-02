@@ -26,7 +26,6 @@ export default function useUser() {
             saveToken(data.token)
             setJWT(data.token);
             setUser(getUserData())
-            //obtenemos la info del user
           }
           
         })
