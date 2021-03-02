@@ -6,11 +6,16 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import HomeIcon from "@material-ui/icons/Home";
 import FitnessCenterIcon from "@material-ui/icons/FitnessCenter";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import useUser from '../../hooks/useUser'
+
+
 const useStyles = makeStyles({});
 
 export default function MobileNav() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
+
+  const {isLogged,login} = useUser();
 
   return (
     <BottomNavigation
@@ -39,12 +44,23 @@ export default function MobileNav() {
         icon={<HomeIcon />}
         to="/home"
       />
-      <BottomNavigationAction
-        component={Link}
-        label="Login"
-        icon={<AccountCircleIcon />}
-        to="/login"
-      />
+      {
+        isLogged
+        ?
+        <BottomNavigationAction
+          component={Link}
+          label="Logout"
+          icon={<AccountCircleIcon />}
+          to="/login"
+        />
+        :
+        <BottomNavigationAction
+          component={Link}
+          label="Login"
+          icon={<AccountCircleIcon />}
+          to="/login"
+        />
+      }
     </BottomNavigation>
   );
 }

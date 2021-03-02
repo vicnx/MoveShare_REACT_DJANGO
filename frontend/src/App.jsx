@@ -5,23 +5,22 @@ import theme from "./themeConfig";
 import React from "react";
 import Login from "./pages/login/login";
 import Home from "./pages/home/home";
+import {UserContextProvider} from "./context/UserContext";
+
+// import { Link, Route, Switch } from "wouter"; //alternativa a router-dom
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import Header from "./components/header/header";
 function App() {
   return (
-    <Router>
-      <ThemeProvider theme={theme}>
-        <Header></Header>
-        <Route path="/login">
-          <Login />
-        </Route>
-        <Route path="/home">
-          <Home />
-        </Route>
-      </ThemeProvider>
-    </Router>
+    <UserContextProvider>
+        <ThemeProvider theme={theme}>
+          <Header></Header>
+          <Route path="/login" component={Login}></Route>
+          <Route path="/home" component={Home}></Route>
+        </ThemeProvider>
+    </UserContextProvider>
   );
 }
 

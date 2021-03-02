@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useContext} from "react";
+import Context from '../../context/appContext'
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Paper,
@@ -25,6 +26,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SimplePaper() {
+  const context = useContext(Context)
+  console.log(context);
   return (
     <StylesProvider injectFirst>
       <Container className="home">

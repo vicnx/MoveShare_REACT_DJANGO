@@ -1,6 +1,8 @@
 import React from "react";
 import { Button, AppBar, Toolbar, Typography } from "@material-ui/core";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import useUser from '../../hooks/useUser'
+
 
 //ICONS
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
@@ -11,6 +13,9 @@ import FitnessCenterIcon from "@material-ui/icons/FitnessCenter";
 import "./header.css";
 
 export default function DesktopNav() {
+  // const isLogged = false;
+  const {isLogged,logout} = useUser();
+
   return (
     <AppBar position="fixed" className="navbar">
       <Toolbar className="navbar-content">
@@ -24,10 +29,20 @@ export default function DesktopNav() {
             <AccountCircleIcon color="primary" />
             <Typography variant="body2">Perfil</Typography>
           </Button>
-          <Button className="button" to="/login" component={Link}>
-            <AccountCircleIcon color="primary" />
-            <Typography variant="body2">Login</Typography>
-          </Button>
+          {
+            isLogged
+            ?
+            <Button className="button" onClick={logout}>
+              <AccountCircleIcon color="primary" />
+              <Typography variant="body2">Logout</Typography>
+            </Button>
+            :           
+            <Button className="button" to="/login" component={Link}>
+              <AccountCircleIcon color="primary" />
+              <Typography variant="body2">Login</Typography>
+            </Button>
+          }
+
           <Button className="button" to="/home" component={Link}>
             <HomeIcon color="primary" />
             <Typography variant="body2">Home</Typography>
