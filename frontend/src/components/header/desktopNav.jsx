@@ -37,7 +37,6 @@ export default function DesktopNav() {
             <Button className="button" onClick={logout}>
               <AccountCircleIcon color="primary" />
               <Typography variant="body2">Logout</Typography>
-              <Typography variant="body2">{user.username}</Typography>
             </Button>
             :           
             <Button className="button" to="/login" component={Link}>
