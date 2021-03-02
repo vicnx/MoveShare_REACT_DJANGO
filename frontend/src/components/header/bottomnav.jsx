@@ -15,7 +15,7 @@ export default function MobileNav() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
   const { user } = useContext(UserContext);
-  const {isLogged,login} = useUser();
+  const {isLogged,logout} = useUser();
 
   return (
     <BottomNavigation
@@ -48,7 +48,7 @@ export default function MobileNav() {
         isLogged
         ?
         <BottomNavigationAction
-          component={Link}
+          onClick={logout}
           label="Logout"
           icon={<AccountCircleIcon />}
           to="/login"
