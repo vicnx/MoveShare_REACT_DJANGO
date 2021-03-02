@@ -1,26 +1,52 @@
-import { useCallback, useContext } from "react"; //evita que se vuelva a ejecutar una funcion
+import { useCallback, useContext, useState } from "react"; //evita que se vuelva a ejecutar una funcion
 import UserContext from "../context/UserContext";
-import loginService from "../services/login"
+import loginService from "../services/login";
+import {saveToken,destroyToken} from '../services/jwt.service'
+
 export default function useUser() {
   const { jwt, setJWT } = useContext(UserContext);
+  const [ state, setState ] = useState({ loading: false, error: false });
+  const [ errorMSG, setErrorMSG ] = useState("")
 
-  const login = useCallback((email,password) => {
-    loginService({ user: {email,password}}).then(data =>{
-      if(data.error) alert(data.error)
-      setJWT(data.token) 
-    })
-    .catch(err =>{
-      console.error(err);
-    })
-  }, [setJWT]); //cada vez que cambie setJWT la funcion login se vuelve a crear
+  const login = useCallback(
+    (email, password) => {
+      setState({ loading: true, error: false });
+      loginService({ user: { email, password } })
+        .then((data) => {
+          // setState({loading:false,error:false})
+          if (data.errors){
+            setState({loading:false,error:true})
+            setErrorMSG(data.errors)
+            destroyToken()
+            console.log(state);
+          }else{
+            setState({loading:false,error:false})
+            saveToken(data.token)
+            setJWT(data.token);
+          }
+          
+        })
+        .catch((err) => {
+          destroyToken()
+          setState({loading:false,error:true})
+          console.log(state);
+          console.error(err);
+        });
+    },
+    [setJWT]
+  ); //cada vez que cambie setJWT la funcion login se vuelve a crear
 
-  const logout = useCallback(()=>{
-    setJWT(null)
-  },[setJWT])
+  const logout = useCallback(() => {
+    destroyToken()
+    setJWT(null);
+  }, [setJWT]);
 
   return {
     isLogged: Boolean(jwt),
+    isLogginLoading : state.loading,
+    hasLoginError: state.error,
+    errors:errorMSG,
     login,
-    logout
+    logout,
   };
 }

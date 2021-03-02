@@ -12,6 +12,7 @@ export default async function login(user) {
       return res.data.user;
     })
     .catch(({ response }) => {
-      return response.data.errors
+      console.log(response.data);
+      return response.data
     });
 }
