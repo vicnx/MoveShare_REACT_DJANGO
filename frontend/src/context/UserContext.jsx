@@ -1,13 +1,36 @@
 import React, { useState } from "react";
-import {getToken} from '../services/jwt.service'
+import {getToken,destroyToken} from '../services/jwt.service'
+import {ApiService} from '../services/api.service'
 const Context = React.createContext({});
 
 export function UserContextProvider({ children }) {
-  // por defecto se obtiene del localStorage le asignamos una funcion por si se vuelve a renderizar.
-  const [jwt, setJWT] = useState(() => getToken());
+  
+  //funcion que intenta obtener su propio usuario con ese token (sirve para detectar tokens invalidos o expirados)
+  const check_auth = () => {
+    if (getToken()) {
+      ApiService.auth();
+      ApiService.get("user")
+      .then(({ data }) => {
+        console.log(data.user.token);
+        setUser(data.user)
+        setJWT(data.user.token)
+      })
+      .catch(({ response }) => {
+          destroyToken();
+          window.location.reload();
+        });
+    } else {
+      destroyToken();
+    }
+  }
+  // por defecto se obtiene del localStorage (comprobando el login) le asignamos una funcion por si se vuelve a renderizar.
+  const [jwt, setJWT] = useState(() => check_auth());
+  const [user, setUser] =useState(null)
+
+
 
   return (
-    <Context.Provider value={{ jwt, setJWT }}>{children}</Context.Provider>
+    <Context.Provider value={{ jwt, setJWT,user,setUser }}>{children}</Context.Provider>
   );
 }
 

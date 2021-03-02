@@ -1,7 +1,8 @@
-import React from "react";
+import React, {useContext} from "react";
 import { Button, AppBar, Toolbar, Typography } from "@material-ui/core";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import useUser from '../../hooks/useUser'
+import UserContext from "../../context/UserContext";
 
 
 //ICONS
@@ -15,6 +16,7 @@ import "./header.css";
 export default function DesktopNav() {
   // const isLogged = false;
   const {isLogged,logout} = useUser();
+  const { user } = useContext(UserContext);
 
   return (
     <AppBar position="fixed" className="navbar">
@@ -35,6 +37,7 @@ export default function DesktopNav() {
             <Button className="button" onClick={logout}>
               <AccountCircleIcon color="primary" />
               <Typography variant="body2">Logout</Typography>
+              <Typography variant="body2">{user.username}</Typography>
             </Button>
             :           
             <Button className="button" to="/login" component={Link}>

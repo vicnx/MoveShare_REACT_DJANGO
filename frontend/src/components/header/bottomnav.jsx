@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
@@ -7,14 +7,14 @@ import HomeIcon from "@material-ui/icons/Home";
 import FitnessCenterIcon from "@material-ui/icons/FitnessCenter";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import useUser from '../../hooks/useUser'
-
+import UserContext from "../../context/UserContext";
 
 const useStyles = makeStyles({});
 
 export default function MobileNav() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
-
+  const { user } = useContext(UserContext);
   const {isLogged,login} = useUser();
 
   return (
@@ -32,12 +32,24 @@ export default function MobileNav() {
         icon={<FitnessCenterIcon />}
         to="/entrenamientos"
       />
-      <BottomNavigationAction
-        component={Link}
-        label="Perfil"
-        icon={<AccountCircleIcon />}
-        to="/profile"
-      />
+      {
+        isLogged
+        ?
+        <BottomNavigationAction
+          component={Link}
+          label={user.username}
+          icon={<AccountCircleIcon />}
+          to="/profile"
+        />
+        :
+        <BottomNavigationAction
+          component={Link}
+          label="Perfil"
+          icon={<AccountCircleIcon />}
+          to="/profile"
+        />
+      }
+
       <BottomNavigationAction
         component={Link}
         label="Home"

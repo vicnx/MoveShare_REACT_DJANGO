@@ -2,9 +2,12 @@ import { useCallback, useContext, useState } from "react"; //evita que se vuelva
 import UserContext from "../context/UserContext";
 import loginService from "../services/login";
 import {saveToken,destroyToken} from '../services/jwt.service'
+import getUserData from '../services/user.service'
+
 
 export default function useUser() {
   const { jwt, setJWT } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   const [ state, setState ] = useState({ loading: false, error: false });
   const [ errorMSG, setErrorMSG ] = useState("")
 
@@ -18,19 +21,18 @@ export default function useUser() {
             setState({loading:false,error:true})
             setErrorMSG(data.errors)
             destroyToken()
-            console.log(state);
           }else{
             setState({loading:false,error:false})
             saveToken(data.token)
             setJWT(data.token);
+            setUser(getUserData())
+            //obtenemos la info del user
           }
           
         })
         .catch((err) => {
           destroyToken()
           setState({loading:false,error:true})
-          console.log(state);
-          console.error(err);
         });
     },
     [setJWT]
