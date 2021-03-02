@@ -1,0 +1,42 @@
+version: "3"
+
+services:
+  ms_react:
+    container_name: ms_react
+    build: ./frontend/
+    volumes:
+      - ./frontend/:/app
+    ports:
+      - "8080:8080"
+    networks:
+      - ms_network
+    restart: on-failure
+    depends_on:
+      - ms_django
+    working_dir: /app
+    command: bash -c "npm install && npm start"
+
+  ms_django:
+    build: ./backend/
+    container_name: ms_django
+    volumes:
+      - ./backend/:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - ms_postgres
+    networks:
+      - ms_network
+    command: "python3 manage.py runserver 0.0.0.0:8000"
+
+  ms_postgres:
+    image: postgres:latest
+    container_name: ms_postgress
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+    networks:
+      - ms_network
+networks:
+  ms_network:

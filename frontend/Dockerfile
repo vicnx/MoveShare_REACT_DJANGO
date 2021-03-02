@@ -1,0 +1,3 @@
+FROM node:10.15
+
+EXPOSE 8080
