@@ -3,7 +3,7 @@
     margin-top: -64px;
 }
 .login_image{
-    background-image:url(https://source.unsplash.com/random) ;
+    background-image:url(https://images.unsplash.com/photo-1594737626072-90dc274bc2bd?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1000&q=80) ;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -13,6 +13,20 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+.errors_login{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    width: 80%;
+}
+.errors_login span{
+    background-color: rgb(252, 137, 137);
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-weight: bolder;
+    text-align: center;
 }
 
 @media (min-width: 900px) {

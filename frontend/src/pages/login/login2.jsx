@@ -70,6 +70,8 @@ export default function Login() {
                             {errors.error && <span>ERROR: {errors.error}</span>}
                         </div>
                     }
+                    {isLogginLoading && <span>Checking</span>}
+                    {!isLogginLoading &&
                     <form className={classes.form} noValidate onSubmit={handleSubmit}>
                         <TextField
                             variant="outlined"
@@ -122,6 +124,7 @@ export default function Login() {
                             </Grid>
                         </Grid>
                     </form>
+                    }
                 </div>
             </Grid>
         </Grid>
