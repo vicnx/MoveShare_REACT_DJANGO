@@ -1,0 +1,24 @@
+.grid_root{
+    height: 100vh;
+    margin-top: -64px;
+}
+.login_image{
+    background-image:url(https://source.unsplash.com/random) ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.login_div{
+    margin: 64px 32px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+@media (min-width: 900px) {
+    .grid_root{
+        height: 92vh;
+        margin-top: 0;
+        /* margin-top: -64px; */
+    }
+}

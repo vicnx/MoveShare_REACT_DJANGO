@@ -3,7 +3,7 @@ import "./App.css";
 import { ThemeProvider, Button } from "@material-ui/core";
 import theme from "./themeConfig";
 import React from "react";
-import Login from "./pages/login/login";
+import Login from "./pages/login/login2";
 import Home from "./pages/home/home";
 import {UserContextProvider} from "./context/UserContext";
 
