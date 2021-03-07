@@ -8,7 +8,7 @@ export const ApiService = {
 
   async get(resource, slug = "") {
     return http.get(`${resource}/${slug}`).catch(error => {
-      throw new Error(`[RVD] ApiService ${error}`);
+      throw new Error(`[MS] ApiService ${error}`);
     });
   },
 }
