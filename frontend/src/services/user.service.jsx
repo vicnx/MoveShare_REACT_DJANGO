@@ -1,7 +1,7 @@
 import {getToken,destroyToken} from '../services/jwt.service'
 import {ApiService} from './api.service'
 
-export default async function getUserData() {
+export default function getUserData() {
   ApiService.auth();
   ApiService.get("user")
   .then(({ data }) => {

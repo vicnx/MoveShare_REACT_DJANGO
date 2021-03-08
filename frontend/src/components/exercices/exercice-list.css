@@ -1,0 +1,5 @@
+.list_exercices{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}

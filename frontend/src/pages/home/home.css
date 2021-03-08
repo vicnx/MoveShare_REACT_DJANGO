@@ -13,6 +13,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 1080px;
-  width: 90%;
+  max-width: 1280px;
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .paper-top-ejercicios{
+    width: 90%;
+  }
 }

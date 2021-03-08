@@ -1,0 +1,29 @@
+.header_home{
+  position: relative;
+  background-color: rgb(0, 0, 0);
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+  object-fit: cover;
+}
+.header_home_image{
+  width: 100%;
+  /* filter: blur(3px); */
+  filter: opacity(20%);
+}
+.header_home_title{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--color_principal);
+  text-shadow: -2px 4px 0 rgba(0,0,0,0.3);
+  font-weight: bolder;
+}
+
+@media (max-width: 900px) {
+  .header_home_image{
+    width: auto;
+      height: 100%;
+  }
+}

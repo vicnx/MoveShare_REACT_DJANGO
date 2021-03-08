@@ -6,8 +6,14 @@ export const ApiService = {
     http = createHttp(true)
   },
 
-  async get(resource, slug = "") {
+  get(resource, slug = "") {
     return http.get(`${resource}/${slug}`).catch(error => {
+      throw new Error(`[MS] ApiService ${error}`);
+    });
+  },
+
+  query(resource, params) {
+    return http.get(resource, params).catch(error => {
       throw new Error(`[MS] ApiService ${error}`);
     });
   },
