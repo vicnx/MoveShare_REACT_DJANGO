@@ -9,8 +9,9 @@ import {ApiService} from '../services/api.service'
 export default function useUser() {
   const { jwt, setJWT } = useContext(UserContext);
   const { user, setUser } = useContext(UserContext);
-  const [ state, setState ] = useState({ loading: false, error: false });
+  const [ state, setState ] = useState({ loading: false, error: false});
   const [ errorMSG, setErrorMSG ] = useState("")
+  const [ isLogged, setisLogged ] = useState("")
 
   const login = useCallback(
     (email, password) => {
@@ -27,7 +28,9 @@ export default function useUser() {
             saveToken(data.token)
             setJWT(data.token);
             setUser(getUserData())
-            console.log(user);
+            window.location.reload();
+            
+            
           }
           
         })

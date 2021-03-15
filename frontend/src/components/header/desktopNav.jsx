@@ -27,19 +27,22 @@ export default function DesktopNav() {
             <FitnessCenterIcon color="primary" />
             <Typography variant="body2">Entrenamientos</Typography>
           </Button>
-          <Button className="button" to="/profile" component={Link}>
-            <AccountCircleIcon color="primary" />
-            <Typography variant="body2">Perfil</Typography>
-          </Button>
+
           {
             isLogged
             ?
+            <>
+            <Button className="button" to={"/@"+user.username} component={Link}>
+              <AccountCircleIcon color="primary" />
+              <Typography variant="body2">Perfil</Typography>
+            </Button>
             <Button className="button" onClick={logout}>
               <AccountCircleIcon color="primary" />
               <Typography variant="body2">Logout</Typography>
               <Typography variant="body2">{user.username}</Typography>
 
             </Button>
+            </>
             :           
             <Button className="button" to="/login" component={Link}>
               <AccountCircleIcon color="primary" />

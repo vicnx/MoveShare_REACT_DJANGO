@@ -39,12 +39,13 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   let history = useHistory();
-  const { errors, isLogginLoading, hasLoginError, login, isLogged } = useUser();
+  const { user,errors, isLogginLoading, hasLoginError, login, isLogged } = useUser();
   
   useEffect(() => {
+    console.log(isLogged);
     if (isLogged) {
       history.push("/home");
-      window.location.reload();
+      // window.location.reload();
     }
   }, [isLogged]);
 
