@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useHistory, Link} from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import useUser from "../../hooks/useUser";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
-// import Link from "@material-ui/core/Link";
-
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
@@ -18,13 +14,14 @@ import Container from "@material-ui/core/Container";
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import { StylesProvider } from "@material-ui/core/styles";
+import {Formik} from 'formik'
 
-import "./login.css";
+import "./register.css";
 
 const useStyles = makeStyles((theme) => ({
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: theme.palette.secondary.main,
   },
   form: {
     width: "100%",
@@ -35,12 +32,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Login() {
+export default function Register() {
   const classes = useStyles();
   const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   let history = useHistory();
-  const { user,errors, isLogginLoading, hasLoginError, login, isLogged } = useUser();
+  const { user,errors, isLogginLoading, hasLoginError, login,register, isLogged } = useUser();
   
   useEffect(() => {
     console.log(isLogged);
@@ -53,7 +51,7 @@ export default function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(email);
-    login(email, password);
+    register(email, password, username);
   };
 
   return (
@@ -65,13 +63,14 @@ export default function Login() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Register
           </Typography>
           {
             hasLoginError &&
             <div className="errors_login">
                 {errors.email && <span>EMAIL: {errors.email}</span>}
                 {errors.password && <span>PASSWORD: {errors.password}</span>}
+                {errors.username && <span>USERNAME: {errors.username}</span>}
                 {errors.error && <span>ERROR: {errors.error}</span>}
             </div>
           }
@@ -97,6 +96,19 @@ export default function Login() {
                   margin="normal"
                   required
                   fullWidth
+                  id="username"
+                  label="Username"
+                  name="username"
+                  autoComplete="username"
+                  autoFocus
+                  onChange={(e) => setUsername(e.target.value)}
+                  value={username}
+                />
+                <TextField
+                  variant="outlined"
+                  margin="normal"
+                  required
+                  fullWidth
                   name="password"
                   label="Password"
                   type="password"
@@ -105,10 +117,7 @@ export default function Login() {
                   onChange={(e) => setPassword(e.target.value)}
                   value={password}
                 />
-                <FormControlLabel
-                  control={<Checkbox value="remember" color="primary" />}
-                  label="Remember me"
-                />
+
                 <Button
                   type="submit"
                   fullWidth
@@ -116,17 +125,12 @@ export default function Login() {
                   color="primary"
                   className={classes.submit}
                 >
-                  Sign In
+                  REGISTER
                 </Button>
                 <Grid container>
-                  <Grid item xs>
-                    <Link href="#" variant="body2">
-                      Forgot password?
-                    </Link>
-                  </Grid>
                   <Grid item>
-                  <Link href="#" variant="body2" to="/register">
-                      {"Don't have an account? Sign Up"}
+                    <Link href="#" variant="body2" to="/login">
+                      {"Have account? Login!"}
                     </Link>
                   </Grid>
                 </Grid>

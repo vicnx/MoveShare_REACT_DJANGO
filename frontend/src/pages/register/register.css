@@ -1,0 +1,108 @@
+.grid_root{
+    height: 90vh;
+    margin-top: -64px;
+}
+.login_image{
+    background-image:url(https://images.unsplash.com/photo-1594737626072-90dc274bc2bd?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1000&q=80) ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.login_div{
+    margin: 64px 32px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.errors_login{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    width: 80%;
+}
+.errors_login span{
+    background-color: rgb(252, 137, 137);
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-weight: bolder;
+    text-align: center;
+}
+
+@media (max-width: 900px) {
+    .login_div{
+        margin: 0 5px;
+    }
+}
+
+.SocialIcons{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.SocialIcons svg{
+    font-size: 35px;
+}
+.facebookicon{
+    background-color: #1E5292;
+    color: white;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.452);
+    padding: 25px;
+    font-size: 35px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.facebookicon:hover{
+    filter: opacity(0.7) ;
+
+}
+.googleicon{
+    background-color: #D74937;
+    color: white;
+    font-weight: bolder;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.452);
+    padding: 25px;
+    font-size: 35px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.googleicon:hover{
+    filter: opacity(0.7) ;
+
+}
+.instagramicon{
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+    color: white;
+    font-weight: bolder;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.452);
+    padding: 25px;
+    font-size: 35px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.instagramicon:hover{
+    filter: opacity(0.7) ;
+
+}
+.separator {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .separator::before,
+  .separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #000;
+  }
+  
+  .separator:not(:empty)::before {
+    margin-right: .25em;
+  }
+  
+  .separator:not(:empty)::after {
+    margin-left: .25em;
+  }

@@ -19,6 +19,7 @@ import Header from "./components/header/header";
 const HomePage = React.lazy(() => import("./pages/home/home"));
 const Exercices = React.lazy(() => import("./pages/exercices/exercices"));
 const Profile = React.lazy(() => import("./pages/profile/profile"));
+const Register = React.lazy(() => import("./pages/register/register"));
 
 function App() {
   console.log("app");
@@ -29,6 +30,7 @@ function App() {
           <Header></Header>
           <ExercicesContextProvider>
             <Route path="/login" component={Login}></Route>
+            <Route path="/register" component={Register}></Route>
             <Route path="/home" component={HomePage}></Route>
             <Route path="/exercices" component={Exercices}></Route>
             <ProfileContextProvider>
