@@ -3,6 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Card, Button, Avatar, Chip } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import "./exercice-preview.css";
+import {Link } from "react-router-dom";
+
 import { StylesProvider } from "@material-ui/core/styles";
 
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
@@ -27,7 +29,7 @@ export default function ExercicePreview({exercice}) {
             color="primary"
             className="exercice_preview_header_author"
             size="small"
-          />
+          to={'/@'+exercice.author.username} component={Link}/>
           <img src={exercice.image} />
         </div>
         <div className="exercice_preview_content">
