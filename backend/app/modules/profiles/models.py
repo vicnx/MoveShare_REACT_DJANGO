@@ -1,6 +1,8 @@
 from django.db import models
 
 from app.modules.core.models import TimestampedModel
+from string import ascii_uppercase, digits
+import random 
 
 
 class Profile(TimestampedModel):
@@ -11,7 +13,7 @@ class Profile(TimestampedModel):
     user = models.OneToOneField(
         'authentication.User', on_delete=models.CASCADE
     )
-
+    print(user)
     # Each user profile will have a field where they can tell other users
     # something about themselves. This field will be empty when the user
     # creates their account, so we specify `blank=True`.
@@ -19,7 +21,12 @@ class Profile(TimestampedModel):
 
     # In addition to the `bio` field, each user may have a profile image or
     # avatar. Similar to `bio`, this field is not required. It may be blank.
-    image = models.TextField(blank=True)
+    
+    #RANDOM IMAGE ON REGISTER PROFILE
+    randomstring= ''.join(random.sample(ascii_uppercase,4)+random.sample(digits,4)+random.sample(ascii_uppercase,1))
+
+    url = "https://avatars.dicebear.com/api/avataaars/"+randomstring+".svg"
+    image = models.TextField(blank=True, default=url)
 
     # This is an example of a Many-To-Many relationship where both sides of the
     # relationship are of the same model. In this case, the model is `Profile`.

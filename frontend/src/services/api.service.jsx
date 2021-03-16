@@ -17,4 +17,8 @@ export const ApiService = {
       throw new Error(`[MS] ApiService ${error}`);
     });
   },
+
+  put(resource, params) {
+    return http.put(`${resource}`, params);
+  },
 }

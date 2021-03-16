@@ -3,7 +3,7 @@ import UserContext from "../context/UserContext";
 import loginService from "../services/login";
 import registerService from "../services/register";
 import {saveToken,destroyToken,getToken} from '../services/jwt.service'
-import getUserData from '../services/user.service'
+import {UserService} from '../services/user.service'
 import {ApiService} from '../services/api.service'
 
 
@@ -28,7 +28,7 @@ export default function useUser() {
             setState({loading:false,error:false})
             saveToken(data.token)
             setJWT(data.token);
-            setUser(getUserData())
+            setUser(UserService.getUserData())
             window.location.reload();
           }
           
@@ -55,7 +55,10 @@ export default function useUser() {
             setState({loading:false,error:false})
             saveToken(data.token)
             setJWT(data.token);
-            setUser(getUserData())
+            setUser(UserService.getUserData())
+            UserService.updateUserData({ user: {
+              image: 'https://avatars.dicebear.com/api/avataaars/pepe.svg'
+            } })
             window.location.reload();
           }
         })
