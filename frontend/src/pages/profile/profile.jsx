@@ -46,7 +46,7 @@ export default function Profile() {
   const renderTab = () => {
     switch (currentTab) {
       case 0:
-        return <ExerciceList exercices={exercices} />
+        return <ExerciceList exercices={exercices} type="profile" />
         break;
       case 1:
         return "Workouts"

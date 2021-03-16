@@ -16,10 +16,16 @@ const useStyles = makeStyles({
   },
 });
 
-export default function ExercicePreview({exercice}) {
+export default function ExercicePreview({exercice,type=null}) {
+  const checkType=()=>{
+    if(type=="profile"){
+      return "exercice_preview_profile"
+    }
+    return "exercice_preview"
+  }
   return (
     <StylesProvider injectFirst>
-      <Card className="exercice_preview">
+      <Card className={checkType()}>
         <div className="exercice_preview_header">
           <Chip
             avatar={<Avatar><img src={exercice.author.image} /></Avatar>}

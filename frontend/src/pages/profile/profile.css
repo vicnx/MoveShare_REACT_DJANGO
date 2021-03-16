@@ -168,13 +168,15 @@
   border-bottom: 3px solid var(--color_principal);
 }
 
-.exercice_preview{
+.exercice_preview_profile{
   width: 250px;
   height: 400px;
   margin: 0;
   transform: scale(0.80);
 }
-.list_exercices{
+.list_exercices_profile{
+  display: flex;
   justify-content: flex-start;
+  flex-wrap: wrap;
   overflow: auto;
 }
