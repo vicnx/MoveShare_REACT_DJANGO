@@ -13,6 +13,7 @@ export const ApiService = {
   },
 
   query(resource, params) {
+    console.log(params);
     return http.get(resource, params).catch(error => {
       throw new Error(`[MS] ApiService ${error}`);
     });

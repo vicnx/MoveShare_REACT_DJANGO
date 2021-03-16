@@ -1,4 +1,4 @@
-import React, {useContext,useState} from "react";
+import React, {useContext,useState,useEffect} from "react";
 import {
   Paper,
   Typography,
@@ -18,19 +18,26 @@ import { useParams } from "react-router";
 
 export default function Profile() {
   const [currentTab, setCurrentTab] = useState(0);
-  const {isLogged,logout} = useUser();
+  const [isOwner, setisOwner] = useState(0);
+  const {isLogged,logout,checkOwner} = useUser();
   const {username} = useParams();
-  console.log(username);
   const {profile} = useProfiles({username});
-  console.log(profile);
+
 
   const params={
     filters: {
-      limit: 4
-    }
+      limit: 4,
+      author:username
+    },
   }
 
-  const {exercices} = useExercices({params});
+  const {exercices} = useExercices({params},username);
+  useEffect(() => {
+    // window.location.reload()
+  }, [username]);
+
+
+
 
   const tabChange = (tab) => {
     setCurrentTab(tab)
@@ -39,7 +46,7 @@ export default function Profile() {
   const renderTab = () => {
     switch (currentTab) {
       case 0:
-        return "Exercice"
+        return <ExerciceList exercices={exercices} />
         break;
       case 1:
         return "Workouts"
@@ -98,7 +105,14 @@ export default function Profile() {
             <div className="tabs">
               <a href="#" className={currentTab==0 ? "tab_link active" : 'tab_link'} onClick={() => tabChange(0)}>Exercices</a>
               <a href="#" className={currentTab==1 ? "tab_link active" : 'tab_link'} onClick={() => tabChange(1)}>Workouts</a>
-              <a href="#" className={currentTab==2 ? "tab_link active" : 'tab_link'} onClick={() => tabChange(2)}>Settings</a>
+              {
+                checkOwner(username)
+                ?
+                <a href="#" className={currentTab==2 ? "tab_link active" : 'tab_link'} onClick={() => tabChange(2)}>Settings</a>
+                :
+                ""
+              }
+              
             </div>
             { renderTab()}
           </div>

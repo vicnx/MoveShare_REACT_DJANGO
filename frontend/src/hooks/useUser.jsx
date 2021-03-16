@@ -56,9 +56,6 @@ export default function useUser() {
             saveToken(data.token)
             setJWT(data.token);
             setUser(UserService.getUserData())
-            UserService.updateUserData({ user: {
-              image: 'https://avatars.dicebear.com/api/avataaars/pepe.svg'
-            } })
             window.location.reload();
           }
         })
@@ -76,6 +73,14 @@ export default function useUser() {
     setJWT(null);
   }, [setJWT]);
 
+  const checkOwner = useCallback((username) => {
+
+    if(username == user.username){
+      return true
+    }
+    return false
+  }, [setJWT]);
+
   const check_auth = () => {
     if(user){
       return true
@@ -91,5 +96,6 @@ export default function useUser() {
     login,
     logout,
     register,
+    checkOwner
   };
 }

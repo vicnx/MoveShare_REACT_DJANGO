@@ -167,3 +167,14 @@
   color: #1e88e5;
   border-bottom: 3px solid var(--color_principal);
 }
+
+.exercice_preview{
+  width: 250px;
+  height: 400px;
+  margin: 0;
+  transform: scale(0.80);
+}
+.list_exercices{
+  justify-content: flex-start;
+  overflow: auto;
+}

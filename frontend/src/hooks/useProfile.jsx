@@ -6,6 +6,7 @@ import ProfileService from '../services/profiles.service'
 export function useProfiles({username} = {username:null}){
   const [loading, setLoading] = useState(false)
   const {profile, setProfile} = useContext(ProfileContext)
+  
   useEffect(function () {
     setLoading(true)
     ProfileService.get(username).then(({data}) =>{
@@ -13,7 +14,7 @@ export function useProfiles({username} = {username:null}){
       setProfile(data.profile)
       setLoading(false)
     })
-  }, [])
+  }, [username])
 
 
   return {

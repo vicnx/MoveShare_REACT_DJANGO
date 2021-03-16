@@ -7,10 +7,8 @@ import {Link } from "react-router-dom";
 
 import { StylesProvider } from "@material-ui/core/styles";
 
-import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 
 import Fav from "./fav/fav";
-import ExercicesService from "../../services/exercices.service";
 
 const useStyles = makeStyles({
   root: {
