@@ -1,0 +1,9 @@
+.settings_form{
+  width: 80%;
+
+}
+.settings_div{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

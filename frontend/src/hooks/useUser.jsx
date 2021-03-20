@@ -67,6 +67,16 @@ export default function useUser() {
     [setJWT]
   ); 
 
+  const updateUser = useCallback(
+    (image, bio) => {
+      setState({ loading: true, error: false });
+      UserService.updateUserData({image,bio}).then((data)=>{
+        window.location.reload()
+      })
+    },
+    [setJWT]
+  ); 
+
   const logout = useCallback(() => {
     destroyToken()
     setUser(null)
@@ -96,6 +106,7 @@ export default function useUser() {
     login,
     logout,
     register,
-    checkOwner
+    checkOwner,
+    updateUser
   };
 }

@@ -15,12 +15,9 @@ export const UserService = {
   },
 
   updateUserData(user) {
-    console.log("UPDATE USER");
-    console.log(user);
     ApiService.auth();
     ApiService.put("user",{user})
     .then(({ data }) => {
-      console.log(data);
       return data.user
     })
     .catch(({ response }) => {

@@ -10,6 +10,7 @@ import {
 import { StylesProvider } from "@material-ui/core/styles";
 import "./profile.css";
 import ExerciceList from "../../components/exercices/exercice-list";
+import Settings from "../../components/profile/settings/settings";
 import {useExercices} from '../../hooks/useExercices'
 import {useProfiles} from '../../hooks/useProfile'
 import useUser from '../../hooks/useUser'
@@ -52,7 +53,7 @@ export default function Profile() {
         return "Workouts"
         break;
       case 2:
-        return "Settings"
+        return <Settings></Settings>
         break;
     }
 
