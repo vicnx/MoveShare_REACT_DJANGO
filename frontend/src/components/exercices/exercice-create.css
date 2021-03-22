@@ -1,0 +1,17 @@
+.create_exercice_div{
+  margin-top: 20px;
+  width: 60%;
+}
+
+.submit_btn{
+  margin-top: 30px;
+}
+#label_multiple{
+  margin-top: 16px;
+}
+
+@media (max-width: 900px) {
+  .create_exercice_div{
+    width: 80%;
+  }
+}

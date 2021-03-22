@@ -2,14 +2,6 @@ import React, {useContext} from "react";
 import Context from '../../context/appContext'
 import { makeStyles } from "@material-ui/core/styles";
 import {
-  Paper,
-  Typography,
-  Card,
-  Avatar,
-  CardHeader,
-  IconButton,
-  CardMedia,
-  CardContent,
   Container,
 } from "@material-ui/core";
 import { StylesProvider } from "@material-ui/core/styles";
