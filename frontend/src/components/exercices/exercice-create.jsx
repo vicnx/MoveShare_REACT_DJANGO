@@ -8,6 +8,8 @@ import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
+import {useCategories} from '../../hooks/useCategories'
+
 // import Select from 'react-select';
 // import makeAnimated from 'react-select/animated';
 
@@ -27,12 +29,8 @@ const CreateExercice = () => {
   const [exercice_desc, setExerciceDesc] = useState("");
   const [exercice_name, setExerciceName] = useState("");
   const [exercice_image, setExerciceImage] = useState("");
-  const [categories, setExerciceCategories] = useState([]);
-  const options = [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' }
-  ]
+  const [categoriesSelected, setCategoriesSelected] = useState([]);
+  const {categories} = useCategories(false)
 
 
 
@@ -42,9 +40,9 @@ const CreateExercice = () => {
   };
 
   const handleChange= (e) => {
-    // updateUser(image,bio)
-    e.preventDefault();
+    setCategoriesSelected(e.target.value);
   };
+
 
   return (
     <div className="create_exercice_div">
@@ -63,7 +61,28 @@ const CreateExercice = () => {
           onChange={(e) => setExerciceName(e.target.value)}
           value={exercice_name}
         />
+        <InputLabel id="label_multiple">Categories</InputLabel>
+        <Select
+          labelId="label_multiple"
+          id="multiple_categories"
+          className="multiselect"
+          multiple
+          fullWidth
+          value={categoriesSelected}
+          onChange={handleChange}
+          input={<Input />}
+        >
+            {
+            categories?
+            categories.map((category) => (
+              <MenuItem key={category.id} value={category.id}>
+                {category.name}
+              </MenuItem>
+            ))
+          :
+          null}
 
+        </Select>
         <TextField
           variant="outlined"
           margin="normal"
@@ -91,23 +110,7 @@ const CreateExercice = () => {
           value={exercice_image}
         />
         
-        <InputLabel id="label_multiple">Categories</InputLabel>
-        <Select
-          labelId="label_multiple"
-          id="multiple_categories"
-          multiple
-          fullWidth
-          value={categories}
-          onChange={handleChange}
-          input={<Input />}
-        >
-          {options.map((option) => (
-            console.log(option),
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </Select>
+
         <Button
           type="submit"
           fullWidth
@@ -117,6 +120,12 @@ const CreateExercice = () => {
         >
           New Exercice
         </Button>
+        {/* {
+          
+        categories.map((category,index) =>
+          <div>{category.id}</div>
+        )
+      } */}
       </form>
     </div>
 

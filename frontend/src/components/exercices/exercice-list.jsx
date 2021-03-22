@@ -11,7 +11,7 @@ export default function ExerciceList({exercices,type=null}) {
     }
     return "list_exercices"
   }
-
+  console.log(exercices);
   return (
     <div className={checkType()}>
       {

@@ -15,6 +15,9 @@ const ExercicesService = {
       "fitness/exercice",
     );
 
+  },
+  getCategories(){
+    return ApiService.query("fitness/category", {});
   }
 }
 
