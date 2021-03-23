@@ -8,6 +8,8 @@ import Home from "./pages/home/home";
 import {UserContextProvider} from "./context/UserContext";
 import { ExercicesContextProvider } from "./context/ExercicesContext";
 import { ProfileContextProvider } from "./context/ProfileContext";
+import PrivateRoute from "./components/routes/PrivateRoutes";
+
 
 
 // import { Link, Route, Switch } from "wouter"; //alternativa a router-dom
@@ -34,7 +36,12 @@ function App() {
             <Route path="/register" component={Register}></Route>
             <Route path="/home" component={HomePage}></Route>
             <Route path="/exercices" component={Exercices}></Route>
-            <Route path="/new/exercice" component={createExercicePage}></Route>
+            <PrivateRoute
+              component={createExercicePage}
+              path="/new/exercice"
+              exact
+            />
+            {/* <Route path="/new/exercice" component={createExercicePage}></Route> */}
             <ProfileContextProvider>
               <Route path="/@:username" component={Profile}></Route>
             </ProfileContextProvider>

@@ -1,3 +1,2 @@
 FROM node:10.15
-
 EXPOSE 3000

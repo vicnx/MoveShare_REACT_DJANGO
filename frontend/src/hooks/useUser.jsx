@@ -10,7 +10,7 @@ import {ApiService} from '../services/api.service'
 export default function useUser() {
   const { jwt, setJWT } = useContext(UserContext);
   const { user, setUser } = useContext(UserContext);
-  const [ state, setState ] = useState({ loading: false, error: false});
+  const [ state, setState ] = useState({ loading: true, error: false});
   const [ errorMSG, setErrorMSG ] = useState("")
   const [ isLogged, setisLogged ] = useState("")
 
@@ -98,6 +98,14 @@ export default function useUser() {
     return false
   }
 
+  //only for render pages
+  const isLoggedSimple = () =>{
+      if (getToken()) {
+          return true;
+      }
+      return false
+  }
+
   return {
     isLogged: check_auth(),
     isLogginLoading : state.loading,
@@ -107,6 +115,6 @@ export default function useUser() {
     logout,
     register,
     checkOwner,
-    updateUser
-  };
+    updateUser,
+    isLoggedSimple: isLoggedSimple(),  };
 }
