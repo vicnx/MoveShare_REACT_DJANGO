@@ -6,18 +6,18 @@ import useUser from "../../hooks/useUser";
 
 
 const PrivateRoute = ({component: Component, ...rest}) => {
-  const { isLoggedSimple,isLogged,isLogginLoading } = useUser();
+  const { isLoggedSimple,isLogged,loadingUser } = useUser();
   let history = useHistory();
 
   //se ejecuta cuando cambia el estado de loading o logged
   useEffect(() => {
     //comprobamos si el login esta cargando ya que tarda un poco en obtener el user y desppues comprobamos si no esta logeado
-    if(!isLogginLoading){
+    if(!loadingUser){
       if(!isLogged){
         history.push("/login");
       }
     }
-  }, [isLogged,isLogginLoading]);
+  }, [isLogged,loadingUser]);
 
 
     return (

@@ -10,22 +10,21 @@ import {ApiService} from '../services/api.service'
 export default function useUser() {
   const { jwt, setJWT } = useContext(UserContext);
   const { user, setUser } = useContext(UserContext);
-  const [ state, setState ] = useState({ loading: true, error: false});
+  const [ state, setState ] = useState({ loading: false, error: false, loadingUser: true});
   const [ errorMSG, setErrorMSG ] = useState("")
-  const [ isLogged, setisLogged ] = useState("")
 
   const login = useCallback(
     (email, password) => {
-      setState({ loading: true, error: false });
+      setState({ loading: true, error: false, loadingUser: true });
       loginService({ user: { email, password } })
         .then((data) => {
           // setState({loading:false,error:false})
           if (data.errors){
-            setState({loading:false,error:true})
+            setState({loading:false,error:true, loadingUser: false})
             setErrorMSG(data.errors)
             destroyToken()
           }else{
-            setState({loading:false,error:false})
+            setState({loading:false,error:false, loadingUser: false})
             saveToken(data.token)
             setJWT(data.token);
             setUser(UserService.getUserData())
@@ -35,7 +34,7 @@ export default function useUser() {
         })
         .catch((err) => {
           destroyToken()
-          setState({loading:false,error:true})
+          setState({loading:false,error:true, loadingUser: false})
         });
     },
     [setJWT]
@@ -43,16 +42,16 @@ export default function useUser() {
 
   const register = useCallback(
     (email, password, username) => {
-      setState({ loading: true, error: false });
+      setState({ loading: true, error: false,loadingUser: false });
       registerService({ user: { email, password, username } })
         .then((data) => {
           console.log(data);
           if (data.errors){
-            setState({loading:false,error:true})
+            setState({loading:false,error:true, loadingUser: false})
             setErrorMSG(data.errors)
             destroyToken()
           }else{
-            setState({loading:false,error:false})
+            setState({loading:false,error:false,loadingUser: false})
             saveToken(data.token)
             setJWT(data.token);
             setUser(UserService.getUserData())
@@ -61,7 +60,7 @@ export default function useUser() {
         })
         .catch((err) => {
           destroyToken()
-          setState({loading:false,error:true})
+          setState({loading:false,error:true,loadingUser: false})
         });
     },
     [setJWT]
@@ -116,5 +115,7 @@ export default function useUser() {
     register,
     checkOwner,
     updateUser,
-    isLoggedSimple: isLoggedSimple(),  };
+    isLoggedSimple: isLoggedSimple(),  
+    loadingUser: state.loadingUser
+  };
 }

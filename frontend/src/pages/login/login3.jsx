@@ -43,8 +43,10 @@ export default function Login() {
   const { user,errors, isLogginLoading, hasLoginError, login, isLogged } = useUser();
   
   useEffect(() => {
+    console.log(isLogged);
     if (isLogged) {
       history.push("/home");
+      // window.location.reload();
     }
   }, [isLogged]);
 
@@ -74,6 +76,8 @@ export default function Login() {
             </div>
           }
 
+          {isLogginLoading && <span>Checking</span>}
+          {!isLogginLoading &&
               <form className={classes.form} noValidate onSubmit={handleSubmit}>
                 <TextField
                   variant="outlined"
@@ -127,6 +131,7 @@ export default function Login() {
                   </Grid>
                 </Grid>
               </form>
+          }
         </div>
         
           <Box mt={5}>
