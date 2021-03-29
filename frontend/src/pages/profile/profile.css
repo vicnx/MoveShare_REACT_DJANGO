@@ -181,3 +181,21 @@
   flex-wrap: wrap;
   overflow: auto;
 }
+
+@media (max-width: 900px) {
+  .profile{
+    flex-direction: column;
+  }
+  .profile_left{
+    width: 100%;
+  }
+  .profile_card_image{
+    left: 25%;
+  }
+  .profile_right{
+    width: 100%;
+  }
+  .list_exercices_profile{
+    justify-content: center;
+   }
+}
