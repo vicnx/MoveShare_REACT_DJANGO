@@ -14,6 +14,7 @@ import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Avatar from '@material-ui/core/Avatar';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 //It is used to tell the Material Ui framework to search the css first
 import "./header.css";
@@ -58,9 +59,18 @@ export default function DesktopNav() {
               open={Boolean(menuProfile)}
               onClose={closeMenu}
             >
-              <MenuItem onClick={closeMenu} to={"/@"+user.username} component={Link}>Perfil</MenuItem>
-              <MenuItem onClick={closeMenu} to={"/new/exercice"} component={Link}>Nuevo Ejercicio</MenuItem>
-              <MenuItem onClick={logout}>Salir</MenuItem>
+              <MenuItem onClick={closeMenu} to={"/@"+user.username} component={Link}>
+                <AccountCircleIcon color="primary" />
+                <span className="menu-item">Perfil</span>
+              </MenuItem>
+              <MenuItem onClick={closeMenu} to={"/new/exercice"} component={Link}>
+                <ShoppingBasketIcon color="primary" />
+                <span className="menu-item">Nuevo Ejercicio</span>
+              </MenuItem>
+              <MenuItem onClick={logout}>                
+                <ExitToAppIcon color="primary" />
+                <span className="menu-item">Salir</span>
+              </MenuItem>
             </Menu>
             </>
             :           
