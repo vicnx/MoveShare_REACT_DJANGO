@@ -17,5 +17,6 @@
 @media (max-width: 900px) {
   .create_exercice_div{
     width: 80%;
+    margin-bottom: 100px;
   }
 }

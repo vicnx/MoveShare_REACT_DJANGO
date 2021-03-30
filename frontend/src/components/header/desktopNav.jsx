@@ -67,6 +67,10 @@ export default function DesktopNav() {
                 <ShoppingBasketIcon color="primary" />
                 <span className="menu-item">Nuevo Ejercicio</span>
               </MenuItem>
+              <MenuItem onClick={closeMenu} to={"/new/workout"} component={Link}>
+                <FitnessCenterIcon color="primary" />
+                <span className="menu-item">Nuevo Entrenamiento</span>
+              </MenuItem>
               <MenuItem onClick={logout}>                
                 <ExitToAppIcon color="primary" />
                 <span className="menu-item">Salir</span>

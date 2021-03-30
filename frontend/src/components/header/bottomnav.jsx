@@ -74,15 +74,19 @@ export default function MobileNav() {
           open={Boolean(menuProfile)}
           onClose={closeMenu}
         >
-          <MenuItem onClick={closeMenu} to={"/@"+user.username} component={Link}>
+          <MenuItem onClick={closeMenu} onClick={()=>{setValue("user")}} to={"/@"+user.username} component={Link}>
             <AccountCircleIcon color="primary" />
             <span className="menu-item">Perfil</span>
           </MenuItem>
-          <MenuItem onClick={closeMenu} to={"/new/exercice"} component={Link}>
+          <MenuItem onClick={closeMenu} onClick={()=>{setValue("user")} }to={"/new/exercice"} component={Link}>
             <ShoppingBasketIcon color="primary" />
             <span className="menu-item">Nuevo Ejercicio</span>
           </MenuItem>
-          <MenuItem onClick={logout}>                
+          <MenuItem onClick={closeMenu} onClick={()=>{setValue("user")}} to={"/new/workout"} component={Link}>
+            <FitnessCenterIcon color="primary" />
+            <span className="menu-item">Nuevo Entrenamiento</span>
+          </MenuItem>
+          <MenuItem onClick={logout} onClick={()=>{setValue("user")}}>                
             <ExitToAppIcon color="primary" />
             <span className="menu-item">Salir</span>
           </MenuItem>
