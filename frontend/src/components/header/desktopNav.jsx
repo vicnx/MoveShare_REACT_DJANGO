@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useContext,useState} from "react";
 import { Button, AppBar, Toolbar, Typography } from "@material-ui/core";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import useUser from '../../hooks/useUser'
@@ -9,15 +9,25 @@ import UserContext from "../../context/UserContext";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import HomeIcon from "@material-ui/icons/Home";
 import FitnessCenterIcon from "@material-ui/icons/FitnessCenter";
+import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import Avatar from '@material-ui/core/Avatar';
 
 //It is used to tell the Material Ui framework to search the css first
 import "./header.css";
 
 export default function DesktopNav() {
   // const isLogged = false;
+  const [menuProfile, setMenuProfile] = useState(null);
   const {isLogged,logout} = useUser();
   const { user } = useContext(UserContext);
-
+  const openMenu = (event) => {
+    setMenuProfile(event.currentTarget);
+  };
+  const closeMenu = () => {
+    setMenuProfile(null);
+  };
   return (
     <AppBar position="fixed" className="navbar">
       <Toolbar className="navbar-content">
@@ -27,21 +37,30 @@ export default function DesktopNav() {
             <FitnessCenterIcon color="primary" />
             <Typography variant="body2">Entrenamientos</Typography>
           </Button>
+          <Button className="button" to="/exercices" component={Link}>
+            <ShoppingBasketIcon color="primary" />
+            <Typography variant="body2">Ejercicios</Typography>
+          </Button>
 
           {
             isLogged
             ?
             <>
-            <Button className="button" to={"/@"+user.username} component={Link}>
-              <AccountCircleIcon color="primary" />
-              <Typography variant="body2">Perfil</Typography>
-            </Button>
-            <Button className="button" onClick={logout}>
-              <AccountCircleIcon color="primary" />
-              <Typography variant="body2">Logout</Typography>
+            <Button className="button" onClick={openMenu}>
+              <Avatar src={user.image} className="image_user_menu"/>
               <Typography variant="body2">{user.username}</Typography>
-
             </Button>
+            <Menu
+              id="profile-menu"
+              anchorEl={menuProfile}
+              keepMounted
+              open={Boolean(menuProfile)}
+              onClose={closeMenu}
+            >
+              <MenuItem onClick={closeMenu} to={"/@"+user.username} component={Link}>Perfil</MenuItem>
+              <MenuItem onClick={closeMenu} to={"/new/exercice"} component={Link}>Nuevo Ejercicio</MenuItem>
+              <MenuItem onClick={logout}>Salir</MenuItem>
+            </Menu>
             </>
             :           
             <Button className="button" to="/login" component={Link}>

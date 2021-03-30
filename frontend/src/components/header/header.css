@@ -39,3 +39,12 @@ i {
       display: none;
   }
 }
+
+#profile-menu{
+  margin-top: 30px;
+}
+.image_user_menu{
+  width: 25px;
+  height: auto;
+  background-color: var(--color_principal);
+}
