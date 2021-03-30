@@ -1,77 +1,100 @@
-import React, {useContext} from "react";
+import React, {useContext,useState} from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import HomeIcon from "@material-ui/icons/Home";
 import FitnessCenterIcon from "@material-ui/icons/FitnessCenter";
+import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
+
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import useUser from '../../hooks/useUser'
 import UserContext from "../../context/UserContext";
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import Avatar from '@material-ui/core/Avatar';
 
 const useStyles = makeStyles({});
 
 export default function MobileNav() {
+  const [menuProfile, setMenuProfile] = useState(null);
+
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
   const { user } = useContext(UserContext);
   const {isLogged,logout} = useUser();
+  console.log(user);
+  const openMenu = (event) => {
+    setMenuProfile(event.currentTarget);
+  };
+  const closeMenu = () => {
+    setMenuProfile(null);
+  };
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
   return (
     <BottomNavigation
       value={value}
-      onChange={(event, newValue) => {
-        setValue(newValue);
-      }}
-      showLabels
+      onChange={handleChange}
       className="bottomNav"
     >
       <BottomNavigationAction
         component={Link}
         label="Entrenamientos"
+        value="entrenamientos"
         icon={<FitnessCenterIcon />}
         to="/entrenamientos"
+      />
+      <BottomNavigationAction
+        component={Link}
+        label="Ejercicios"
+        value="exercices"
+        icon={<ShoppingBasketIcon />}
+        to="/exercices"
       />
       {
         isLogged
         ?
+        <>
         <BottomNavigationAction
-          component={Link}
+          onClick={openMenu}
           label={user.username}
-          icon={<AccountCircleIcon />}
-          to="/profile"
+          value="user"
+          icon={              <Avatar src={user.image} className="image_user_menu"/>        }
+          to={"/@"+user.username}
         />
+        <Menu
+          id="profile-menu-bottom"
+          anchorEl={menuProfile}
+          keepMounted
+          open={Boolean(menuProfile)}
+          onClose={closeMenu}
+        >
+          <MenuItem onClick={closeMenu} to={"/@"+user.username} component={Link}>Perfil</MenuItem>
+          <MenuItem onClick={closeMenu} to={"/new/exercice"} component={Link}>Nuevo Ejercicio</MenuItem>
+          <MenuItem onClick={logout}>Salir</MenuItem>
+        </Menu>
+        </>
         :
         <BottomNavigationAction
-          component={Link}
-          label="Perfil"
-          icon={<AccountCircleIcon />}
-          to="/profile"
-        />
+        component={Link}
+        label="Login"
+        value="login"
+
+        icon={<AccountCircleIcon />}
+        to="/login"
+      />
       }
       <BottomNavigationAction
         component={Link}
         label="Home"
+        value="home"
+
         icon={<HomeIcon />}
         to="/home"
       />
-      {
-        isLogged
-        ?
-        <BottomNavigationAction
-          onClick={logout}
-          label="Logout"
-          icon={<AccountCircleIcon />}
-          to="/login"
-        />
-        :
-        <BottomNavigationAction
-          component={Link}
-          label="Login"
-          icon={<AccountCircleIcon />}
-          to="/login"
-        />
-      }
     </BottomNavigation>
   );
 }

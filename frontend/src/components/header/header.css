@@ -48,3 +48,6 @@ i {
   height: auto;
   background-color: var(--color_principal);
 }
+#profile-menu-bottom{
+  margin-top: -30px;
+}
