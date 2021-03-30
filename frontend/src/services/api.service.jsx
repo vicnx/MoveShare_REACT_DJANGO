@@ -22,4 +22,9 @@ export const ApiService = {
   put(resource, params) {
     return http.put(`${resource}`, params);
   },
+
+  post(resource, params) {
+    console.log(params);
+    return http.post(`${resource}`, params);
+  },
 }

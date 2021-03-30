@@ -9,6 +9,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import {useCategories} from '../../hooks/useCategories'
+import {useExercices} from '../../hooks/useExercices'
 
 // import Select from 'react-select';
 // import makeAnimated from 'react-select/animated';
@@ -22,6 +23,8 @@ import {useCategories} from '../../hooks/useCategories'
 import { StylesProvider } from "@material-ui/core/styles";
 import "./exercice-create.css";
 import {Typography} from "@material-ui/core";
+import { useHistory } from "react-router-dom";
+
 
 const CreateExercice = () => {
   const {isLogged,logout,checkOwner,updateUser} = useUser();
@@ -31,12 +34,24 @@ const CreateExercice = () => {
   const [exercice_image, setExerciceImage] = useState("");
   const [categoriesSelected, setCategoriesSelected] = useState([]);
   const {categories} = useCategories(false)
-
+  const {newExercice} = useExercices(false);
+  let history = useHistory();
 
 
   const handleSubmit = (e) => {
-    // updateUser(image,bio)
     e.preventDefault();
+    var exercice = {
+      "name": exercice_name,
+      "description": exercice_desc,
+      "image": exercice_image,
+      "categories_id": categoriesSelected,
+    }
+    if(user){
+      newExercice(exercice)
+      history.push("/home")
+    }else{
+      console.log("NO LOGIN");
+    }
   };
 
   const handleChange= (e) => {

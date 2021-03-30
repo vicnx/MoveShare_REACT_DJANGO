@@ -18,6 +18,11 @@ const ExercicesService = {
   },
   getCategories(){
     return ApiService.query("fitness/category", {});
+  },
+
+  create(exercice){
+    ApiService.auth();
+    return ApiService.post("fitness/exercice", { exercice })
   }
 }
 
