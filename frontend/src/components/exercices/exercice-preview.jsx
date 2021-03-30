@@ -23,6 +23,11 @@ export default function ExercicePreview({exercice,type=null}) {
     }
     return "exercice_preview"
   }
+
+  const onError = (e) => {
+    e.target.src="https://upload.wikimedia.org/wikipedia/commons/8/84/Musculation_exercice_abdominal.png"
+  }
+
   return (
     <StylesProvider injectFirst>
       <Card className={checkType()}>
@@ -34,7 +39,7 @@ export default function ExercicePreview({exercice,type=null}) {
             className="exercice_preview_header_author"
             size="small"
           to={'/@'+exercice.author.username} component={Link}/>
-          <img src={exercice.image} />
+          <img src={exercice.image} onError={onError} />
         </div>
         <div className="exercice_preview_content">
           <Typography variant="body1" className="exercice_preview_content--title">
