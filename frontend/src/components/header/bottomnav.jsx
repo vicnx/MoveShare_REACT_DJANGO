@@ -6,6 +6,8 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import HomeIcon from "@material-ui/icons/Home";
 import FitnessCenterIcon from "@material-ui/icons/FitnessCenter";
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import useUser from '../../hooks/useUser'
@@ -72,9 +74,18 @@ export default function MobileNav() {
           open={Boolean(menuProfile)}
           onClose={closeMenu}
         >
-          <MenuItem onClick={closeMenu} to={"/@"+user.username} component={Link}>Perfil</MenuItem>
-          <MenuItem onClick={closeMenu} to={"/new/exercice"} component={Link}>Nuevo Ejercicio</MenuItem>
-          <MenuItem onClick={logout}>Salir</MenuItem>
+          <MenuItem onClick={closeMenu} to={"/@"+user.username} component={Link}>
+            <AccountCircleIcon color="primary" />
+            <span className="menu-item">Perfil</span>
+          </MenuItem>
+          <MenuItem onClick={closeMenu} to={"/new/exercice"} component={Link}>
+            <ShoppingBasketIcon color="primary" />
+            <span className="menu-item">Nuevo Ejercicio</span>
+          </MenuItem>
+          <MenuItem onClick={logout}>                
+            <ExitToAppIcon color="primary" />
+            <span className="menu-item">Salir</span>
+          </MenuItem>
         </Menu>
         </>
         :
