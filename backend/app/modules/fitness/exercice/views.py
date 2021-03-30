@@ -35,7 +35,7 @@ class ExerciceViewSet(viewsets.ModelViewSet):
         favorited_by = self.request.query_params.get('favorited', None)
         if favorited_by is not None:
             queryset = queryset.filter(favorited_by__user__username=favorited_by)
-        return queryset
+        return queryset.order_by('-id')
 
     def create(self, request):
         print("CREATE VIEWS")
