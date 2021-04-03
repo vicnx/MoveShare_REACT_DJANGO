@@ -1,0 +1,182 @@
+.modalrodal .rodal-dialog {
+  width: 50% !important;
+  height: 50% !important;
+  min-width: 500px;
+}
+
+
+/* Exercice Details Style */
+
+.exercice-details {
+  display: flex;
+  height: 100%;
+}
+
+.modal-left-side {
+  min-width: 260px;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: unset;
+}
+
+.modal-left-side img {
+  height: 50%;
+  max-width: 300px;
+  object-fit: cover;
+  position: absolute;
+  top: -62px;
+  left: -132px;
+  z-index: 20;
+  border-radius: 15px;
+  box-shadow: 0px 0px 6px 0px rgb(0 0 0 / 34%);
+  transition: 100ms;
+}
+
+.modal-left-side img:hover {
+  transform: scale(1.05);
+}
+
+.modal-right-side {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
+
+.modal-right-side h1 {
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  color: #202020;
+  font-size: 38px;
+}
+
+.modal-right-side h2 {
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  color: #202020;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.modal-right-side p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5; /* number of lines to show */
+  -webkit-box-orient: vertical;
+  width: 78%;
+}
+
+.options {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.btn-add {
+  width: 150px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: transparent;
+  border: solid 2.5px #66f;
+  color: #66f;
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  font-size: 18px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.btn-add:hover {
+  font-weight: 500;
+  border: 3px solid #66f;
+}
+
+.options .exercice_preview_footer--button--fav{
+  width: 50px;
+  height: 50px !important;
+  border-radius: 5px;
+  background-color: transparent;
+  border: 2.5px solid rgb(255, 102, 102);
+  color: rgb(255, 102, 102);
+  font-family: "Oswald", sans-serif;
+  font-size: 18px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.btn-fav:hover {
+  font-size: 20px;
+  border: 3px solid rgb(255, 102, 102);
+}
+
+.favorited{
+  color: white;
+  background-color: rgb(255, 102, 102);
+}
+
+.btn-delete {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: transparent;
+  border: 2.5px solid rgb(170, 25, 25);
+  color: rgb(170, 25, 25);
+  font-family: "Oswald", sans-serif;
+  font-size: 18px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.btn-delete:hover {
+  font-size: 20px;
+  border: 3px solid rgb(170, 25, 25);
+}
+
+.categories-list {
+  display: flex;
+}
+
+.categories-list span {
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .exercice-details {
+    display: flex;
+    flex-direction: column;
+  }
+  .modalrodal .rodal-dialog {
+    width: 95% !important;
+    height: 75% !important;
+    min-width: unset;
+  }
+
+  .modal-left-side {
+    height: 40%;
+    width: 100%;
+    padding: 0px 20px;
+  }
+  .modal-left-side img {
+    position: unset;
+    top: unset;
+    left: unset;
+
+    height: 70%;
+  }
+  .modal-right-side {
+    flex: 1;
+    padding-top: 0;
+  }
+
+  .modal-right-side p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 7; /* number of lines to show */
+    -webkit-box-orient: vertical;
+  }
+}

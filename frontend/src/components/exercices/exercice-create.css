@@ -20,3 +20,11 @@
     margin-bottom: 100px;
   }
 }
+
+.modalrodal .rodal-dialog{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: xx-large;
+  text-align: center;
+}

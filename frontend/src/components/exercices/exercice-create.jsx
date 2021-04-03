@@ -11,10 +11,9 @@ import Select from '@material-ui/core/Select';
 import {useCategories} from '../../hooks/useCategories'
 import {useExercices} from '../../hooks/useExercices'
 
-// import Select from 'react-select';
-// import makeAnimated from 'react-select/animated';
-
-
+// RODAL MODAL
+import Rodal from 'rodal';
+import '../../../node_modules/rodal/lib/rodal.css';
 
 
 
@@ -36,6 +35,8 @@ const CreateExercice = () => {
   const {categories} = useCategories(false)
   const {newExercice} = useExercices(false);
   let history = useHistory();
+  const [modalVisible, setModalVisible] = useState(false);
+
 
 
   const handleSubmit = (e) => {
@@ -48,7 +49,10 @@ const CreateExercice = () => {
     }
     if(user){
       newExercice(exercice)
-      history.push("/home")
+      setModalVisible(true)
+      setTimeout(() => {
+        history.push('/home')
+      }, 2000);
     }else{
       console.log("NO LOGIN");
     }
@@ -57,6 +61,10 @@ const CreateExercice = () => {
   const handleChange= (e) => {
     setCategoriesSelected(e.target.value);
   };
+
+  const closeModal=()=>{
+    setModalVisible(false)
+  }
 
 
   return (
@@ -135,6 +143,9 @@ const CreateExercice = () => {
         >
           New Exercice
         </Button>
+        <Rodal visible={modalVisible} onClose={closeModal} className="modalrodal">
+          <div className="TextModal">Ejercicio creado con exito!</div>
+        </Rodal>
         {/* {
           
         categories.map((category,index) =>
