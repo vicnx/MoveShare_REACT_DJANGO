@@ -49,10 +49,12 @@ export function useExercices({ params } = { params: null }, refresh) {
     }
   )
 
+
+
   return {
     loading: loading,
     exercices: exercices,
     castegories: categories,
-    newExercice
+    newExercice,
   };
 }

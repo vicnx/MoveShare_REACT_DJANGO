@@ -10,5 +10,4 @@ router.register(r'training', TrainingViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls)),
-
 ]

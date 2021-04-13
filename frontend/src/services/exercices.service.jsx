@@ -23,7 +23,10 @@ const ExercicesService = {
   create(exercice){
     ApiService.auth();
     return ApiService.post("fitness/exercice", { exercice })
-  }
+  },
+  destroy(slug) {
+    return ApiService.delete(`fitness/exercice/${slug}`);
+  },
 }
 
 export default ExercicesService;

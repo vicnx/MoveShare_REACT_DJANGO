@@ -27,4 +27,9 @@ export const ApiService = {
     console.log(params);
     return http.post(`${resource}`, params);
   },
+  delete(resource) {
+    return http.delete(resource).catch(error => {
+      throw new Error(`[MS] ApiService ${error}`);
+    });
+  }
 }

@@ -44,7 +44,7 @@ export default function ExercicePreview({exercice,type=null}) {
             className="exercice_preview_header_author"
             size="small"
           to={'/@'+exercice.author.username} component={Link}/>
-          <img src={exercice.image} onError={onError} />
+          <img className="exer_preview_img" src={exercice.image} onError={onError} />
         </div>
         <div className="exercice_preview_content">
           <Typography variant="body1" className="exercice_preview_content--title">
@@ -63,7 +63,7 @@ export default function ExercicePreview({exercice,type=null}) {
         <div className="exercice_preview_footer">
           <Fav
             className="exercice_preview_footer--button exercice_preview_footer--button--info"
-            id="1"
+            exercice={exercice}
           ></Fav>
           <Button className="exercice_preview_footer--button exercice_preview_footer--button--info" onClick={moreInfo}>
             More Info

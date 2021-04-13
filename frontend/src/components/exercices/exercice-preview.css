@@ -17,7 +17,7 @@
   overflow: hidden;
   object-fit: cover;
 }
-.exercice_preview_header img {
+.exercice_preview_header .exer_preview_img {
   height: 100%;
   transform: translate(-25%, 0%);
 }
