@@ -7,7 +7,13 @@ const ProfileService = {
       return ApiService.get(
         "profiles",params
       );
-  }
+  },
+  follow(username) {
+    return ApiService.post(`profiles/${username}/follow`);
+  },
+  unfollow(username) {
+    return ApiService.delete(`profiles/${username}/follow`);
+  },
 }
 
 export default ProfileService;

@@ -22,7 +22,7 @@ export default function Profile() {
   const [isOwner, setisOwner] = useState(0);
   const {isLogged,logout,checkOwner} = useUser();
   const {username} = useParams();
-  const {profile} = useProfiles({username});
+  const {profile,follow,unfollow} = useProfiles({username});
 
 
   const params={
@@ -38,6 +38,12 @@ export default function Profile() {
   }, [username]);
 
 
+  const followUser = ()=>{
+    follow(username)
+  }
+  const unfollowUser = ()=>{
+    unfollow(username)
+  }
 
 
   const tabChange = (tab) => {
@@ -79,9 +85,20 @@ export default function Profile() {
                 <span className="profile_card_text--bio">{profile.bio}</span>
               </div>
               <div className="profile_card_buttons">
-                <Button variant="contained" color="primary" className="followButton">
-                  Follow
-                </Button>
+                {
+                  !checkOwner(username) ?
+                    profile.following ? 
+                      <Button variant="contained" color="primary" className="followButton" onClick={unfollowUser}>
+                        UnFollow
+                      </Button>
+                    :
+                      <Button variant="contained" color="primary" className="followButton" onClick={followUser}>
+                        Follow
+                      </Button>
+                  :
+                  false
+                }
+                
               </div>
               <div className="profile_card_footer">
                 <div className="profile_card_footer--exercices">

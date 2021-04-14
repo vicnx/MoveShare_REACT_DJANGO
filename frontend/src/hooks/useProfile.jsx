@@ -1,4 +1,4 @@
-import {useContext, useEffect, useState} from 'react'
+import {useContext, useEffect, useState,useCallback} from 'react'
 import ProfileContext from "../context/ProfileContext";
 import ProfileService from '../services/profiles.service'
 
@@ -16,9 +16,22 @@ export function useProfiles({username} = {username:null}){
     })
   }, [username])
 
+  const follow = useCallback((user) =>{
+    ProfileService.follow(user).then(({data}) =>{
+      setProfile(data.profile)
+    })
+  })
+
+  const unfollow = useCallback((user) =>{
+    ProfileService.unfollow(user).then(({data}) =>{
+      setProfile(data.profile)
+    })
+  })
 
   return {
     loading : loading,
-    profile:profile
+    profile:profile,
+    follow,
+    unfollow
   };
 }
