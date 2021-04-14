@@ -11,12 +11,12 @@ import {useExercices} from '../../hooks/useExercices'
 
 
 export default function Exercices() {
-  const {exercices} = useExercices();
+  const {exercices,refreshExercices} = useExercices();
   return (
       <Container className="home">
 
           {
-              <ExerciceList exercices={exercices} />
+              <ExerciceList exercices={exercices} callBack={refreshExercices} />
             
           }
       </Container>

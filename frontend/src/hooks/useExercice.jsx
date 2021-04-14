@@ -16,10 +16,32 @@ export function useExercice({ params } = { params: null }, refresh) {
     }
   )
 
+  const favExercice = useCallback(
+    (exercice) => {
+      setLoading(true);
+      ExercicesService.favorite(exercice.slug).then(({data})=>{
+        console.log(data);
+        setLoading(false);
+      })
+    }
+  )
+
+  const unfavExercice = useCallback(
+    (exercice) => {
+      setLoading(true);
+      ExercicesService.unfavorite(exercice.slug).then(({data})=>{
+        console.log(data);
+        setLoading(false);
+      })
+    }
+  )
+
 
 
   return {
     loading: loading,
-    deleteExercice
+    deleteExercice,
+    favExercice,
+    unfavExercice
   };
 }

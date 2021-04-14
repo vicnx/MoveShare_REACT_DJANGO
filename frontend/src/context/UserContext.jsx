@@ -11,9 +11,7 @@ export function UserContextProvider({ children }) {
       ApiService.auth();
       ApiService.get("user")
       .then(({ data }) => {
-        console.log(data.user.token);
         setUser(data.user)
-        console.log(user);
         setJWT(data.user.token)
       })
       .catch(({ response }) => {

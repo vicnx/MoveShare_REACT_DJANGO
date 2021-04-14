@@ -17,7 +17,7 @@ export default function Home() {
       limit: 4
     }
   }
-  const {exercices} = useExercices({params});
+  const {exercices,refreshExercices} = useExercices({params});
   return (
     <>
     <StylesProvider injectFirst>
@@ -28,7 +28,7 @@ export default function Home() {
           <Typography variant="h5" className="home-title">
             Top Ejercicios
           </Typography>
-          <ExerciceList exercices={exercices} />
+          <ExerciceList exercices={exercices} callBack={refreshExercices}/>
         </Paper>
       </Container>
     </StylesProvider>

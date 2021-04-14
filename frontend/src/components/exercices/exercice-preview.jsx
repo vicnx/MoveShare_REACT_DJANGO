@@ -12,7 +12,7 @@ import '../../../node_modules/rodal/lib/rodal.css';
 
 import Fav from "./fav/fav";
 
-export default function ExercicePreview({exercice,type=null}) {
+export default function ExercicePreview({exercice,type=null,callBack}) {
   const [modalVisible, setModalVisible] = useState(false);
   const checkType=()=>{
     if(type=="profile"){
@@ -64,6 +64,7 @@ export default function ExercicePreview({exercice,type=null}) {
           <Fav
             className="exercice_preview_footer--button exercice_preview_footer--button--info"
             exercice={exercice}
+            callBack={callBack}
           ></Fav>
           <Button className="exercice_preview_footer--button exercice_preview_footer--button--info" onClick={moreInfo}>
             More Info
@@ -71,7 +72,7 @@ export default function ExercicePreview({exercice,type=null}) {
         </div>
       </Card>
       <Rodal visible={modalVisible} onClose={closeModal} className="modalrodal">
-          <ExerciceDetail exercice={exercice}/>
+          <ExerciceDetail exercice={exercice} callBack={callBack}/>
       </Rodal>
     </StylesProvider>
     

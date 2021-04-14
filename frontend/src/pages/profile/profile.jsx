@@ -24,6 +24,7 @@ export default function Profile() {
   const {username} = useParams();
   const {profile,follow,unfollow} = useProfiles({username});
 
+  console.log(profile);
 
   const params={
     filters: {
@@ -32,7 +33,7 @@ export default function Profile() {
     },
   }
 
-  const {exercices} = useExercices({params},username);
+  const {exercices,refreshExercices} = useExercices({params},username);
   useEffect(() => {
     // window.location.reload()
   }, [username]);
@@ -53,7 +54,7 @@ export default function Profile() {
   const renderTab = () => {
     switch (currentTab) {
       case 0:
-        return <ExerciceList exercices={exercices} type="profile" />
+        return <ExerciceList exercices={exercices} type="profile" callBack={refreshExercices} />
         break;
       case 1:
         return "Workouts"

@@ -27,6 +27,14 @@ const ExercicesService = {
   destroy(slug) {
     return ApiService.delete(`fitness/exercice/${slug}`);
   },
+  favorite(slug) {
+    ApiService.auth();
+    return ApiService.post(`fitness/exercice/${slug}/favorite`);
+  },
+  unfavorite(slug) {
+    ApiService.auth();
+    return ApiService.delete(`fitness/exercice/${slug}/favorite`);
+  },
 }
 
 export default ExercicesService;

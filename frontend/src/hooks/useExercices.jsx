@@ -27,23 +27,27 @@ export function useExercices({ params } = { params: null }, refresh) {
     [refresh]
   );
 
-  // const getCategories = useCallback(
-
-  // ); 
-  // const getCategories = useCallback(() => {
-  //   setLoading(true);
-  //   ExercicesService.getCategories().then(({data})=>{
-  //     console.log(data.results);
-  //     setCategories(data.results)
-  //     setLoading(false);
-  //   })
-  // }, [refresh]);
-
   const newExercice = useCallback(
     (exercice) =>{
       setLoading(true);
       ExercicesService.create(exercice).then(({data})=>{
         console.log(data);
+        setLoading(false);
+      })
+    }
+  )
+
+  const refreshExercices = useCallback(
+    () =>{
+      setLoading(true);
+      ExercicesService.query(params).then(({ data }) => {
+        setExercices(data.results);
+        console.log(exercices);
+        setLoading(false);
+      });
+      ExercicesService.getCategories().then(({data})=>{
+        setCategories(data.results)
+        console.log(categories);
         setLoading(false);
       })
     }
@@ -56,5 +60,6 @@ export function useExercices({ params } = { params: null }, refresh) {
     exercices: exercices,
     castegories: categories,
     newExercice,
+    refreshExercices
   };
 }
