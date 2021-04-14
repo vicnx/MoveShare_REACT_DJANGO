@@ -5,8 +5,7 @@ import "./exercice-details.css";
 import Fav from "./fav/fav";
 import Chip from '@material-ui/core/Chip';
 import Avatar from '@material-ui/core/Avatar';
-import Badge from '@material-ui/core/Badge';
-import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
+import Remove from './remove/remove'
 // import ExercicesService from "../../services/exercices.service";
 
 import {useExercice} from '../../hooks/useExercice'
@@ -36,13 +35,13 @@ export default function ExerciceDetail({exercice}) {
     setModalVisible(false)
   }
 
-  const removeExercice = (e)=>{
-    deleteExercice(exercice)
-    setModalVisible(true)
-    setTimeout(() => {
-      window.location.reload()
-    }, 2000);
-  }
+  // const removeExercice = (e)=>{
+  //   deleteExercice(exercice)
+  //   setModalVisible(true)
+  //   setTimeout(() => {
+  //     window.location.reload()
+  //   }, 2000);
+  // }
 
   console.log(exercice);
   return (
@@ -59,11 +58,7 @@ export default function ExerciceDetail({exercice}) {
               checkOwner(exercice.author.username)
               ?
               <div className="options_modal_author">
-                <button 
-                  className="btn-delete" onClick={removeExercice}>
-                    ELIMINAR 
-                  <i className="far fa-trash-alt"></i>
-                </button>
+                <Remove exercice={exercice}/>
                 <button
                   className="btn-mod">
                     MODIFICAR 
@@ -99,7 +94,6 @@ export default function ExerciceDetail({exercice}) {
           </div>
         </div>
       </div>
-      <MSalert visible={modalVisible} text="Ejercicio eliminado con exito" type="success"></MSalert>
     </>
   );
 }

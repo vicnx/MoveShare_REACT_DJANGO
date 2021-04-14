@@ -23,7 +23,6 @@ export default function Home() {
     <StylesProvider injectFirst>
       <Banner page="HOME"/>
       <Container className="home">
-
         <Paper elevation={3} className="paper-top-ejercicios">
           <Typography variant="h5" className="home-title">
             Top Ejercicios
