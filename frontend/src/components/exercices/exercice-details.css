@@ -2,9 +2,19 @@
   width: 40% !important;
   height: 50% !important;
   min-width: 500px;
+
+}
+.rodal-dialog{
+  z-index: 1301 !important;
+
+}
+.rodal-mask{
+  z-index: 1300 !important;
 }
 
-
+.MuiAppBar-root{
+  z-index: 100 !important;
+}
 /* Exercice Details Style */
 
 .exercice-details {

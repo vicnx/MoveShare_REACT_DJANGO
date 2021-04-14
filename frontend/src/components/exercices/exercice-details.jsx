@@ -15,9 +15,7 @@ import {useExercice} from '../../hooks/useExercice'
 import { useHistory } from "react-router-dom";
 
 // RODAL MODAL
-import Rodal from 'rodal';
-import '../../../node_modules/rodal/lib/rodal.css';
-
+import MSalert from '../alerts/alert'
 
 export default function ExerciceDetail({exercice}) {
   const { user } = useContext(UserContext);
@@ -101,9 +99,7 @@ export default function ExerciceDetail({exercice}) {
           </div>
         </div>
       </div>
-      <Rodal visible={modalVisible} onClose={closeModal} className="modalrodal">
-          <div className="TextModal">Ejercicio eliminado con exito</div>
-        </Rodal>
+      <MSalert visible={modalVisible} text="Ejercicio eliminado con exito" type="success"></MSalert>
     </>
   );
 }

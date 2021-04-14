@@ -10,9 +10,9 @@
   margin-top: 16px;
 }
 
-.MuiPaper-root{
+/* .MuiPaper-root{
   margin-top: 10px;
-}
+} */
 
 @media (max-width: 900px) {
   .create_exercice_div{

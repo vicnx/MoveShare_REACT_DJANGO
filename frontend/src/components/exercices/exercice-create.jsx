@@ -10,6 +10,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import {useCategories} from '../../hooks/useCategories'
 import {useExercices} from '../../hooks/useExercices'
+import MSalert from '../alerts/alert'
 
 // RODAL MODAL
 import Rodal from 'rodal';
@@ -50,6 +51,7 @@ const CreateExercice = () => {
     if(user){
       newExercice(exercice)
       setModalVisible(true)
+
       setTimeout(() => {
         history.push('/home')
       }, 2000);
@@ -143,9 +145,10 @@ const CreateExercice = () => {
         >
           New Exercice
         </Button>
-        <Rodal visible={modalVisible} onClose={closeModal} className="modalrodal">
+        <MSalert visible={modalVisible} text="Ejercicio creado con exito!" type="success"></MSalert>
+        {/* <Rodal visible={modalVisible} onClose={closeModal} className="modalrodal">
           <div className="TextModal">Ejercicio creado con exito!</div>
-        </Rodal>
+        </Rodal> */}
         {/* {
           
         categories.map((category,index) =>
