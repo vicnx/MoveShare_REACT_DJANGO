@@ -47,7 +47,7 @@ export default function MobileNav() {
         label="Entrenamientos"
         value="entrenamientos"
         icon={<FitnessCenterIcon />}
-        to="/entrenamientos"
+        to="/workouts"
       />
       <BottomNavigationAction
         component={Link}

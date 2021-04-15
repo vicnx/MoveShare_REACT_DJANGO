@@ -1,6 +1,5 @@
-import React, { useContext,useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Route, Redirect,useHistory } from 'react-router-dom';
-import UserContext from "../../context/UserContext";
 import useUser from "../../hooks/useUser";
 
 

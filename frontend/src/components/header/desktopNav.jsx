@@ -35,7 +35,7 @@ export default function DesktopNav() {
       <Toolbar className="navbar-content">
         <Typography variant="h6">MoveShare</Typography>
         <div className="icon-list">
-          <Button className="button" to="/trainings" component={Link}>
+          <Button className="button" to="/workouts" component={Link}>
             <FitnessCenterIcon color="primary" />
             <Typography variant="body2">Entrenamientos</Typography>
           </Button>

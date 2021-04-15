@@ -1,11 +1,7 @@
-import React, {useContext} from "react";
-import Context from '../../context/appContext'
-import { makeStyles } from "@material-ui/core/styles";
+import React from "react";
 import {
   Container,
 } from "@material-ui/core";
-import { StylesProvider } from "@material-ui/core/styles";
-import ExercicePreview from "../../components/exercices/exercice-preview";
 import ExerciceList from "../../components/exercices/exercice-list";
 import {useExercices} from '../../hooks/useExercices'
 
