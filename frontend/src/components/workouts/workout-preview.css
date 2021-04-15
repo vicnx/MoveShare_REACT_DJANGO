@@ -134,4 +134,10 @@
     justify-content: center;
     height: 200px;
   }
+  .workout_desc_box{
+    width: 100%;
+  }
+  .workout_preview_section_right_bottom_bottom{
+    justify-content: space-around;
+  }
 }
