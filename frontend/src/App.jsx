@@ -20,6 +20,7 @@ import Header from "./components/header/header";
 const HomePage = React.lazy(() => import("./pages/home/home"));
 const Exercices = React.lazy(() => import("./pages/exercices/exercices"));
 const Workouts = React.lazy(() => import("./pages/workouts/workouts"));
+const WorkoutDetail = React.lazy(() => import("./pages/workouts/workoutDetail"));
 const Profile = React.lazy(() => import("./pages/profile/profile"));
 const Register = React.lazy(() => import("./pages/register/register"));
 const createExercicePage = React.lazy(() => import("./pages/exercices/createExercice"));
@@ -40,6 +41,8 @@ function App() {
               <Route path="/workouts" component={Workouts}></Route>
               <PrivateRoute component={createExercicePage} path="/new/exercice" exact />
               <ProfileContextProvider>
+                <Route path="/workout/:workoutid" component={WorkoutDetail}></Route>
+
                 <Route path="/@:username" component={Profile}></Route>
               </ProfileContextProvider>
             </WorkoutsContextProvider>

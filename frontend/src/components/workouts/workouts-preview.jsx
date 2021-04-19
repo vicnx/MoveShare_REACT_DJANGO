@@ -4,19 +4,20 @@ import Typography from "@material-ui/core/Typography";
 import {Link } from "react-router-dom";
 import { StylesProvider } from "@material-ui/core/styles";
 import FavoriteIcon from '@material-ui/icons/Favorite';
+import { useHistory } from "react-router-dom";
+
 
 import './workout-preview.css'
 
 
 export default function WorkoutPreview({workout,type=null,callBack}) {
-  const [modalVisible, setModalVisible] = useState(false);
+  let history = useHistory();
 
-  console.log(workout);
   const checkType=()=>{
     if(type=="profile"){
-      return "exercice_preview_profile"
+      return "workout_preview_section_profile"
     }
-    return "exercice_preview"
+    return "workout_preview_section"
   }
 
   const onError = (e) => {
@@ -33,10 +34,18 @@ export default function WorkoutPreview({workout,type=null,callBack}) {
     }
     return exercicespreview
   }
+  const goToProfile = (e)=>{
+    e.stopPropagation();
+    history.push('@'+workout.author.username)
+  }
+  const workoutDetails = (e)=>{
+    e.stopPropagation();
+    history.push('workout/'+workout.slug)
+  }
 
   return (
     <StylesProvider injectFirst>
-        <section className="workout_preview_section">
+        <section className={checkType()} onClick={workoutDetails}>
           <section className="workout_preview_section_left">
             <img className="workout_preview_img" src={workout.image} onError={onError} />
           </section>
@@ -69,7 +78,7 @@ export default function WorkoutPreview({workout,type=null,callBack}) {
                 </div>
               </div>
               <div className="workout_preview_section_right_bottom_bottom">
-                <div className="author_info">
+                <div className="author_info" onClick={goToProfile}>
                   <Avatar alt={workout.author.username}  src={workout.author.image}  />
                   <Typography className="username">
                     {workout.author.username}
@@ -78,7 +87,6 @@ export default function WorkoutPreview({workout,type=null,callBack}) {
                 <div className="fav_workout">
                   <FavoriteIcon/>
                   <Typography>
-                    Like
                   </Typography>
                 </div>
               </div>

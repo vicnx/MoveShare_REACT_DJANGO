@@ -1,0 +1,88 @@
+
+.workout_details_top{
+  margin-top: 40px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.74);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  height: 300px;
+  width: 100%;
+}
+.workout_details_top_img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.workout_details_bottom{
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.74);
+  padding: 20px;
+}
+
+.workout_details_bottom_name{
+  color: var(--color_principal);
+  font-weight: bolder;
+  font-style: italic;
+  font-size: 25px;
+}
+.workout_details_bottom_bio{
+  width: 60%;
+  margin-top: 10px;
+  border-radius: 10px;
+  padding: 20px;
+  border: 2px solid rgb(178, 207, 241);
+  height: 100px;
+}
+.workout_details_bottom_author{
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgb(178, 207, 241);
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
+  display: flex;
+  width: 39%;
+  padding: 20px;
+  box-sizing: content-box;
+  height: 100px;
+}
+.author_img_details{
+  margin-right: 10px;
+  width: 80px;
+  height: 80px;
+}
+.username{
+  color: var(--color_principal);
+  font-weight: bolder;
+  font-size: 20px;
+}
+.exercices_list{
+  margin-top: 10px;
+  
+}
+.exercices_list_text{
+  color: var(--color_principal);
+  font-weight: bolder;
+  font-style: italic;
+  font-size: 25px;
+}
+.exercices_list_list{
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  overflow-y: scroll;
+}
+
+.workout_details_bottom_workoutINFO{
+  display: flex;
+  justify-content: space-between;
+}
+
+.list_exercices_profile{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}

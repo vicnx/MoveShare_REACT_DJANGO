@@ -16,6 +16,10 @@ import {useProfiles} from '../../hooks/useProfile'
 import useUser from '../../hooks/useUser'
 import UserContext from "../../context/UserContext";
 import { useParams } from "react-router";
+import Follow from '../../components/profile/follow/follow'
+import {useWorkouts} from '../../hooks/useWorkouts'
+import WorkoutList from "../../components/workouts/workouts-list";
+
 
 export default function Profile() {
   const [currentTab, setCurrentTab] = useState(0);
@@ -34,6 +38,8 @@ export default function Profile() {
   }
 
   const {exercices,refreshExercices} = useExercices({params},username);
+  const {workouts} = useWorkouts({params},username);
+  console.log(workouts);
   useEffect(() => {
     // window.location.reload()
   }, [username]);
@@ -57,7 +63,7 @@ export default function Profile() {
         return <ExerciceList exercices={exercices} type="profile" callBack={refreshExercices} />
         break;
       case 1:
-        return "Workouts"
+        return <WorkoutList workouts={workouts} type="profile" callBack={refreshExercices} />
         break;
       case 2:
         return <Settings></Settings>
@@ -86,19 +92,7 @@ export default function Profile() {
                 <span className="profile_card_text--bio">{profile.bio}</span>
               </div>
               <div className="profile_card_buttons">
-                {
-                  !checkOwner(username) ?
-                    profile.following ? 
-                      <Button variant="contained" color="primary" className="followButton" onClick={unfollowUser}>
-                        UnFollow
-                      </Button>
-                    :
-                      <Button variant="contained" color="primary" className="followButton" onClick={followUser}>
-                        Follow
-                      </Button>
-                  :
-                  false
-                }
+                <Follow username={username}/>
                 
               </div>
               <div className="profile_card_footer">

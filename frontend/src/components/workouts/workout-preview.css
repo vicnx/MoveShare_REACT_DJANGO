@@ -72,6 +72,7 @@
   margin-bottom: 10px;
 }
 .chip_exer{
+  cursor: pointer;
   justify-content: left;
 }
 .workout_preview_section_right_bottom_top{
@@ -89,6 +90,11 @@
   align-items: center;
   background-color: rgb(219, 238, 255);
   margin-right: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.author_info:hover{
+  background-color: rgb(172, 214, 252);
 }
 .workout_preview_section_right_bottom_bottom{
   display: flex;
@@ -103,6 +109,16 @@
   align-items: center;
   background-color: rgb(255, 219, 219);
   margin-right: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.fav_workout:hover{
+  background-color: rgb(250, 186, 186);
+}
+
+.fav_workout svg{
+  font-size: 30px;
+
 }
 
 

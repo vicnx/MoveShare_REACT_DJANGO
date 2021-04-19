@@ -14,13 +14,13 @@ import {useExercice} from '../../hooks/useExercice'
 import { useHistory } from "react-router-dom";
 
 // RODAL MODAL
-import MSalert from '../alerts/alert'
+import Rodal from 'rodal';
+import '../../../node_modules/rodal/lib/rodal.css';
 
-export default function ExerciceDetail({exercice}) {
+export default function ExerciceDetail({exercice,visibleModal,setvisibleModal}) {
   const { user } = useContext(UserContext);
   const {deleteExercice} = useExercice(false);
   const {checkOwner} = useUser();
-  const [modalVisible, setModalVisible] = useState(false);
   let history = useHistory();
 
 
@@ -32,20 +32,11 @@ export default function ExerciceDetail({exercice}) {
   }
 
   const closeModal=()=>{
-    setModalVisible(false)
+    setvisibleModal(false)
   }
-
-  // const removeExercice = (e)=>{
-  //   deleteExercice(exercice)
-  //   setModalVisible(true)
-  //   setTimeout(() => {
-  //     window.location.reload()
-  //   }, 2000);
-  // }
-
-  console.log(exercice);
   return (
     <>
+    <Rodal visible={visibleModal} onClose={closeModal} className="modalrodal">
       <div className="modal exercice-details">
         <i className="far fa-times-circle close-modal"></i>
         <div className="modal-left-side">
@@ -94,6 +85,7 @@ export default function ExerciceDetail({exercice}) {
           </div>
         </div>
       </div>
+      </Rodal>
     </>
   );
 }

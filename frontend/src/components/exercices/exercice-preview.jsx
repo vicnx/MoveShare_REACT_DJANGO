@@ -7,9 +7,6 @@ import {Link } from "react-router-dom";
 import ExerciceDetail from "./exercice-details.jsx"
 import { StylesProvider } from "@material-ui/core/styles";
 
-import Rodal from 'rodal';
-import '../../../node_modules/rodal/lib/rodal.css';
-
 import Fav from "./fav/fav";
 
 export default function ExercicePreview({exercice,type=null,callBack}) {
@@ -71,9 +68,7 @@ export default function ExercicePreview({exercice,type=null,callBack}) {
           </Button>
         </div>
       </Card>
-      <Rodal visible={modalVisible} onClose={closeModal} className="modalrodal">
-          <ExerciceDetail exercice={exercice} callBack={callBack}/>
-      </Rodal>
+          <ExerciceDetail visibleModal={modalVisible} setvisibleModal={setModalVisible}exercice={exercice} callBack={callBack}/>
     </StylesProvider>
     
   );
