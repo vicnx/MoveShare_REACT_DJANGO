@@ -7,6 +7,8 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import { useHistory } from "react-router-dom";
 import {useWorkout} from '../../hooks/useWorkout';
 import ExerciceDetail from "./../exercices/exercice-details"
+import Loading from 'react-simple-loading';
+
 
 
 
@@ -58,7 +60,7 @@ export default function Difficultie({difficultie}) {
             </section>
           </section>
         :
-        "Loading"
+        <Loading />
       }
       <ExerciceDetail visibleModal={modalVisible} setvisibleModal={setModalVisible}exercice={difficultie.exercice}/>
     </StylesProvider>

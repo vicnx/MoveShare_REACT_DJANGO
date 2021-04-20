@@ -24,6 +24,7 @@ const WorkoutDetail = React.lazy(() => import("./pages/workouts/workoutDetail"))
 const Profile = React.lazy(() => import("./pages/profile/profile"));
 const Register = React.lazy(() => import("./pages/register/register"));
 const createExercicePage = React.lazy(() => import("./pages/exercices/createExercice"));
+const createWorkoutPage = React.lazy(() => import("./pages/workouts/createWorkout"));
 
 function App() {
   console.log("app");
@@ -40,9 +41,9 @@ function App() {
               <Route path="/exercices" component={Exercices}></Route>
               <Route path="/workouts" component={Workouts}></Route>
               <PrivateRoute component={createExercicePage} path="/new/exercice" exact />
+              <PrivateRoute component={createWorkoutPage} path="/new/workout" exact />
               <ProfileContextProvider>
                 <Route path="/workout/:workoutid" component={WorkoutDetail}></Route>
-
                 <Route path="/@:username" component={Profile}></Route>
               </ProfileContextProvider>
             </WorkoutsContextProvider>

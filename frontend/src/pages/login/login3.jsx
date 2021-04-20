@@ -18,6 +18,8 @@ import Container from "@material-ui/core/Container";
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import { StylesProvider } from "@material-ui/core/styles";
+import Loading from 'react-simple-loading';
+
 
 import "./login.css";
 
@@ -76,7 +78,7 @@ export default function Login() {
             </div>
           }
 
-          {isLogginLoading && <span>Checking</span>}
+          {isLogginLoading && <Loading/>}
           {!isLogginLoading &&
               <form className={classes.form} noValidate onSubmit={handleSubmit}>
                 <TextField

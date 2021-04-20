@@ -5,6 +5,8 @@ import { useParams } from "react-router";
 // import ExerciceList from "../../components/exercices/exercice-list";
 import WorkoutDetails from "../../components/workouts/workout-details";
 import {useWorkout} from '../../hooks/useWorkout'
+import Loading from 'react-simple-loading';
+
 
 
 export default function WorkoutDetail() {
@@ -20,7 +22,7 @@ export default function WorkoutDetail() {
             !loading ?
               <WorkoutDetails workout={workout} />
             :
-            "Loading..."
+            <Loading/>
           }
       </Container>
   );

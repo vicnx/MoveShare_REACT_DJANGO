@@ -8,6 +8,8 @@ import { useHistory } from "react-router-dom";
 import {useWorkout} from '../../hooks/useWorkout';
 import Difficultie from "./difficulties-preview"
 import Follow from './../profile/follow/follow'
+import Loading from 'react-simple-loading';
+
 
 
 
@@ -82,7 +84,7 @@ export default function WorkoutDetails({workout}) {
           </div>
         </section>
         :
-        "Loading"
+        <Loading />
       }
 
     </StylesProvider>
