@@ -3,9 +3,9 @@ import UserContext from "../../context/UserContext";
 import useUser from '../../hooks/useUser'
 import "./exercice-details.css";
 import Fav from "./fav/fav";
-import Chip from '@material-ui/core/Chip';
-import Avatar from '@material-ui/core/Avatar';
 import Remove from './remove/remove'
+import { Card, Button, Avatar, Chip ,Paper,Divider} from "@material-ui/core";
+
 // import ExercicesService from "../../services/exercices.service";
 
 import {useExercice} from '../../hooks/useExercice'
@@ -37,54 +37,57 @@ export default function ExerciceDetail({exercice,visibleModal,setvisibleModal}) 
   return (
     <>
     <Rodal visible={visibleModal} onClose={closeModal} className="modalrodal">
-      <div className="modal exercice-details">
-        <i className="far fa-times-circle close-modal"></i>
-        <div className="modal-left-side">
-          <img className="exer_image" src={exercice.image} alt="exercice img" onError={onError}/>
-          <div className="modal_left_side_content">
-            <div className="modal_author">
-              <Chip avatar={<Avatar alt={exercice.author.username} src={exercice.author.image} />} label={exercice.author.username} onClick={goToProfile}/>
-            </div>
-            {
-              checkOwner(exercice.author.username)
-              ?
-              <div className="options_modal_author">
-                <Remove exercice={exercice}/>
-                <button
-                  className="btn-mod">
-                    MODIFICAR 
-                  <i className="far fa-trash-alt"></i>
-                </button>
-              </div>
-              :
-              false
-            }
-          </div>
-
+      <div className="ex_details">
+        <div className="ex_details_left">
+          <img className="ex_image" src={exercice.image} alt="exercice img" onError={onError}/>
         </div>
-        <div className="modal-right-side">
+        <div className="ex_details_right">
           <h1>{exercice.name}</h1>
+          <div className="ex_details_right_content">
+            <div className="ex_details_right_content_desc">
+              <p>
+                {exercice.description}
+              </p>
+            </div>
+            <div className="ex_details_right_content_categories">
+              {
+                exercice.categories.map((category,index) =>
+                <Chip className="category_modal" label={category.name} color="primary"/>
+              )
+              }
+            </div>
 
-          <div className="categories-list">
-            {
-              exercice.categories.map((category,index) =>
-              <Chip className="category_modal" label={category.name} color="primary"/>
-            )
-            }
           </div>
-          <br />
-          <h2>Description</h2>
-          <p>
-            {exercice.description}
-          </p>
-          <div className="options">
-            <Fav
-              className="btn-fav"
-              exercice={exercice}
-            ></Fav>
+          <div className="ex_details_right_footer">
+            <div className="ex_details_right_footer_author">
+              <Chip avatar={<Avatar alt={exercice.author.username} src={exercice.author.image} />} label={exercice.author.username} onClick={goToProfile}/>
+
+            </div>
+            <div className="ex_details_right_footer_options">
+              {
+                checkOwner(exercice.author.username)
+                ?
+                <div className="options_modal_author">
+                  <Remove exercice={exercice}/>
+                  <Button color="primary">
+                    MODIFICAR
+                  </Button>
+                  <Fav
+                    className="btn-fav"
+                    exercice={exercice}
+                  ></Fav>
+                </div>
+                :
+                <Fav
+                  className="btn-fav"
+                  exercice={exercice}
+                ></Fav>
+              }
+            </div>
           </div>
         </div>
       </div>
+
       </Rodal>
     </>
   );

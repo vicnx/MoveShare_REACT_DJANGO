@@ -157,6 +157,7 @@
   color: #67757c;
   text-decoration: none;
   transition: 0.5s;
+  box-sizing: border-box;
 }
 
 .tabs a:hover{
@@ -165,6 +166,7 @@
 }
 
 .tabs a.active{
+  z-index: 2;
   color: #1e88e5;
   border-bottom: 3px solid var(--color_principal);
 }

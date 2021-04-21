@@ -1,7 +1,8 @@
 .modalrodal .rodal-dialog {
-  width: 40% !important;
-  height: 50% !important;
-  min-width: 500px;
+  width: 70% !important;
+  height: 60% !important;
+  min-width: 600px;
+  min-height: 500px;
 
 }
 .rodal-dialog{
@@ -17,220 +18,135 @@
 }
 /* Exercice Details Style */
 
-.exercice-details {
-  display: flex;
+.ex_details{
+  width: 100%;
   height: 100%;
-}
-
-.modal-left-side {
-  min-width: 260px;
-  width: 20%;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: unset;
-  margin-right: 20px;
 }
-
-.modal-left-side .exer_image {
-  height: 50%;
-  max-width: 300px;
-  object-fit: cover;
-  position: absolute;
-  top: -62px;
-  left: -70px;
-  z-index: 20;
-  border-radius: 15px;
-  box-shadow: 0px 0px 6px 0px rgb(0 0 0 / 34%);
-  transition: 100ms;
-  
+.ex_details_left{
+  width: 40%;
+  min-width: 200px;
 }
-
-.modal-left-side .exer_image:hover {
-  transform: scale(1.05);
-}
-
-.modal-right-side {
+.ex_details_right{
+  width: 60%;
   display: flex;
   flex-direction: column;
-  padding: 5px;
-  width: 80%;
-  text-align: left;
+  align-items: center;
+}
+.ex_details_right h1{
+  color: var(--color_principal);
+  font-weight: bolder;
 }
 
-.modal-right-side h1 {
-  font-family: "Oswald", sans-serif;
-  text-transform: uppercase;
-  color: #202020;
-  font-size: 38px;
+.ex_details_left .ex_image{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  object-fit: cover;
+}
+.ex_details_right_content{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+
+}
+.ex_details_right_content_desc{
+  box-shadow: 0px 0px 5px rgba(78, 181, 250, 0.87);
+  width: 55%;
+  height: 300px;
+  padding: 10px;
+  border-radius: 10px;
+  box-sizing: border-box;
 }
 
-.modal-right-side h2 {
-  font-family: "Oswald", sans-serif;
-  text-transform: uppercase;
-  color: #202020;
-  font-size: 18px;
+.ex_details_right_content_categories{
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 5px rgba(78, 181, 250, 0.87);
+  width: 35%;
+  height: 300px;
+  padding: 10px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  align-items: center;
+}
+.category_modal{
+  width: 100px;
   margin-bottom: 10px;
 }
-
-.modal-right-side p {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 5; /* number of lines to show */
-  -webkit-box-orient: vertical;
-  width: 78%;
-}
-
-.options {
-  flex: 1;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-}
-
-.btn-add {
-  width: 150px;
-  height: 50px;
-  border-radius: 5px;
-  background-color: transparent;
-  border: solid 2.5px #66f;
-  color: #66f;
-  font-family: "Oswald", sans-serif;
-  text-transform: uppercase;
-  font-size: 18px;
-  margin-right: 8px;
-  cursor: pointer;
-}
-
-.btn-add:hover {
-  font-weight: 500;
-  border: 3px solid #66f;
-}
-
-.options .exercice_preview_footer--button--fav{
-  width: 50px;
-  height: 50px !important;
-  border-radius: 5px;
-  background-color: transparent;
-  border: 2.5px solid rgb(255, 102, 102);
-  color: rgb(255, 102, 102);
-  font-family: "Oswald", sans-serif;
-  font-size: 18px;
-  margin-right: 8px;
-  cursor: pointer;
-}
-
-.btn-fav:hover {
-  font-size: 20px;
-  border: 3px solid rgb(255, 102, 102);
-}
-
-.favorited{
-  color: white;
-  background-color: rgb(255, 102, 102);
-}
-
-.btn-delete {
-  /* width: 50px; */
-  height: 50px;
-  border-radius: 5px;
-  background-color: transparent;
-  border: 2.5px solid rgb(170, 25, 25);
-  color: rgb(170, 25, 25);
-  font-family: "Oswald", sans-serif;
-  font-size: 18px;
-  margin-right: 8px;
-  cursor: pointer;
-  transition: 0.5s;
-
-}
-
-.btn-delete:hover {
-  color: rgb(214, 29, 29);
-  border: 2.5px solid rgb(228, 33, 33);
-  /* font-size: 20px;
-  border: 3px solid rgb(170, 25, 25); */
-}
-
-.btn-mod {
-  /* width: 50px; */
-  height: 50px;
-  border-radius: 5px;
-  background-color: transparent;
-  border: 2.5px solid rgb(95, 196, 0);
-  color: rgb(95, 196, 0);
-  font-family: "Oswald", sans-serif;
-  font-size: 18px;
-  margin-right: 8px;
-  cursor: pointer;
-  transition: 0.5s;
-}
-
-.btn-mod:hover {
-  color: rgb(142, 240, 50);
-  border: 2.5px solid rgb(115, 228, 10)
-}
-
-.categories-list {
-  display: flex;
-}
-
-.category_modal {
-  margin-right: 10px;
-}
-
-.options_modal_author{
- margin-top: 50px;
- display: flex;
- flex-direction: column;
- justify-content: space-around;
- height: 100%;
-}
-.modal_left_side_content{
-  display: flex;
+.ex_details_right_footer{
   width: 100%;
-  height: 50%;
-  margin-top: 77%;
-  align-items: flex-start;
-  margin-left: 20px;
+  height: 100%;
+  display: flex;
+}
+.ex_details_right_footer_author{
+  width: 65%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ex_details_right_footer_options{
+  margin-top: 10px;
+  display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 35%;
+  height: 100%;
+}
+.options_modal_author{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+}
+.exercice_preview_footer--button{
+  height: 80px;
 }
 
-@media screen and (max-width: 600px) {
-  .exercice-details {
+@media screen and (max-width: 1200px){
+  .ex_details{
     display: flex;
     flex-direction: column;
   }
+  .ex_details_left{
+    width: 100%;
+    height: 40%;
+  }
+  .ex_details_right{
+    width: 100%;
+    height: 40%;
+  }
+  .ex_details_right_content{
+    height: 100%;
+  }
+  .ex_details_right_content_desc{
+    height: 150px;
+  }
+  .ex_details_right_content_categories{
+    height: 150px;
+  }
+  .ex_details_right_footer{
+    margin-top: 20px;
+    width: 100%;
+    height: 100%;
+  }
   .modalrodal .rodal-dialog {
-    width: 95% !important;
+    width: 65% !important;
     height: 75% !important;
     min-width: unset;
   }
-
-  .modal-left-side {
-    height: 40%;
+}
+@media screen and (max-width: 600px){
+  .ex_details_left{
     width: 100%;
+    height: 25%;
   }
-  .modal-left-side img {
-    position: unset;
-    top: unset;
-    left: unset;
-
-    height: 70%;
-  }
-  .modal-right-side {
-    flex: 1;
-    padding-top: 0;
-  }
-
-  .modal-right-side p {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 7; /* number of lines to show */
-    -webkit-box-orient: vertical;
+  .modalrodal .rodal-dialog {
+    width: 90% !important;
+    height: 75% !important;
+    min-width: unset;
   }
 }
