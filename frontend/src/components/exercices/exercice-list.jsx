@@ -1,6 +1,7 @@
 import React from "react";
 import "./exercice-list.css";
 import ExercicePreview from "./exercice-preview"
+import ExercicePreviewProfile from "./exercice-preview-profile"
 
 export default function ExerciceList({exercices,type=null, callBack}) {
   const checkType=()=>{
@@ -13,7 +14,16 @@ export default function ExerciceList({exercices,type=null, callBack}) {
   return (
     <div className={checkType()}>
       {
+        
         exercices.map((exercice,index) =>
+          type=="profile"?
+          <ExercicePreviewProfile
+            key={index}
+            exercice={exercice}
+            type={type}
+            callBack={callBack}
+          />
+          :
           <ExercicePreview
             key={index}
             exercice={exercice}
