@@ -9,8 +9,11 @@ import {useWorkout} from '../../hooks/useWorkout';
 import Difficultie from "./difficulties-preview"
 import Follow from './../profile/follow/follow'
 import Loading from 'react-simple-loading';
+import useUser from '../../hooks/useUser'
+import RemoveWorkout from './remove/remove'
 
 
+import logo from '../../common/images/workouts.png';
 
 
 
@@ -19,10 +22,12 @@ import './workout-details.css'
 
 export default function WorkoutDetails({workout}) {
   let history = useHistory();
+  const {checkOwner} = useUser();
+
   // const {workout,loading} = useWorkout({workoutid});
 
   const onError = (e) => {
-    e.target.src="https://upload.wikimedia.org/wikipedia/commons/8/84/Musculation_exercice_abdominal.png"
+    e.target.src=logo
   }
 
   const goToProfile = (e)=>{
@@ -59,7 +64,7 @@ export default function WorkoutDetails({workout}) {
                       {workout.author.username}
                     </Typography>
                   </div>
-
+                  <RemoveWorkout workout={workout}/>
                   <Follow username={workout.author.username}/>
               </div>
             </div>

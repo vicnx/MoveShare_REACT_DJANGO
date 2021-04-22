@@ -38,7 +38,7 @@ const CreateWorkout= () => {
   const [noexers, setnoexers] = useState(true);
   const [currentExerSelect, setcurrentExerSelect] = useState({'reps':0,'duration':0,'sets':0});
   const {exercices} = useExercices(false)
-  const {newWorkout,error,loading,created} = useWorkout(false);
+  const {newWorkout,error,loading,ok} = useWorkout(false);
   const [modalVisible, setModalVisible] = useState(false);
   const [alertErrorVisible, setalertErrorVisible] = useState(false);
 
@@ -271,7 +271,7 @@ const CreateWorkout= () => {
       </Dialog>
       <MSalert visible={alertErrorVisible} text="No has seleccionado ningún ejercicio" type="error"></MSalert>
       <MSalert visible={error} text="Fallo al crear el entrenamiento" type="error"></MSalert>
-      <MSalert visible={created} text="Entrenamiento creado con exito" type="success"></MSalert>
+      <MSalert visible={ok} text="Entrenamiento creado con exito" type="success"></MSalert>
     </StylesProvider>
 
 

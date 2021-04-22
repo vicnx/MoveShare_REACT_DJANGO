@@ -1,3 +1,6 @@
+.list_workouts{
+  margin-bottom: 100px;
+}
 .workout_preview_section{
   width: 100%;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.74);
@@ -9,6 +12,7 @@
   overflow: hidden;
   display: flex;
   justify-content: space-between;
+  cursor: pointer;
 }
 
 .workout_preview_section_left{
@@ -18,8 +22,17 @@
   overflow: hidden;
   object-fit: cover;
 }
+.workout_preview_section_left img{
+  width: auto;
+  height: 100%;
+  transition: 0.5s;
+}
+.workout_preview_section_left img:hover{
+  transform: scale(1.1) rotate(0.5deg);
+}
 
 .workout_preview_section_right{
+  position: relative;
   width: 68%;
   padding: 20px;
   box-sizing: border-box;
@@ -82,10 +95,8 @@
 }
 .author_info{
   border-radius: 10px;
-  width: 60px;
   padding: 10px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: rgb(219, 238, 255);
@@ -97,6 +108,8 @@
   background-color: rgb(172, 214, 252);
 }
 .workout_preview_section_right_bottom_bottom{
+  position: absolute;
+  bottom: 10px;
   display: flex;
 }
 .fav_workout{

@@ -5,6 +5,7 @@ import {Link } from "react-router-dom";
 import { StylesProvider } from "@material-ui/core/styles";
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import { useHistory } from "react-router-dom";
+import errorImage from '../../common/images/workouts.png';
 
 
 import './workout-preview.css'
@@ -21,7 +22,7 @@ export default function WorkoutPreview({workout,type=null,callBack}) {
   }
 
   const onError = (e) => {
-    e.target.src="https://upload.wikimedia.org/wikipedia/commons/8/84/Musculation_exercice_abdominal.png"
+    e.target.src=errorImage
   }
 
   const printExercicesPreview = (e) =>{

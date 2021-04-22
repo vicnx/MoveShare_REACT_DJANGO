@@ -7,6 +7,8 @@ import {Link } from "react-router-dom";
 import ExerciceDetail from "./exercice-details.jsx"
 import { StylesProvider } from "@material-ui/core/styles";
 
+import imageError from '../../common/images/exercice.png'
+
 import Fav from "./fav/fav";
 
 export default function ExercicePreview({exercice,type=null,callBack}) {
@@ -19,7 +21,7 @@ export default function ExercicePreview({exercice,type=null,callBack}) {
   }
 
   const onError = (e) => {
-    e.target.src="https://upload.wikimedia.org/wikipedia/commons/8/84/Musculation_exercice_abdominal.png"
+    e.target.src=imageError
   }
 
   const closeModal=()=>{

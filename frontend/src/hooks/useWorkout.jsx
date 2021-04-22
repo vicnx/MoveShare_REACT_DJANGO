@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 export function useWorkout({ workoutid } = { workoutid: null }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [created, setCreated] = useState(false);
+  const [ok, setOk] = useState(false);
   const { workout, setWorkout } = useContext(WorkoutsContext);
   let history = useHistory();
 
@@ -40,9 +40,9 @@ export function useWorkout({ workoutid } = { workoutid: null }) {
           }, 2000);
         }else{
           setError(false)
-          setCreated(true)
+          setOk(true)
           setTimeout(() => {
-            setCreated(false)
+            setOk(false)
             history.push('/workout/'+data.slug)
             setLoading(false);
           }, 1000);
@@ -51,11 +51,26 @@ export function useWorkout({ workoutid } = { workoutid: null }) {
     }
   )
 
+  const deleteWorkout= useCallback(
+    (workout) => {
+      setLoading(true);
+      WorkoutsService.destroy(workout.slug).then(({data})=>{
+        setOk(true)
+        setTimeout(() => {
+          setOk(false)
+          history.push('/home')
+          setLoading(false);
+        }, 1000);
+      })
+    }
+  )
+
   return {
     loading: loading,
     workout: workout,
     newWorkout,
+    deleteWorkout,
     error:error,
-    created:created
+    ok:ok,
   };
 }

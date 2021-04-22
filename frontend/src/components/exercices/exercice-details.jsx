@@ -5,6 +5,7 @@ import "./exercice-details.css";
 import Fav from "./fav/fav";
 import Remove from './remove/remove'
 import { Card, Button, Avatar, Chip ,Paper,Divider} from "@material-ui/core";
+import imageError from '../../common/images/exercice.png'
 
 // import ExercicesService from "../../services/exercices.service";
 
@@ -25,7 +26,7 @@ export default function ExerciceDetail({exercice,visibleModal,setvisibleModal}) 
 
 
   const onError = (e) => {
-    e.target.src="https://upload.wikimedia.org/wikipedia/commons/8/84/Musculation_exercice_abdominal.png"
+    e.target.src=imageError
   }
   const goToProfile = (e)=>{
     history.push('@'+exercice.author.username)

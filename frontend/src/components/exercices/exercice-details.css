@@ -26,6 +26,7 @@
 .ex_details_left{
   width: 40%;
   min-width: 200px;
+  overflow: hidden;
 }
 .ex_details_right{
   width: 60%;
@@ -42,8 +43,12 @@
   position: relative;
   height: 100%;
   width: 100%;
-  overflow: hidden;
   object-fit: cover;
+  transition: 1s;
+}
+.ex_image:hover{
+  transform: scale(1.1) rotate(0.5deg);
+  
 }
 .ex_details_right_content{
   width: 100%;
