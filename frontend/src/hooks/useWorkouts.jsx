@@ -4,6 +4,7 @@ import WorkoutsService from "../services/workouts.service";
 
 export function useWorkouts({ params } = { params: null }, refresh) {
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   const { workouts, setWorkouts } = useContext(WorkoutsContext);
   useEffect(
     function () {
@@ -18,8 +19,10 @@ export function useWorkouts({ params } = { params: null }, refresh) {
     [refresh]
   );
 
+
   return {
     loading: loading,
     workouts: workouts,
+    error: error
   };
 }

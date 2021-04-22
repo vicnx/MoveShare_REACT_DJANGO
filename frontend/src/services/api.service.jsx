@@ -25,7 +25,9 @@ export const ApiService = {
 
   post(resource, params) {
     console.log(params);
-    return http.post(`${resource}`, params);
+    return http.post(`${resource}`, params).catch(error => {
+      return error
+    });
   },
   delete(resource) {
     return http.delete(resource).catch(error => {

@@ -20,6 +20,7 @@ const WorkoutsService = {
     return ApiService.get("fitness/training", slug);
   },
   create(params) {
+    ApiService.auth();
     return ApiService.post("fitness/training", { training: params });
   },
   update(slug, params) {

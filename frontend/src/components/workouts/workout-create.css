@@ -98,6 +98,10 @@
     width: 80%;
     margin-bottom: 100px;
   }
+  .add_btn{
+    margin-top: 50px;
+    width: 200px;
+  }
 }
 
 .modalrodal .rodal-dialog{

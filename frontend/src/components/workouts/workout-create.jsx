@@ -4,6 +4,7 @@ import Button from "@material-ui/core/Button";
 import UserContext from "../../context/UserContext";
 import useUser from '../../hooks/useUser';
 import {useExercices} from '../../hooks/useExercices'
+import {useWorkout} from '../../hooks/useWorkout'
 import MSalert from '../alerts/alert'
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -25,30 +26,31 @@ import { StylesProvider } from "@material-ui/core/styles";
 import "./workout-create.css";
 import {Typography} from "@material-ui/core";
 import { useHistory } from "react-router-dom";
+import Loading from 'react-simple-loading';
+
 
 
 const CreateWorkout= () => {
-  const {isLogged,logout,checkOwner,updateUser} = useUser();
-  const { user } = useContext(UserContext);
   const [workout_desc, setWorkoutDesc] = useState("");
   const [workout_name, setWorkoutName] = useState("");
   const [workout_image, setWorkoutImage] = useState("");
   const [exercicesSelected, setExercicesSelected] = useState([]);
   const [noexers, setnoexers] = useState(true);
   const [currentExerSelect, setcurrentExerSelect] = useState({'reps':0,'duration':0,'sets':0});
-  // const [currentExerReps, setcurrentExerReps] = useState("");
-  // const [currentExerSets, setcurrentExerSets] = useState("");
-  // const [currentExerDuration, setcurrentExerDuration] = useState("");
   const {exercices} = useExercices(false)
-  const {newExercice} = useExercices(false);
-  let history = useHistory();
+  const {newWorkout,error,loading,created} = useWorkout(false);
   const [modalVisible, setModalVisible] = useState(false);
   const [alertErrorVisible, setalertErrorVisible] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    console.log("Create");
+    let workout = {
+      "name": workout_name,
+      "image": workout_image,
+      "description": workout_desc,
+      "difficulties": exercicesSelected,
+    }
+    newWorkout(workout)
   };
   const openModalExers = (e) =>{
     setModalVisible(true)
@@ -63,7 +65,6 @@ const CreateWorkout= () => {
   }
 
   const handleChange= (e) => {
-    console.log(e.target.value);
     setcurrentExerSelect({...currentExerSelect,['ex_id']:e.target.value.id,['exercice']:e.target.value});
   };
 
@@ -94,95 +95,102 @@ const CreateWorkout= () => {
 
   return (
     <StylesProvider injectFirst>
-      <div className="workout_create">
-        <form className="workout_create_form" noValidate onSubmit={handleSubmit}>
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            id="name"
-            label="Name"
-            name="name"
-            autoComplete="name"
-            autoFocus
-            onChange={(e) => setWorkoutName(e.target.value)}
-            value={workout_name}
-          />
-        <TextField
-          variant="outlined"
-          margin="normal"
-          fullWidth
-          multiline
-          id="description"
-          label="Description"
-          name="description"
-          autoComplete="description"
-          rows={4}
-          autoFocus
-          onChange={(e) => setWorkoutDesc(e.target.value)}
-          value={workout_desc}
-        />
-        <div className="ejercicios_div">
-          <div className="ejercicios_div_exers">
-            {
-              exercicesSelected?
-              exercicesSelected.map((exercice) => {
-                  return<div className="difficultie_preview" key={exercice.ex_id} value={exercice.ex_id}>
-                    <img src={exercice.exercice.image} alt="" onError={onError} />
-                    <div className="textos_difficulties">
-                      <span>{exercice.exercice.name}</span>
-                    </div>
-                    <div className="textos_difficulties_dos">
-                      <span>Sets: {exercice.sets}</span>
-                      <span>Reps: {exercice.reps}</span>
-                      <span>Dur: {exercice.duration}</span>
-                    </div>
-                    
-                  </div>
-              })
-            :
-            "No hay ejercicios seleccionados..."}
-            {
-              noexers?
-              "No hay ejercicios seleccionados..."
-              :
-              null
-            }
-          </div>
-          <Button
-            variant="contained"
-            color="secondary"
-            className="add_btn"
-            onClick={openModalExers}
-          >
-            Añadir Ejercicios
-          </Button>
-        </div>
+      {
+        loading?
+          <Loading/>
+        :
+          error?
+            "Ha ocurrido un error al insertar el entrenamiento, vuelva a intentarlo de aqui unos minutos."
+          :
+            <div className="workout_create">
+            <form className="workout_create_form" noValidate onSubmit={handleSubmit}>
+              <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                id="name"
+                label="Name"
+                name="name"
+                autoComplete="name"
+                autoFocus
+                onChange={(e) => setWorkoutName(e.target.value)}
+                value={workout_name}
+              />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              fullWidth
+              multiline
+              id="description"
+              label="Description"
+              name="description"
+              autoComplete="description"
+              rows={4}
+              onChange={(e) => setWorkoutDesc(e.target.value)}
+              value={workout_desc}
+            />
+            <div className="ejercicios_div">
+              <div className="ejercicios_div_exers">
+                {
+                  exercicesSelected?
+                  exercicesSelected.map((exercice) => {
+                      return<div className="difficultie_preview" key={exercice.ex_id} value={exercice.ex_id}>
+                        <img src={exercice.exercice.image} alt="" onError={onError} />
+                        <div className="textos_difficulties">
+                          <span>{exercice.exercice.name}</span>
+                        </div>
+                        <div className="textos_difficulties_dos">
+                          <span>Sets: {exercice.sets}</span>
+                          <span>Reps: {exercice.reps}</span>
+                          <span>Dur: {exercice.duration}</span>
+                        </div>
+                        
+                      </div>
+                  })
+                :
+                "No hay ejercicios seleccionados..."}
+                {
+                  noexers?
+                  "No hay ejercicios seleccionados..."
+                  :
+                  null
+                }
+              </div>
+              <Button
+                variant="contained"
+                color="secondary"
+                className="add_btn"
+                onClick={openModalExers}
+              >
+                Añadir Ejercicios
+              </Button>
+            </div>
 
-        <TextField
-          variant="outlined"
-          margin="normal"
-          fullWidth
-          id="image"
-          label="Image"
-          name="image"
-          autoComplete="image"
-          autoFocus
-          onChange={(e) => setWorkoutImage(e.target.value)}
-          value={workout_image}
-        />
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          color="primary"
-          className="submit_btn"
-        >
-          Nuevo Entrenamiento
-        </Button>
-        </form>
-      </div>
+            <TextField
+              variant="outlined"
+              margin="normal"
+              fullWidth
+              id="image"
+              label="Image"
+              name="image"
+              autoComplete="image"
+              onChange={(e) => setWorkoutImage(e.target.value)}
+              value={workout_image}
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className="submit_btn"
+            >
+              Nuevo Entrenamiento
+            </Button>
+            </form>
+          </div>
+      }
+
       <Dialog fullWidth maxWidth={"md"} open={modalVisible} onClose={handleClose} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Añadir ejercicios</DialogTitle>
         <DialogContent>
@@ -218,7 +226,6 @@ const CreateWorkout= () => {
               label="Reps"
               name="reps"
               autoComplete="reps"
-              autoFocus
               onChange={(e) => setcurrentExerSelect({...currentExerSelect,['reps']:e.target.value})}
               value={currentExerSelect.reps}
             />
@@ -232,7 +239,6 @@ const CreateWorkout= () => {
               name="sets"
               autoComplete="sets"
               InputProps={{ inputProps: { min: 0, max: 10 } }}
-              autoFocus
               onChange={(e) => setcurrentExerSelect({...currentExerSelect,['sets']:e.target.value})}
               value={currentExerSelect.sets}
             />
@@ -246,7 +252,6 @@ const CreateWorkout= () => {
               label="Duration"
               name="duration"
               autoComplete="duration"
-              autoFocus
               onChange={(e) => setcurrentExerSelect({...currentExerSelect,['duration']:e.target.value})}
               value={currentExerSelect.duration}
             />
@@ -254,14 +259,16 @@ const CreateWorkout= () => {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="secondary">
-            Cancel
+            Cancelar
           </Button>
           <Button onClick={addExerToWorkout} color="primary">
-            Subscribe
+            Añadir
           </Button>
         </DialogActions>
       </Dialog>
       <MSalert visible={alertErrorVisible} text="No has seleccionado ningún ejercicio" type="error"></MSalert>
+      <MSalert visible={error} text="Fallo al crear el entrenamiento" type="error"></MSalert>
+      <MSalert visible={created} text="Entrenamiento creado con exito" type="success"></MSalert>
     </StylesProvider>
 
 
