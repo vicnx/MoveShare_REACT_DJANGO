@@ -103,6 +103,9 @@ const CreateWorkout= () => {
             "Ha ocurrido un error al insertar el entrenamiento, vuelva a intentarlo de aqui unos minutos."
           :
             <div className="workout_create">
+              <div className="imagen_workout">
+                <img src={workout_image} alt="" onError={onError}/>
+              </div>
             <form className="workout_create_form" noValidate onSubmit={handleSubmit}>
               <TextField
                 variant="outlined"
