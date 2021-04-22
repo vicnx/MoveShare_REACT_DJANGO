@@ -16,6 +16,16 @@ class TrainingViewSet(viewsets.ModelViewSet):
     queryset = Training.objects.all().order_by('name')
     serializer_class = TrainingSerializer
     lookup_field = 'slug'
+    def get_queryset(self):
+        queryset = self.queryset
+        author = self.request.query_params.get('author', None)
+        if author is not None:
+            queryset = queryset.filter(author__user__username=author)
+
+        favorited_by = self.request.query_params.get('favorited', None)
+        if favorited_by is not None:
+            queryset = queryset.filter(favorited_by__user__username=favorited_by)
+        return queryset.order_by('-id')
 
     def create(self, request):
         serializer_context = {
