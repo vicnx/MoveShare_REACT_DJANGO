@@ -20,8 +20,6 @@ except IOError:
     # os.system("python3 manage.py createuser2 --username test1 --password 123321 --noinput --email 'blank@email.com'")
     # os.system('export DJANGO_SETTINGS_MODULE=settings')
     # os.system('python -m django_createsuperuser "revand" "12345678" revand@gmail.com')
-
-
     # os.system('echo -e "revand\nrevand@gmail.com\n12345678\n12345678\ny" | python3 manage.py createsuperuser')
     # os.system('echo -e"from django.contrib.auth.models import User; User.objects.create_superuser(\'revand\', \'revand@example.com\', \'12345678\')" | python manage.py shell')
 

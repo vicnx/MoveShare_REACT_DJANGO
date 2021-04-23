@@ -54,6 +54,7 @@ const CreateWorkout= () => {
   };
   const openModalExers = (e) =>{
     setModalVisible(true)
+  
   }
 
   const handleClose = (e) =>{

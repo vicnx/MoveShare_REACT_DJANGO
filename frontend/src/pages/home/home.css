@@ -1,1 +1,69 @@
+.home_div{
+    background: url('../../common/images/background1.svg');
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-size: cover;
+    height: 100vh;
+}
+.home_pre{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
 
+.home_pre_columns{
+    display: flex !important;
+    justify-content: space-around;
+    flex-direction: row-reverse;
+    max-width: 85%;
+    display: block;
+    margin: auto;
+}
+.home_pre_tex{
+    width: 370px;
+        display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    justify-content: flex-start;
+    padding: 20px;
+    margin-top: -154px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.568);
+    border-radius: 10px;
+    background: url('../../common/images/background_animated.svg');
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-size: cover;
+    height: 545px;
+    box-sizing: border-box;
+}
+.home_pre_text_div{
+    width: 30%;
+}
+
+.home_pre_image img{
+    display: block;
+    width: 600px;
+}
+.home_pre_image{
+    width: 65%;
+    margin-bottom: 100px;
+    margin-right: 200px;
+}
+.home_pre_tex_options{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.home_pre_tex .title{
+    color: var(--color_principal);
+    font-weight: bolder;
+    font-size: 30px;
+    margin-bottom: 49px;
+}
+.workouts_btn{
+    font-size: 16px;
+    height: 50px;
+}
