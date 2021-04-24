@@ -42,6 +42,7 @@ export default function MobileNav() {
       onChange={handleChange}
       className="bottomNav"
     >
+      <div id="menu"className="menu"></div>
       <BottomNavigationAction
         component={Link}
         label="Entrenamientos"

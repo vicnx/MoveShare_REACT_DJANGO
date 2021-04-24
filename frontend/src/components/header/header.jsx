@@ -43,6 +43,25 @@ const Header = () => {
     setResponsiveness();
     window.addEventListener("resize", () => setResponsiveness());
   }, []);
+  const changeNavbarColor = () =>{
+    if(state.mobileView ==false){
+      if(window.scrollY >= 80){
+        if(document.getElementById('menu').classList.contains("navbar-home")){
+          document.getElementById('menu').classList.remove("navbar-home");
+          document.getElementById('menu').classList.add("navbar");
+        }
+       }
+       else{
+        if(document.getElementById('menu').classList.contains("navbar")){
+          document.getElementById('menu').classList.remove("navbar");
+          document.getElementById('menu').classList.add("navbar-home");
+        }
+       }
+    }
+
+ };
+ 
+ window.addEventListener('scroll', changeNavbarColor);
   const classes = useStyles();
   return (
     <StylesProvider injectFirst>

@@ -1,6 +1,7 @@
 .navbar {
   background-color: white;
   color: #424242;
+  transition: 0.5s;
 }
 .navbar-content {
   display: flex;
@@ -58,8 +59,10 @@ i {
   background-color: var(--color_principal);
   box-shadow: none;
   color: rgb(32, 32, 32);;
+  transition: 0.5s;
 }
 
 .navbar-home svg{
   color: rgb(32, 32, 32);
+  transition: 0.5s;
 }

@@ -8,10 +8,10 @@ import { StylesProvider } from "@material-ui/core/styles";
 import "./home.css";
 import ExerciceList from "../../components/exercices/exercice-list";
 import {useExercices} from '../../hooks/useExercices'
-import Banner from '../../components/banner_page/banner'
 import HomeImage from '../../common/images/personal_training.svg'
 import Button from '@material-ui/core/Button';
 import {Link } from "react-router-dom";
+import HomeCategories from '../../components/home/categories'
 
 
 
@@ -45,14 +45,11 @@ export default function Home() {
               <img src={HomeImage}/>
             </div>
           </div>
-
         </div>
-        {/* <Paper elevation={3} className="paper-top-ejercicios">
-          <Typography variant="h5" className="home-title">
-            Top Ejercicios
-          </Typography>
-          <ExerciceList exercices={exercices} callBack={refreshExercices}/>
-        </Paper> */}
+        <div className="home_best_categories">
+          <span>CATEGORIAS POPULARES</span>
+          <HomeCategories quantity="4"/>
+        </div>
       </div>
     </StylesProvider>
 

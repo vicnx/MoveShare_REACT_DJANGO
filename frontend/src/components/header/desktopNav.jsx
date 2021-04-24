@@ -37,21 +37,7 @@ export default function DesktopNav() {
     setMenuProfile(null);
   };
 
-  const changeNavbarColor = () =>{
-     if(window.scrollY >= 80){
-      if(document.getElementById('menu').classList.contains("navbar-home")){
-        document.getElementById('menu').classList.remove("navbar-home");
-        document.getElementById('menu').classList.add("navbar");
-      }
-     }
-     else{
-      if(document.getElementById('menu').classList.contains("navbar")){
-        document.getElementById('menu').classList.remove("navbar");
-        document.getElementById('menu').classList.add("navbar-home");
-      }
-     }
-  };
-  window.addEventListener('scroll', changeNavbarColor);
+
   history.listen((location, action) => {
     console.log(location);
     if(window.location.pathname == "/home"){
