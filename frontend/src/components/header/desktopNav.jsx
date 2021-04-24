@@ -1,8 +1,10 @@
-import React, {useContext,useState} from "react";
+import React, {useContext,useState,useEffect} from "react";
 import { Button, AppBar, Toolbar, Typography } from "@material-ui/core";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link,withRouter } from "react-router-dom";
 import useUser from '../../hooks/useUser'
 import UserContext from "../../context/UserContext";
+import { useHistory } from "react-router-dom";
+
 
 
 //ICONS
@@ -22,16 +24,52 @@ import "./header.css";
 export default function DesktopNav() {
   // const isLogged = false;
   const [menuProfile, setMenuProfile] = useState(null);
+  const [classNameMenu, setclassNameMenu] = useState("navbar");
   const {isLogged,logout} = useUser();
   const { user } = useContext(UserContext);
+  let history = useHistory();
+
+  console.log(window.location.pathname);
   const openMenu = (event) => {
     setMenuProfile(event.currentTarget);
   };
   const closeMenu = () => {
     setMenuProfile(null);
   };
+
+  const changeNavbarColor = () =>{
+     if(window.scrollY >= 80){
+      if(document.getElementById('menu').classList.contains("navbar-home")){
+        document.getElementById('menu').classList.remove("navbar-home");
+        document.getElementById('menu').classList.add("navbar");
+      }
+     }
+     else{
+      if(document.getElementById('menu').classList.contains("navbar")){
+        document.getElementById('menu').classList.remove("navbar");
+        document.getElementById('menu').classList.add("navbar-home");
+      }
+     }
+  };
+  window.addEventListener('scroll', changeNavbarColor);
+  history.listen((location, action) => {
+    console.log(location);
+    if(window.location.pathname == "/home"){
+      if(document.getElementById('menu').classList.contains("navbar")){
+        document.getElementById('menu').classList.remove("navbar");
+        document.getElementById('menu').classList.add("navbar-home");
+      }
+    }else{
+      if(document.getElementById('menu').classList.contains("navbar-home")){
+        document.getElementById('menu').classList.remove("navbar-home");
+        document.getElementById('menu').classList.add("navbar");
+      }
+    }
+  })
+
+
   return (
-    <AppBar position="fixed" className="navbar">
+    <AppBar position="fixed" id="menu" className={window.location.pathname == "/home"? "navbar-home":"navbar"}>
       <Toolbar className="navbar-content">
         <Typography variant="h6">MoveShare</Typography>
         <div className="icon-list">

@@ -27,15 +27,6 @@ export function useExercices({ params } = { params: null }, refresh) {
     [refresh]
   );
 
-  const newExercice = useCallback(
-    (exercice) =>{
-      setLoading(true);
-      ExercicesService.create(exercice).then(({data})=>{
-        console.log(data);
-        setLoading(false);
-      })
-    }
-  )
 
   const refreshExercices = useCallback(
     () =>{
@@ -59,7 +50,6 @@ export function useExercices({ params } = { params: null }, refresh) {
     loading: loading,
     exercices: exercices,
     castegories: categories,
-    newExercice,
     refreshExercices
   };
 }

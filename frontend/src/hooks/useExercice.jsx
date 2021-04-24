@@ -1,10 +1,40 @@
 import { useContext, useEffect, useState, useCallback } from "react";
 import ExercicesContext from "../context/ExercicesContext";
 import ExercicesService from "../services/exercices.service";
+import { useHistory } from "react-router-dom";
+
 
 export function useExercice({ params } = { params: null }, refresh) {
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+
+  const [ok, setOk] = useState(false);
+  let history = useHistory();
   
+  const newExercice = useCallback(
+    (exercice) =>{
+      setLoading(true);
+      ExercicesService.create(exercice).then(({data})=>{
+        if(!data){
+          setError(true)
+          setLoading(false);
+          setTimeout(() => {
+            window.location.reload();
+          }, 2000);
+        }else{
+          setError(false)
+          setOk(true)
+          setTimeout(() => {
+            setOk(false)
+            history.push('/exercices/')
+            setLoading(false);
+          }, 1000);
+        }
+        console.log(data);
+        setLoading(false);
+      })
+    }
+  )
 
   const deleteExercice = useCallback(
     (exercice) => {
@@ -42,6 +72,9 @@ export function useExercice({ params } = { params: null }, refresh) {
     loading: loading,
     deleteExercice,
     favExercice,
-    unfavExercice
+    unfavExercice,
+    newExercice,
+    error,
+    ok
   };
 }

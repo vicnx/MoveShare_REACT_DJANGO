@@ -54,3 +54,12 @@ i {
 .menu-item{
   margin-left: 10px;
 }
+.navbar-home{
+  background-color: var(--color_principal);
+  box-shadow: none;
+  color: rgb(32, 32, 32);;
+}
+
+.navbar-home svg{
+  color: rgb(32, 32, 32);
+}
