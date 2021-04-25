@@ -31,7 +31,9 @@ class ExerciceViewSet(viewsets.ModelViewSet):
         if author is not None:
             queryset = queryset.filter(author__user__username=author)
 
-        categories = self.request.query_params.get('categories', None)
+        category = self.request.query_params.get('category', None)
+        if category is not None:
+            queryset = queryset.filter(categories=category)
         favorited_by = self.request.query_params.get('favorited', None)
         if favorited_by is not None:
             queryset = queryset.filter(favorited_by__user__username=favorited_by)
