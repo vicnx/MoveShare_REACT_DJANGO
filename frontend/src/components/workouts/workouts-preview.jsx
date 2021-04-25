@@ -28,7 +28,6 @@ export default function WorkoutPreview({workout,type=null,callBack}) {
   const printExercicesPreview = (e) =>{
     let exercicespreview = []
     for (let i = 0; i < 4; i++) {
-      console.log(workout.difficulties[i]);
       if(workout.difficulties[i]){
         exercicespreview.push(workout.difficulties[i])
       }
@@ -41,7 +40,7 @@ export default function WorkoutPreview({workout,type=null,callBack}) {
   }
   const workoutDetails = (e)=>{
     e.stopPropagation();
-    history.push('workout/'+workout.slug)
+    history.push('/workout/'+workout.slug)
   }
 
   return (

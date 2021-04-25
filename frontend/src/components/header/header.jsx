@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import { useHistory } from "react-router-dom";
 
 import MobileNav from "./bottomnav";
 import DesktopNav from "./desktopNav";
@@ -33,6 +34,8 @@ const Header = () => {
     mobileView: false,
   });
   const { mobileView } = state;
+  let history = useHistory();
+
   useEffect(() => {
     console.log("useeffect");
     const setResponsiveness = () => {
@@ -43,6 +46,7 @@ const Header = () => {
     setResponsiveness();
     window.addEventListener("resize", () => setResponsiveness());
   }, []);
+
   const changeNavbarColor = () =>{
     if(state.mobileView ==false){
       if(window.scrollY >= 80){
@@ -60,8 +64,25 @@ const Header = () => {
     }
 
  };
+
+ history.listen((location, action) => {
+  console.log(location);
+  if(window.location.pathname == "/home"){
+    if(document.getElementById('menu').classList.contains("navbar")){
+      document.getElementById('menu').classList.remove("navbar");
+      document.getElementById('menu').classList.add("navbar-home");
+      window.addEventListener('scroll', changeNavbarColor);
+    }
+  }else{
+    if(document.getElementById('menu').classList.contains("navbar-home")){
+      document.getElementById('menu').classList.remove("navbar-home");
+      document.getElementById('menu').classList.add("navbar");
+    }
+    window.removeEventListener('scroll', changeNavbarColor);
+
+  }
+})
  
- window.addEventListener('scroll', changeNavbarColor);
   const classes = useStyles();
   return (
     <StylesProvider injectFirst>

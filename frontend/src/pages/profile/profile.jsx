@@ -105,7 +105,7 @@ export default function Profile() {
                   <span className="profile_card_footer_text">Workouts</span>
                 </div>
                 <div className="profile_card_footer--followers">
-                <span className="profile_card_footer_count">4563</span>
+                <span className="profile_card_footer_count">{profile.followersCount}</span>
                   <span className="profile_card_footer_text">Followers</span>
                 </div>
               </div>

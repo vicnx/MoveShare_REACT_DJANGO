@@ -23,6 +23,7 @@ export function useWorkouts({ params } = { params: null }, refresh) {
   return {
     loading: loading,
     workouts: workouts,
-    error: error
+    error: error,
+    setWorkouts
   };
 }
