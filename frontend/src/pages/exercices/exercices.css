@@ -1,0 +1,18 @@
+.Cat_filter{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.Cat_filter h1{
+  color: var(--color_principal);
+  font-weight: bolder;
+
+}
+.error_exercices{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}

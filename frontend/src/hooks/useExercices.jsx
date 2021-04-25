@@ -13,6 +13,7 @@ export function useExercices({ params } = { params: null }, refresh) {
   useEffect(
     function () {
       setLoading(true);
+      console.log(params);
       ExercicesService.query(params).then(({ data }) => {
         setExercices(data.results);
         console.log(exercices);

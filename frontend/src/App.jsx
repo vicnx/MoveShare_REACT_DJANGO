@@ -38,7 +38,7 @@ function App() {
               <Route path="/login" component={Login}></Route>
               <Route path="/register" component={Register}></Route>
               <Route path="/home" component={HomePage}></Route>
-              <PrivateRoute path="/exercices" component={Exercices}></PrivateRoute>
+              <PrivateRoute path="/exercices/:category" component={Exercices}></PrivateRoute>
               <PrivateRoute path="/workouts" component={Workouts}></PrivateRoute>
               <PrivateRoute component={createExercicePage} path="/new/exercice" exact />
               <PrivateRoute component={createWorkoutPage} path="/new/workout" exact />

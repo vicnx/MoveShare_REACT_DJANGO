@@ -23,6 +23,7 @@ import Loading from 'react-simple-loading';
 
 const HomeCategories = ({quantity}) => {
   const {categories} = useCategories(false)
+  const history = useHistory()
 
   const printCategories = (e) =>{
     let categories_print = []
@@ -37,13 +38,17 @@ const HomeCategories = ({quantity}) => {
     e.target.src="https://upload.wikimedia.org/wikipedia/commons/8/84/Musculation_exercice_abdominal.png"
   }
 
+  const goCat = (e) =>{
+    history.push('/exercices/'+e)
+  }
+
 
   return (
     <div className="categories_list">
       {
         
         printCategories().map((category,index) =>
-          <div className="category_preview">
+          <div className="category_preview" onClick={()=>{goCat(category.id)}}>
             <div className="category_preview_left">
               <img src={category.image} onError={onError}/>
             </div>
