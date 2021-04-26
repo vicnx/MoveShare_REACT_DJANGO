@@ -2,10 +2,10 @@ import React,{useState} from "react";
 import {
   Container,
 } from "@material-ui/core";
-import ExerciceList from "../../components/exercices/exercice-list";
-import {useExercices} from '../../hooks/useExercices'
+import ExerciceList from "../../../components/exercices/exercice-list";
+import {useExercices} from '../../../hooks/useExercices'
 import { useParams } from "react-router";
-import {useCategories} from '../../hooks/useCategories'
+import {useCategories} from '../../../hooks/useCategories'
 import Alert from '@material-ui/lab/Alert';
 
 import './exercices.css'

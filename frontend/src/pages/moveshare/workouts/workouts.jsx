@@ -3,8 +3,8 @@ import {
   Container,
 } from "@material-ui/core";
 // import ExerciceList from "../../components/exercices/exercice-list";
-import WorkoutList from "../../components/workouts/workouts-list";
-import {useWorkouts} from '../../hooks/useWorkouts'
+import WorkoutList from "../../../components/workouts/workouts-list";
+import {useWorkouts} from '../../../hooks/useWorkouts'
 
 
 export default function WorkoutsPage() {

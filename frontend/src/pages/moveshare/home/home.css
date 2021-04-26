@@ -2,7 +2,7 @@
 height: 100vh;
 }
 .home_pre{
-    background: url('../../common/images/background1.svg');
+    background: url('../../../common/images/background1.svg');
     background-repeat: no-repeat;
     background-position-x: center;
     background-size: cover;
@@ -30,7 +30,7 @@ height: 100vh;
     margin-top: -154px;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.568);
     border-radius: 10px;
-    background: url('../../common/images/background_animated.svg');
+    background: url('../../../common/images/background_animated.svg');
     background-repeat: no-repeat;
     background-position-x: center;
     background-size: cover;

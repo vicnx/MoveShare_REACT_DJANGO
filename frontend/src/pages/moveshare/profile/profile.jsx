@@ -9,16 +9,16 @@ import {
 } from "@material-ui/core";
 import { StylesProvider } from "@material-ui/core/styles";
 import "./profile.css";
-import ExerciceList from "../../components/exercices/exercice-list";
-import Settings from "../../components/profile/settings/settings";
-import {useExercices} from '../../hooks/useExercices'
-import {useProfiles} from '../../hooks/useProfile'
-import useUser from '../../hooks/useUser'
-import UserContext from "../../context/UserContext";
+import ExerciceList from "../../../components/exercices/exercice-list";
+import Settings from "../../../components/profile/settings/settings";
+import {useExercices} from '../../../hooks/useExercices'
+import {useProfiles} from '../../../hooks/useProfile'
+import useUser from '../../../hooks/useUser'
+import UserContext from "../../../context/UserContext";
 import { useParams } from "react-router";
-import Follow from '../../components/profile/follow/follow'
-import {useWorkouts} from '../../hooks/useWorkouts'
-import WorkoutList from "../../components/workouts/workouts-list";
+import Follow from '../../../components/profile/follow/follow'
+import {useWorkouts} from '../../../hooks/useWorkouts'
+import WorkoutList from "../../../components/workouts/workouts-list";
 
 
 export default function Profile() {

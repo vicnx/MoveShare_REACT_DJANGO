@@ -12,6 +12,7 @@ export default function useUser() {
   const { user, setUser } = useContext(UserContext);
   const [ state, setState ] = useState({ loading: false, error: false, loadingUser: true});
   const [ errorMSG, setErrorMSG ] = useState("")
+  const {admin,setAdmin} = useContext(UserContext);
 
   const login = useCallback(
     (email, password) => {
@@ -116,6 +117,9 @@ export default function useUser() {
     checkOwner,
     updateUser,
     isLoggedSimple: isLoggedSimple(),  
-    loadingUser: state.loadingUser
+    loadingUser: state.loadingUser,
+    admin,
+    setAdmin,
+    user: user
   };
 }

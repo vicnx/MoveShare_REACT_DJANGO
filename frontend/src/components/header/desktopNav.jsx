@@ -17,6 +17,7 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Avatar from '@material-ui/core/Avatar';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import LockOpenIcon from '@material-ui/icons/LockOpen';
 
 //It is used to tell the Material Ui framework to search the css first
 import "./header.css";
@@ -118,6 +119,16 @@ export default function DesktopNav() {
                 <FitnessCenterIcon color="primary" />
                 <span className="menu-item">Nuevo Entrenamiento</span>
               </MenuItem>
+              {
+              user.is_staff ?
+              <MenuItem onClick={closeMenu} to={"/admin"} component={Link}>
+                <LockOpenIcon color="primary" />
+                <span className="menu-item">Panel Administrador</span>
+              </MenuItem>
+              :
+              null
+              }
+
               <MenuItem onClick={logout}>                
                 <ExitToAppIcon color="primary" />
                 <span className="menu-item">Salir</span>
