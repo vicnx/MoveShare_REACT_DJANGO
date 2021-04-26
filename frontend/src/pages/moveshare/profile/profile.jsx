@@ -27,9 +27,7 @@ export default function Profile() {
   const {isLogged,logout,checkOwner} = useUser();
   const {username} = useParams();
   const {profile,follow,unfollow} = useProfiles({username});
-
-  console.log(profile);
-
+  
   const params={
     filters: {
       limit: 4,
@@ -39,10 +37,7 @@ export default function Profile() {
 
   const {exercices,refreshExercices} = useExercices({params},username);
   const {workouts} = useWorkouts({params},username);
-  console.log(workouts);
-  useEffect(() => {
-    // window.location.reload()
-  }, [username]);
+
 
 
   const followUser = ()=>{
@@ -97,11 +92,11 @@ export default function Profile() {
               </div>
               <div className="profile_card_footer">
                 <div className="profile_card_footer--exercices">
-                  <span className="profile_card_footer_count">18</span>
+                  <span className="profile_card_footer_count">{exercices.length}</span>
                   <span className="profile_card_footer_text">Exercices</span>
                 </div>
                 <div className="profile_card_footer--workouts">
-                <span className="profile_card_footer_count">5</span>
+                <span className="profile_card_footer_count">{workouts.length}</span>
                   <span className="profile_card_footer_text">Workouts</span>
                 </div>
                 <div className="profile_card_footer--followers">

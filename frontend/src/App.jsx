@@ -69,9 +69,8 @@ const Check_Admin = () =>{
                   <PrivateRoute component={createExercicePage} path="/new/exercice" exact />
                   <PrivateRoute component={createWorkoutPage} path="/new/workout" exact />
                   <Route component={ActiveAdmin} path="/admin" />
-                  <Redirect from='/admin' to='/home' />
-                  <Redirect from='/' to='/home' />
-                  <Redirect from='/dashboard' to='/home' />
+                  {/* <Redirect from='/admin' to='/home' /> */}
+                  {/* <Redirect from='/dashboard' to='/home' /> */}
                   <ProfileContextProvider>
                     <Route path="/workout/:workoutid" component={WorkoutDetail}></Route>
                     <Route path="/@:username" component={Profile}></Route>
