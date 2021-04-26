@@ -25,6 +25,7 @@ const Profile = React.lazy(() => import("./pages/profile/profile"));
 const Register = React.lazy(() => import("./pages/register/register"));
 const createExercicePage = React.lazy(() => import("./pages/exercices/createExercice"));
 const createWorkoutPage = React.lazy(() => import("./pages/workouts/createWorkout"));
+const AdminPanel = React.lazy(() => import("./pages/admin_panel/Paperbase"));
 
 function App() {
   console.log("app");
@@ -32,7 +33,11 @@ function App() {
     <UserContextProvider>
         <ThemeProvider theme={theme}>
         <Suspense fallback={null}>
-          <Header></Header>
+          {
+            window.location.pathname == "/admin" ?
+            null :
+            <Header></Header>
+          }
           <ExercicesContextProvider>
             <WorkoutsContextProvider>
               <Route path="/login" component={Login}></Route>
@@ -42,6 +47,7 @@ function App() {
               <PrivateRoute path="/workouts" component={Workouts}></PrivateRoute>
               <PrivateRoute component={createExercicePage} path="/new/exercice" exact />
               <PrivateRoute component={createWorkoutPage} path="/new/workout" exact />
+              <PrivateRoute component={AdminPanel} path="/admin" exact />
               <ProfileContextProvider>
                 <Route path="/workout/:workoutid" component={WorkoutDetail}></Route>
                 <Route path="/@:username" component={Profile}></Route>

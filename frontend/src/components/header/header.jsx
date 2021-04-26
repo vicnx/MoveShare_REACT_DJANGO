@@ -65,8 +65,8 @@ const Header = () => {
 
  };
 
+ 
  history.listen((location, action) => {
-  console.log(location);
   if(window.location.pathname == "/home"){
     if(document.getElementById('menu').classList.contains("navbar")){
       document.getElementById('menu').classList.remove("navbar");

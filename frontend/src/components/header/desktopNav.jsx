@@ -53,6 +53,29 @@ export default function DesktopNav() {
     }
   })
 
+  const changeNavbarColor = () =>{
+      if(window.scrollY >= 80){
+        if(document.getElementById('menu').classList.contains("navbar-home")){
+          document.getElementById('menu').classList.remove("navbar-home");
+          document.getElementById('menu').classList.add("navbar");
+        }
+       }
+       else{
+        if(document.getElementById('menu').classList.contains("navbar")){
+          document.getElementById('menu').classList.remove("navbar");
+          document.getElementById('menu').classList.add("navbar-home");
+        }
+       }
+
+ };
+
+  if(window.location.pathname == "/home"){
+    window.addEventListener('scroll', changeNavbarColor);
+  }else{
+    window.removeEventListener('scroll', changeNavbarColor);
+  }
+
+
 
   return (
     <AppBar position="fixed" id="menu" className={window.location.pathname == "/home"? "navbar-home":"navbar"}>
