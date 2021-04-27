@@ -28,6 +28,7 @@ export default function ModalCategory(params) {
           </DialogContentText> */}
           <div className="modalCategoryInputs">
             <TextField
+              label="Outlined" variant="outlined"
               autoFocus
               id="name"
               label="Nombre"
@@ -36,6 +37,7 @@ export default function ModalCategory(params) {
               className="input"
             />
             <TextField
+              label="Outlined" variant="outlined"
               id="image"
               label="Imagen"
               type="text"
@@ -50,7 +52,7 @@ export default function ModalCategory(params) {
             Cancel
           </Button>
           <Button onClick={handleClose} color="primary">
-            Subscribe
+            Guardar
           </Button>
         </DialogActions>
       </Dialog>
