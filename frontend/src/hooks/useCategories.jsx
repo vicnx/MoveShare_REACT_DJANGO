@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState, useCallback } from "react";
 import ExercicesContext from "../context/ExercicesContext";
-import ExercicesService from "../services/exercices.service";
+import CategoriesService from "../services/categories.service";
 
 export function useCategories(refresh) {
   const [loading, setLoading] = useState(false);
@@ -11,7 +11,7 @@ export function useCategories(refresh) {
   useEffect(
     function () {
       setLoading(true);
-      ExercicesService.getCategories().then(({data})=>{
+      CategoriesService.query().then(({data})=>{
         setCategories(data.results)
         setLoading(false);
       })

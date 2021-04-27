@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState, useCallback } from "react";
 import ExercicesContext from "../context/ExercicesContext";
 import ExercicesService from "../services/exercices.service";
+import CategoriesService from "../services/categories.service";
 
 export function useExercices({ params } = { params: null }, refresh) {
   const [loading, setLoading] = useState(false);
@@ -16,12 +17,10 @@ export function useExercices({ params } = { params: null }, refresh) {
       console.log(params);
       ExercicesService.query(params).then(({ data }) => {
         setExercices(data.results);
-        console.log(exercices);
         setLoading(false);
       });
-      ExercicesService.getCategories().then(({data})=>{
+      CategoriesService.query().then(({data})=>{
         setCategories(data.results)
-        console.log(categories);
         setLoading(false);
       })
     },
@@ -34,12 +33,10 @@ export function useExercices({ params } = { params: null }, refresh) {
       setLoading(true);
       ExercicesService.query(params).then(({ data }) => {
         setExercices(data.results);
-        console.log(exercices);
         setLoading(false);
       });
-      ExercicesService.getCategories().then(({data})=>{
+      CategoriesService.query().then(({data})=>{
         setCategories(data.results)
-        console.log(categories);
         setLoading(false);
       })
     }

@@ -5,7 +5,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import { useEffect, useState } from 'react';
 // import EditUserModal from './EditUser/admin.editUsers';
-import ExercicesService from "../../../services/exercices.service";
+import CategoriesService from "../../../services/categories.service";
 import AddIcon from '@material-ui/icons/Add';
 
 
@@ -19,8 +19,7 @@ const Categories = () => {
 
 
     useEffect(() => {
-      ExercicesService.getCategories().then(({data})=>{
-        console.log(data.results);
+      CategoriesService.query().then(({data})=>{
         setCategoriesAdmin(data.results)
         setLoading(false);
       })
