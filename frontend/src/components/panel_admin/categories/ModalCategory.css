@@ -1,0 +1,27 @@
+#modalCategoryTitle{
+  text-transform: capitalize;
+}
+.modalCategory{
+  width: 100%;
+}
+.modalCategory .MuiDialog-paperWidthSm {
+  width: 50%;
+  max-width: 100%;
+  min-width: 600px;
+  min-height: 300px;
+}
+
+.modalCategoryContent{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modalCategoryInputs{
+  width: 50%;
+  min-width: 150px;
+
+}
+.modalCategoryContent .input{
+  margin-bottom: 20px;
+}
