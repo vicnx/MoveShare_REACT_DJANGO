@@ -5,8 +5,11 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import { useEffect, useState } from 'react';
 // import EditUserModal from './EditUser/admin.editUsers';
+import ModalCategory from '../../../components/panel_admin/categories/ModalCategory'
 import CategoriesService from "../../../services/categories.service";
 import AddIcon from '@material-ui/icons/Add';
+import Loading from 'react-simple-loading';
+
 
 
 const Categories = () => {
@@ -15,6 +18,9 @@ const Categories = () => {
     const handleOpenModal = () => setModalVisible(true)
     const [categoriesAdmin, setCategoriesAdmin] = useState()
     const [loading, setLoading] = useState(true)
+
+    const [ModalCategoryOpen, setModalCategoryOpen] = useState(false)
+    const [ModalCategoryType, setModalCategoryType] = useState("create")
 
 
 
@@ -56,16 +62,16 @@ const Categories = () => {
     return (
         <>
             {
-                loading ? null :
+                loading ? <Loading/> :
                 <>
                   <div className="optionsCategories">
-                    <Button className="btn-options" variant="outlined" color="default" size="small">Nueva Categoria</Button>
+                    <Button className="btn-options" variant="outlined" color="default" size="small" onClick={(e)=>setModalCategoryOpen(true),setModalCategoryType("create")}>Nueva Categoria</Button>
                   </div>
                   <div className="categoriesAdmin">
                       <DataGrid rows={categoriesAdmin} columns={columns} pageSize={20} checkboxSelection={false} />
-                      {/* <EditUserModal user={""} visibleModal={modalVisible} setVisibleModal={setModalVisible} /> */}
+                      <ModalCategory open={ModalCategoryOpen} setOpen={setModalCategoryOpen}/>
                   </div>
-                    </>
+                </>
             }
         </>
 

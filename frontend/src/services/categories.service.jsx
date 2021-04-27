@@ -6,12 +6,13 @@ const CategoriesService = {
     return ApiService.query("fitness/category", {});
   },
 
-  create(exercice){
+  create(category){
     ApiService.auth();
-    return ApiService.post("fitness/exercice", { exercice })
+    return ApiService.post("fitness/category", { category })
   },
-  destroy(slug) {
-    return ApiService.delete(`fitness/exercice/${slug}`);
+  
+  destroy(idcategory) {
+    return ApiService.delete(`fitness/category/${idcategory}`);
   },
 }
 
