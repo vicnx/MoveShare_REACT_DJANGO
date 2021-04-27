@@ -15,13 +15,18 @@ const PanelAdminMain = () => {
     const { isLogged,user,loadingUser } = useUser()
 
     const location = useLocation();
+    console.log("ROUTING");
+    console.log("loadingUser",loadingUser);
     if(!loadingUser){
         if (user) {
           if (!user.is_staff) {
-              window.localStorage.setItem('admin', false)
+              window.localStorage.removeItem('admin')
               window.location.reload()
           }
-      }
+        }else{
+            window.localStorage.removeItem('admin')
+            window.location.reload()
+        }
     }
 
 

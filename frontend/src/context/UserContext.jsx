@@ -7,12 +7,10 @@ export function UserContextProvider({ children }) {
   
   //funcion que intenta obtener su propio usuario con ese token (sirve para detectar tokens invalidos o expirados)
   const check_auth = () => {
-    console.log("CHECKOUTIKJWDNK");
     if (getToken()) {
       ApiService.auth();
       ApiService.get("user")
       .then(({ data }) => {
-        console.log(data);
         setUser(data.user)
         setJWT(data.user.token)
       })

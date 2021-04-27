@@ -10,6 +10,7 @@ export const saveToken = token => {
 };
 
 export const destroyToken = () => {
+  window.localStorage.removeItem('admin')
   window.localStorage.removeItem(ID_TOKEN_KEY);
 };
 

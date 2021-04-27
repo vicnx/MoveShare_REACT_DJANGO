@@ -19,7 +19,6 @@ export default function useUser() {
       setState({ loading: true, error: false, loadingUser: true });
       loginService({ user: { email, password } })
         .then((data) => {
-          // setState({loading:false,error:false})
           if (data.errors){
             setState({loading:false,error:true, loadingUser: false})
             setErrorMSG(data.errors)
