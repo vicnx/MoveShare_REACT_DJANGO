@@ -65,11 +65,11 @@ const Categories = () => {
                 loading ? <Loading/> :
                 <>
                   <div className="optionsCategories">
-                    <Button className="btn-options" variant="outlined" color="default" size="small" onClick={(e)=>setModalCategoryOpen(true),setModalCategoryType("create")}>Nueva Categoria</Button>
+                    <Button className="btn-options" variant="outlined" color="default" size="small" onClick={(e)=>{setModalCategoryOpen(true);setModalCategoryType("create")}}>Nueva Categoria</Button>
                   </div>
                   <div className="categoriesAdmin">
                       <DataGrid rows={categoriesAdmin} columns={columns} pageSize={20} checkboxSelection={false} />
-                      <ModalCategory open={ModalCategoryOpen} setOpen={setModalCategoryOpen}/>
+                      <ModalCategory open={ModalCategoryOpen} setOpen={setModalCategoryOpen} type={ModalCategoryType}/>
                   </div>
                 </>
             }
