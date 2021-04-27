@@ -44,7 +44,6 @@ export default function Exercices() {
             exercices.length < 1 ?
             <div className="error_exercices">
               <Alert severity="error">No hay ejercicios disponibles</Alert>
-
             </div>
             
             :

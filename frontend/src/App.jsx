@@ -36,9 +36,12 @@ function App() {
   console.log("app");
   console.log(user);
   return (
-    <UserContextProvider>
-      <Check_Admin/>
-    </UserContextProvider>
+    <Switch>
+      <UserContextProvider>
+        <Check_Admin/>
+      </UserContextProvider>
+    </Switch>
+
   );
 }
 
@@ -61,19 +64,24 @@ const Check_Admin = () =>{
               <Header></Header>
               <ExercicesContextProvider>
                 <WorkoutsContextProvider>
-                  <Route path="/login" component={Login}></Route>
-                  <Route path="/register" component={Register}></Route>
-                  <Route path="/home" component={HomePage}></Route>
-                  <PrivateRoute path="/exercices/:category?" component={Exercices}></PrivateRoute>
-                  <PrivateRoute path="/workouts" component={Workouts}></PrivateRoute>
-                  <PrivateRoute component={createExercicePage} path="/new/exercice" exact />
-                  <PrivateRoute component={createWorkoutPage} path="/new/workout" exact />
-                  <Route component={ActiveAdmin} path="/admin" />
-                  {/* <Redirect from='/admin' to='/home' /> */}
-                  {/* <Redirect from='/dashboard' to='/home' /> */}
+                  <Switch>
+                    <Route exact path="/login" component={Login} ></Route>
+                    <Route exact path="/register" component={Register}></Route>
+                    <Route exact path="/home" component={HomePage}></Route>
+                    <PrivateRoute path="/exercices/:category?" component={Exercices}></PrivateRoute>
+                    <PrivateRoute exact path="/workouts" component={Workouts}></PrivateRoute>
+                    <PrivateRoute exact component={createExercicePage} path="/new/exercice" />
+                    <PrivateRoute exact component={createWorkoutPage} path="/new/workout"/>
+                    <Route exact component={ActiveAdmin} path="/admin" />
+                  </Switch>
                   <ProfileContextProvider>
-                    <Route path="/workout/:workoutid" component={WorkoutDetail}></Route>
-                    <Route path="/@:username" component={Profile}></Route>
+                    <Switch>
+                      <Route path="/workout/:workoutid" component={WorkoutDetail}></Route>
+                      <Route path="/@:username" component={Profile}></Route>
+                      <Route path="*">
+                        <Redirect to="/home" />
+                      </Route>
+                    </Switch>
                   </ProfileContextProvider>
                 </WorkoutsContextProvider>
               </ExercicesContextProvider>
