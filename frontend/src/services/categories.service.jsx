@@ -8,7 +8,8 @@ const CategoriesService = {
 
   create(category){
     ApiService.auth();
-    return ApiService.post("fitness/category", { category })
+    console.log(category);
+    return ApiService.post("fitness/category", category )
   },
   
   destroy(idcategory) {
