@@ -35,7 +35,7 @@ export function useCategories(refresh) {
         setOk(true)
         setTimeout(() => {
           setOk(false)
-          history.push('/categories/')
+          window.location.reload();
           setLoading(false);
         }, 1000);
       }else{
@@ -53,7 +53,7 @@ export function useCategories(refresh) {
       setOk(true)
       setTimeout(() => {
         setOk(false)
-        history.push('/categories/')
+        window.location.reload();
         setLoading(false);
       }, 1000);
     })
