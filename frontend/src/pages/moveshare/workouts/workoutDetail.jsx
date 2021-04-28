@@ -16,7 +16,7 @@ export default function WorkoutDetail() {
   console.log(workout);
 
   return (
-      <Container className="workouts_page">
+      <Container className="workouts_page_details">
 
           {
             !loading ?

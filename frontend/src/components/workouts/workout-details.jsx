@@ -1,16 +1,15 @@
-import React, { useState} from "react";
-import { Card, Button, Avatar, Chip ,Paper,Divider} from "@material-ui/core";
+import React from "react";
+import { Avatar,Divider} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
-import {Link } from "react-router-dom";
 import { StylesProvider } from "@material-ui/core/styles";
-import FavoriteIcon from '@material-ui/icons/Favorite';
 import { useHistory } from "react-router-dom";
-import {useWorkout} from '../../hooks/useWorkout';
 import Difficultie from "./difficulties-preview"
 import Follow from './../profile/follow/follow'
 import Loading from 'react-simple-loading';
 import useUser from '../../hooks/useUser'
 import RemoveWorkout from './remove/remove'
+import Alert from '@material-ui/lab/Alert';
+
 
 
 import logo from '../../common/images/workouts.png';
@@ -59,7 +58,6 @@ export default function WorkoutDetails({workout}) {
               <div className="workout_details_bottom_author">
                   <div className="authorbox">
                     <Avatar alt={workout.author.username}  src={workout.author.image} className="author_img_details"  />
-
                     <Typography className="username">
                       {workout.author.username}
                     </Typography>
@@ -75,6 +73,11 @@ export default function WorkoutDetails({workout}) {
               </div>
               <div className="exercices_list_list">
                   {
+                    workout.difficulties.length <1?
+                    <div className="error_exercices_workout">
+                      <Alert severity="error">No hay ejercicios en este entrenamiento.</Alert>
+                    </div>
+                    :
                     workout.difficulties.map((exercice,index) =>
                     <Difficultie
                     key={index}
