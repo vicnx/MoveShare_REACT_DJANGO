@@ -1,13 +1,4 @@
-.workouts_page_details {
-  background: url('../../common/images/background1.svg');
-  background-repeat: no-repeat;
-  background-position-x: center;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  max-width: unset;
-}
+
 
 .workout_details_top{
   background-color: white;
