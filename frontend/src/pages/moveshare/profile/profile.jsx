@@ -19,7 +19,10 @@ import { useParams } from "react-router";
 import Follow from '../../../components/profile/follow/follow'
 import {useWorkouts} from '../../../hooks/useWorkouts'
 import WorkoutList from "../../../components/workouts/workouts-list";
-
+import BackgroundSlider from 'react-background-slider'
+import bg1 from '../../../common/images/backgrounds_app/bg_triangle4.jpg';
+import bg2 from '../../../common/images/backgrounds_app/bg_triangle5.jpg';
+import bg3 from '../../../common/images/backgrounds_app/bg_triangle6.jpg';
 
 export default function Profile() {
   const [currentTab, setCurrentTab] = useState(0);
@@ -70,6 +73,7 @@ export default function Profile() {
 
   return (
     <>
+    <BackgroundSlider images={[bg1,bg2,bg3]} duration={20} transition={1} />
     <StylesProvider injectFirst>
       <Container className="profile">
         <Container className="profile_left">

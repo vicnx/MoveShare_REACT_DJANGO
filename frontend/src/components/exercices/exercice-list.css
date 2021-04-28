@@ -6,6 +6,23 @@
   width: 80%;
   margin: 0 auto;
   overflow-y: scroll;
-  margin-bottom: 200px;
-  height: 100%;
+  height: 99%;
+}
+.list_exercices_categories{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px;
+  width: 80%;
+  margin: 0 auto;
+  overflow-y: scroll;
+  margin-bottom: 800px;
+  height: 80%;
+}
+
+
+@media (max-width: 900px) {
+  .list_exercices{
+    width: 100%;
+  }
 }

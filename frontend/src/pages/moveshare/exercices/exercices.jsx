@@ -51,7 +51,7 @@ export default function Exercices() {
             </div>
             
             :
-            <ExerciceList exercices={exercices} callBack={refreshExercices} />
+            <ExerciceList exercices={exercices} callBack={refreshExercices} type={category ? "categories":null}/>
 
           }
 

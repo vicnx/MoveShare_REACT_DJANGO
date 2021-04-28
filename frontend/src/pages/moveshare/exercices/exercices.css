@@ -4,6 +4,7 @@
   width: 100%;
   justify-content: center;
   align-items: center;
+  margin-bottom: 20px;
 }
 .Cat_filter h1{
   color: var(--color_principal);
@@ -27,5 +28,10 @@
 @media (max-width: 900px) {
   .exercices_page{
     padding: 0;
+  }
+
+  .Cat_filter{
+    padding: 20px;
+    width: 80%;
   }
 }
