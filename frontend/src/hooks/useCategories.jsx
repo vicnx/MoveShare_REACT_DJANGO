@@ -47,12 +47,24 @@ export function useCategories(refresh) {
       }
     })
   })
+  const deleteCategory = useCallback((idcategory) =>{
+    CategoriesService.destroy(idcategory).then(({data}) =>{
+      setError(false)
+      setOk(true)
+      setTimeout(() => {
+        setOk(false)
+        history.push('/categories/')
+        setLoading(false);
+      }, 1000);
+    })
+  })
 
 
   return {
     loading: loading,
     categories,
     createCategory,
+    deleteCategory,
     ok,
     error,
     setError,

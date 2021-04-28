@@ -9,10 +9,15 @@ import ModalCategory from '../../../components/panel_admin/categories/ModalCateg
 import CategoriesService from "../../../services/categories.service";
 import AddIcon from '@material-ui/icons/Add';
 import Loading from 'react-simple-loading';
+import {useCategories} from '../../../hooks/useCategories'
+import MSalert from '../../../components/alerts/alert'
+
+
 
 
 
 const Categories = () => {
+    const {deleteCategory,ok,error,setError} = useCategories(false)
 
     const [modalVisible, setModalVisible] = useState(false);
     const handleOpenModal = () => setModalVisible(true)
@@ -21,6 +26,8 @@ const Categories = () => {
 
     const [ModalCategoryOpen, setModalCategoryOpen] = useState(false)
     const [ModalCategoryType, setModalCategoryType] = useState("create")
+    const [errorText, seterrorText] = useState("No se ha podido eliminar la categoria, intentelo de nuevo.");
+
 
 
 
@@ -53,8 +60,8 @@ const Categories = () => {
             description: 'This column is not sortable.',
             sortable: false,
             width: 100,
-            renderCell: () => {
-                return (<Button className="btn" variant="outlined" color="secondary" size="small"><DeleteIcon /></Button>)
+            renderCell: (params) => {
+                return (<Button className="btn" variant="outlined" color="secondary" size="small" onClick={()=>{deleteCategory(params.id)}}><DeleteIcon /></Button>)
             },
         },
     ];
@@ -71,6 +78,8 @@ const Categories = () => {
                       <DataGrid rows={categoriesAdmin} columns={columns} pageSize={20} checkboxSelection={false} />
                       <ModalCategory open={ModalCategoryOpen} setOpen={setModalCategoryOpen} type={ModalCategoryType}/>
                   </div>
+                  <MSalert visible={ok} text="Categoria eliminada con exito!" type="success"></MSalert>
+                  <MSalert visible={error} text={errorText} type="error"></MSalert>
                 </>
             }
         </>
