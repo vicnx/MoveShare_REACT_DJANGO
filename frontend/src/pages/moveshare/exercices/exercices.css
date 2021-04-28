@@ -16,3 +16,16 @@
   justify-content: center;
   margin-top: 40px;
 }
+
+.exercices_page{
+  height: 93vh;
+  width: 100vw;
+  overflow:hidden;
+  max-width: unset;
+}
+
+@media (max-width: 900px) {
+  .exercices_page{
+    padding: 0;
+  }
+}

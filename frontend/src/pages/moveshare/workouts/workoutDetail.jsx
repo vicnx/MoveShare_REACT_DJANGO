@@ -6,10 +6,10 @@ import { useParams } from "react-router";
 import WorkoutDetails from "../../../components/workouts/workout-details";
 import {useWorkout} from '../../../hooks/useWorkout'
 import Loading from 'react-simple-loading';
-import bg1 from '../../../common/images/bg1.svg';
-import bg2 from '../../../common/images/bg2.svg';
-import bg3 from '../../../common/images/bg3.svg';
-import test1 from '../../../common/images/test1.jpg';
+import bg1 from '../../../common/images/backgrounds_app/bg_triangle1.jpg';
+import bg2 from '../../../common/images/backgrounds_app/bg_triangle2.jpg';
+import bg3 from '../../../common/images/backgrounds_app/bg_triangle3.jpg';
+
 import BackgroundSlider from 'react-background-slider'
 
 
@@ -23,9 +23,7 @@ export default function WorkoutDetail() {
 
   return (
     <>
-<BackgroundSlider
-  images={[test1]}
-  duration={10} transition={2} />
+      <BackgroundSlider images={[bg1,bg2,bg3]} duration={20} transition={1} />
       <Container className="workouts_page_details">
 
           {

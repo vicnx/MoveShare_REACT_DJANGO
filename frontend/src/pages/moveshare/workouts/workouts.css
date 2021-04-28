@@ -4,3 +4,15 @@
   justify-content: center;
   margin-top: 40px;
 }
+.workouts_page{
+  height: 93vh;
+  width: 100vw;
+  overflow:hidden;
+  max-width: unset;
+}
+
+@media (max-width: 900px) {
+  .workouts_page{
+    padding: 0;
+  }
+}

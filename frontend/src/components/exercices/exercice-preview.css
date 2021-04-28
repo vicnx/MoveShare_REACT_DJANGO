@@ -2,7 +2,7 @@
   width: 280px;
   height: 450px;
   background: white;
-  margin: 10px;
+  margin: 20px;
   position: relative;
   overflow: hidden;
   border-radius: 10px 10px 10px 10px;
@@ -19,11 +19,11 @@
 }
 .exercice_preview_header .exer_preview_img {
   height: 100%;
-  transform: translate(-25%, 0%);
+  /* transform: translate(-25%, 0%); */
   transition: 1s;
 }
 .exer_preview_img:hover{
-  transform: translate(-25%, 0%) scale(1.1) rotate(0.5deg);
+  transform: translate(0%, 0%) scale(1.1) rotate(0.8deg);
 
 }
 .exercice_preview_content {
@@ -82,4 +82,10 @@
   right: 10px;
   background-color: var(--color_principal);
   cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .exercice_preview{
+    width: 100%;
+  }
 }
