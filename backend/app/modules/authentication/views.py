@@ -1,9 +1,9 @@
 from rest_framework import status
-from rest_framework.generics import RetrieveUpdateAPIView
+from rest_framework.generics import RetrieveUpdateAPIView, ListAPIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
-
+from .models import User
 from .renderers import UserJSONRenderer
 from .serializers import (
     LoginSerializer, RegistrationSerializer, UserSerializer
@@ -83,3 +83,6 @@ class UserRetrieveUpdateAPIView(RetrieveUpdateAPIView):
         print(serializer.data)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+class ListAllUsersAPIView(ListAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
