@@ -209,6 +209,8 @@
   }
   .profile_left{
     width: 100%;
+    padding: 0;
+    margin: 0;
   }
   .profile_card_image{
     left: 28%;

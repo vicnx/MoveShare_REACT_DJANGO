@@ -1,6 +1,6 @@
-.preview_profile_exercice{
+.preview_profile_workout{
   position: relative;
-  width: 250px;
+  width: 90%;
   height: 250px;
   overflow: hidden;
   margin: 10px;
@@ -9,7 +9,7 @@
   transition: 0.5s;
   cursor: pointer;
 }
-.preview_profile_exercice_img{
+.preview_profile_workout_img{
   position: relative;
   height: 100%;
   width: 100%;
@@ -19,17 +19,17 @@
 
 }
 
-.preview_profile_exercice:hover > .preview_profile_exercice_img{
+.preview_profile_workout:hover > .preview_profile_workout_img{
   opacity: 0.5;
 }
-.preview_profile_exercice:hover > .preview_profile_exercice_name{
+.preview_profile_workout:hover > .preview_profile_workout_name{
   opacity: 1;
 }
-.preview_profile_exercice:hover > .preview_profile_exercice_fav{
+.preview_profile_workout:hover > .preview_profile_workout_fav{
   opacity: 1;
 }
 
-.preview_profile_exercice_name{
+.preview_profile_workout_name{
   opacity: 0;
   color: rgb(41, 41, 41);
   font-size: 20px;
@@ -42,7 +42,7 @@
   transform: translate(-50%, -50%);
   transition: 0.5s;
 }
-.preview_profile_exercice_fav{
+.preview_profile_workout_fav{
   opacity: 0;
   position: absolute;
   bottom: 10px;
@@ -51,11 +51,11 @@
   transition: 0.5s;
 
 }
-.list_exercices_profile{
+.list_workouts_profile{
   display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100%;
   margin-top: 20px;
   margin-bottom: 50px;
-  margin-left: 10px;
-  margin-right: 10px;
 }

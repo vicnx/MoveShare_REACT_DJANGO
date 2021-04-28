@@ -27,7 +27,6 @@ export default function Profile() {
   const {isLogged,logout,checkOwner} = useUser();
   const {username} = useParams();
   const {profile,follow,unfollow} = useProfiles({username});
-  
   const params={
     filters: {
       limit: 4,

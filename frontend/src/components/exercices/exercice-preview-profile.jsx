@@ -1,29 +1,18 @@
 import React, { useState} from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { Card, Button, Avatar, Chip } from "@material-ui/core";
-import Typography from "@material-ui/core/Typography";
 import "./exercice-preview-profile.css";
-import {Link } from "react-router-dom";
 import ExerciceDetail from "./exercice-details.jsx"
 import { StylesProvider } from "@material-ui/core/styles";
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import Badge from '@material-ui/core/Badge';
-import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 
-
-import Fav from "./fav/fav";
+import imageError from '../../common/images/exercice.png'
 
 export default function ExercicePreviewProfile({exercice,type=null,callBack}) {
   const [modalVisible, setModalVisible] = useState(false);
-  const checkType=()=>{
-    if(type=="profile"){
-      return "exercice_preview_profile"
-    }
-    return "exercice_preview"
-  }
+
 
   const onError = (e) => {
-    e.target.src="https://upload.wikimedia.org/wikipedia/commons/8/84/Musculation_exercice_abdominal.png"
+    e.target.src=imageError
   }
 
   const closeModal=()=>{
