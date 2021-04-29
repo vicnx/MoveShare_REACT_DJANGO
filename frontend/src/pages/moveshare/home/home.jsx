@@ -6,12 +6,12 @@ import {
 } from "@material-ui/core";
 import { StylesProvider } from "@material-ui/core/styles";
 import "./home.css";
-import ExerciceList from "../../../components/exercices/exercice-list";
-import {useExercices} from '../../../hooks/useExercices'
-import HomeImage from '../../../common/images/personal_training.svg'
+import ExerciceList from "components/moveshare/exercices/exercice-list";
+import {useExercices} from 'hooks/useExercices'
+import HomeImage from 'common/images/personal_training.svg'
 import Button from '@material-ui/core/Button';
 import {Link } from "react-router-dom";
-import HomeCategories from '../../../components/home/categories'
+import HomeCategories from 'components/moveshare/home/categories'
 
 
 

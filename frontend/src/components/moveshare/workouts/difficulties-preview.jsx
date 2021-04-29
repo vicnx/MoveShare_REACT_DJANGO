@@ -5,8 +5,8 @@ import {Link } from "react-router-dom";
 import { StylesProvider } from "@material-ui/core/styles";
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import { useHistory } from "react-router-dom";
-import {useWorkout} from '../../hooks/useWorkout';
-import ExerciceDetail from "./../exercices/exercice-details"
+import {useWorkout} from 'hooks/useWorkout';
+import ExerciceDetail from "components/moveshare/exercices/exercice-details"
 import Loading from 'react-simple-loading';
 
 

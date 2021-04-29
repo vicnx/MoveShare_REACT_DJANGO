@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import {useWorkout} from '../../../hooks/useWorkout'
+import {useWorkout} from 'hooks/useWorkout'
 import DeleteIcon from '@material-ui/icons/Delete';
-import MSalert from '../../alerts/alert'
+import MSalert from 'components/moveshare/alerts/alert'
 import { Button } from "@material-ui/core";
-import useUser from '../../../hooks/useUser'
+import useUser from 'hooks/useUser'
 import { StylesProvider } from "@material-ui/core/styles";
 
 

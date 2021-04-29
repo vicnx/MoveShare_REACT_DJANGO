@@ -1,22 +1,22 @@
 import React, { useState, useEffect,useContext } from "react";
-import UserContext from "../../context/UserContext";
-import useUser from '../../hooks/useUser'
+import UserContext from "context/UserContext";
+import useUser from 'hooks/useUser'
 import "./exercice-details.css";
 import Fav from "./fav/fav";
 import Remove from './remove/remove'
 import { Card, Button, Avatar, Chip ,Paper,Divider} from "@material-ui/core";
-import imageError from '../../common/images/exercice.png'
+import imageError from 'common/images/exercice.png'
 
 // import ExercicesService from "../../services/exercices.service";
 
-import {useExercice} from '../../hooks/useExercice'
+import {useExercice} from 'hooks/useExercice'
 
 
 import { useHistory } from "react-router-dom";
 
 // RODAL MODAL
 import Rodal from 'rodal';
-import '../../../node_modules/rodal/lib/rodal.css';
+import '../../../../node_modules/rodal/lib/rodal.css';
 
 export default function ExerciceDetail({exercice,visibleModal,setvisibleModal}) {
   const { user } = useContext(UserContext);

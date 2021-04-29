@@ -1,8 +1,8 @@
 import React, {useContext,useState,useEffect} from "react";
 import { Button, AppBar, Toolbar, Typography } from "@material-ui/core";
 import { BrowserRouter as Router, Switch, Route, Link,withRouter } from "react-router-dom";
-import useUser from '../../hooks/useUser'
-import UserContext from "../../context/UserContext";
+import useUser from 'hooks/useUser'
+import UserContext from "context/UserContext";
 import { useHistory } from "react-router-dom";
 
 

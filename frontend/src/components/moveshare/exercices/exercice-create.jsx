@@ -2,19 +2,16 @@ import React, { useState, useEffect,useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import UserContext from "../../context/UserContext";
-import useUser from '../../hooks/useUser';
+import UserContext from "context/UserContext";
+import useUser from 'hooks/useUser';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
-import {useCategories} from '../../hooks/useCategories'
-import {useExercice} from '../../hooks/useExercice'
+import {useCategories} from 'hooks/useCategories'
+import {useExercice} from 'hooks/useExercice'
 import MSalert from '../alerts/alert'
 
-// RODAL MODAL
-import Rodal from 'rodal';
-import '../../../node_modules/rodal/lib/rodal.css';
 
 
 

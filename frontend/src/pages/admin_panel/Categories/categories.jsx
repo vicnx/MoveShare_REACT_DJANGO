@@ -5,12 +5,12 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import { useEffect, useState } from 'react';
 // import EditUserModal from './EditUser/admin.editUsers';
-import ModalCategory from '../../../components/panel_admin/categories/ModalCategory'
-import CategoriesService from "../../../services/categories.service";
+import ModalCategory from 'components/panel_admin/categories/ModalCategory'
+import CategoriesService from "services/categories.service";
 import AddIcon from '@material-ui/icons/Add';
 import Loading from 'react-simple-loading';
-import {useCategories} from '../../../hooks/useCategories'
-import MSalert from '../../../components/alerts/alert'
+import {useCategories} from 'hooks/useCategories'
+import MSalert from 'components/moveshare/alerts/alert'
 
 
 

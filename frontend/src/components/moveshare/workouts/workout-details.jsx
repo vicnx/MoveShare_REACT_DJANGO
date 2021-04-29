@@ -6,13 +6,13 @@ import { useHistory } from "react-router-dom";
 import Difficultie from "./difficulties-preview"
 import Follow from './../profile/follow/follow'
 import Loading from 'react-simple-loading';
-import useUser from '../../hooks/useUser'
+import useUser from 'hooks/useUser'
 import RemoveWorkout from './remove/remove'
 import Alert from '@material-ui/lab/Alert';
 
 
 
-import logo from '../../common/images/workouts.png';
+import logo from 'common/images/workouts.png';
 
 
 

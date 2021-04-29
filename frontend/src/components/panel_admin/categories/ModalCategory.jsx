@@ -9,7 +9,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import './ModalCategory.css'
 import { StylesProvider } from "@material-ui/core/styles";
 import {useCategories} from '../../../hooks/useCategories'
-import MSalert from '../../alerts/alert'
+import MSalert from '../../moveshare/alerts/alert'
 
 
 

@@ -7,7 +7,7 @@ import {Link } from "react-router-dom";
 import ExerciceDetail from "./exercice-details.jsx"
 import { StylesProvider } from "@material-ui/core/styles";
 
-import imageError from '../../common/images/exercice.png'
+import imageError from 'common/images/exercice.png'
 
 import Fav from "./fav/fav";
 

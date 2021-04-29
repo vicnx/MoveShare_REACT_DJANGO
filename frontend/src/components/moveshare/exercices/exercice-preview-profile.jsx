@@ -5,7 +5,7 @@ import { StylesProvider } from "@material-ui/core/styles";
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import Badge from '@material-ui/core/Badge';
 
-import imageError from '../../common/images/exercice.png'
+import imageError from 'common/images/exercice.png'
 
 export default function ExercicePreviewProfile({exercice,type=null,callBack}) {
   const [modalVisible, setModalVisible] = useState(false);

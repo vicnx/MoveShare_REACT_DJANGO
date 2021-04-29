@@ -2,18 +2,18 @@ import React,{useState} from "react";
 import {
   Container,
 } from "@material-ui/core";
-import ExerciceList from "../../../components/exercices/exercice-list";
-import {useExercices} from '../../../hooks/useExercices'
+import ExerciceList from "components/moveshare/exercices/exercice-list";
+import {useExercices} from 'hooks/useExercices'
 import { useParams } from "react-router";
-import {useCategories} from '../../../hooks/useCategories'
+import {useCategories} from 'hooks/useCategories'
 import Alert from '@material-ui/lab/Alert';
 
 import './exercices.css'
 import Loading from 'react-simple-loading';
 import BackgroundSlider from 'react-background-slider'
-import bg1 from '../../../common/images/backgrounds_app/bg_circle1.jpg';
-import bg2 from '../../../common/images/backgrounds_app/bg_circle2.jpg';
-import bg3 from '../../../common/images/backgrounds_app/bg_circle3.jpg';
+import bg1 from 'common/images/backgrounds_app/bg_circle1.jpg';
+import bg2 from 'common/images/backgrounds_app/bg_circle2.jpg';
+import bg3 from 'common/images/backgrounds_app/bg_circle3.jpg';
 
 
 export default function Exercices() {

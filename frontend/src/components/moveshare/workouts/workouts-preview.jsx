@@ -5,7 +5,7 @@ import {Link } from "react-router-dom";
 import { StylesProvider } from "@material-ui/core/styles";
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import { useHistory } from "react-router-dom";
-import errorImage from '../../common/images/workouts.png';
+import errorImage from 'common/images/workouts.png';
 
 
 import './workout-preview.css'

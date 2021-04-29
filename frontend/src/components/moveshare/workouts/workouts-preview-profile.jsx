@@ -1,7 +1,7 @@
 import React from "react";
 import { StylesProvider } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
-import errorImage from '../../common/images/workouts.png';
+import errorImage from 'common/images/workouts.png';
 
 
 

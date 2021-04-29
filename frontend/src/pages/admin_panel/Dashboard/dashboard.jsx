@@ -11,7 +11,7 @@ import AddIcon from '@material-ui/icons/Add';
 import Loading from 'react-simple-loading';
 import {useCategories} from 'hooks/useCategories'
 import useUser from 'hooks/useUser'
-import MSalert from 'components/alerts/alert'
+import MSalert from 'components/moveshare/alerts/alert'
 import Counter from 'components/panel_admin/dashboard/Counter'
 import {UserService} from 'services/user.service.jsx'
 import GroupIcon from '@material-ui/icons/Group';

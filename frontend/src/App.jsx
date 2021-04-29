@@ -2,13 +2,13 @@ import "./App.css";
 import { ThemeProvider, Button } from "@material-ui/core";
 import theme from "./themeConfig";
 import React, { Suspense } from "react";
-import Login from "./pages/moveshare/login/login3";
-import {UserContextProvider} from "./context/UserContext";
-import { ExercicesContextProvider } from "./context/ExercicesContext";
-import { WorkoutsContextProvider } from "./context/WorkoutsContext";
-import { ProfileContextProvider } from "./context/ProfileContext";
-import PrivateRoute from "./components/routes/PrivateRoutes";
-import useUser from './hooks/useUser'
+import Login from "pages/moveshare/login/login3";
+import {UserContextProvider} from "context/UserContext";
+import { ExercicesContextProvider } from "context/ExercicesContext";
+import { WorkoutsContextProvider } from "context/WorkoutsContext";
+import { ProfileContextProvider } from "context/ProfileContext";
+import PrivateRoute from "components/routes/PrivateRoutes";
+import useUser from 'hooks/useUser'
 import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 
 
@@ -18,7 +18,7 @@ import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import Header from "./components/header/header";
+import Header from "components/moveshare/header/header";
 
 const HomePage = React.lazy(() => import("./pages/moveshare/home/home"));
 const Exercices = React.lazy(() => import("./pages/moveshare/exercices/exercices"));

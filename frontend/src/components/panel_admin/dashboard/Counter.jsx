@@ -9,7 +9,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import './counters.css'
 import { StylesProvider } from "@material-ui/core/styles";
 import {useCategories} from '../../../hooks/useCategories'
-import MSalert from '../../alerts/alert'
+import MSalert from '../../moveshare/alerts/alert'
 import { useCountUp } from 'react-countup';
 import CountUp from 'react-countup';
 import GroupIcon from '@material-ui/icons/Group';

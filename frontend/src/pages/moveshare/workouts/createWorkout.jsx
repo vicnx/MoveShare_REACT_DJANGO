@@ -1,7 +1,7 @@
 import React, { useState, useEffect,useContext } from "react";
-import CreateWorkout from "../../../components/workouts/workout-create";
+import CreateWorkout from "components/moveshare/workouts/workout-create";
 import {Container} from "@material-ui/core";
-import Banner from '../../../components/banner_page/banner'
+import Banner from 'components/moveshare/banner_page/banner'
 
 
 //It is used to tell the Material Ui framework to search the css first

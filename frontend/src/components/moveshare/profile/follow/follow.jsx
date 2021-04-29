@@ -9,9 +9,9 @@ import {
 } from "@material-ui/core";
 import { StylesProvider } from "@material-ui/core/styles";
 import "./follow.css";
-import {useExercices} from '../../../hooks/useExercices'
-import {useProfiles} from '../../../hooks/useProfile'
-import useUser from '../../../hooks/useUser'
+import {useExercices} from '../../../../hooks/useExercices'
+import {useProfiles} from '../../../../hooks/useProfile'
+import useUser from '../../../../hooks/useUser'
 
 export default function Follow({username}) {
   const {checkOwner} = useUser();

@@ -9,20 +9,20 @@ import {
 } from "@material-ui/core";
 import { StylesProvider } from "@material-ui/core/styles";
 import "./profile.css";
-import ExerciceList from "../../../components/exercices/exercice-list";
-import Settings from "../../../components/profile/settings/settings";
-import {useExercices} from '../../../hooks/useExercices'
-import {useProfiles} from '../../../hooks/useProfile'
-import useUser from '../../../hooks/useUser'
-import UserContext from "../../../context/UserContext";
+import ExerciceList from "components/moveshare/exercices/exercice-list";
+import Settings from "components/moveshare/profile/settings/settings";
+import {useExercices} from 'hooks/useExercices'
+import {useProfiles} from 'hooks/useProfile'
+import useUser from 'hooks/useUser'
+import UserContext from "context/UserContext";
 import { useParams } from "react-router";
-import Follow from '../../../components/profile/follow/follow'
-import {useWorkouts} from '../../../hooks/useWorkouts'
-import WorkoutList from "../../../components/workouts/workouts-list";
+import Follow from 'components/moveshare/profile/follow/follow'
+import {useWorkouts} from 'hooks/useWorkouts'
+import WorkoutList from "components/moveshare/workouts/workouts-list";
 import BackgroundSlider from 'react-background-slider'
-import bg1 from '../../../common/images/backgrounds_app/bg_triangle4.jpg';
-import bg2 from '../../../common/images/backgrounds_app/bg_triangle5.jpg';
-import bg3 from '../../../common/images/backgrounds_app/bg_triangle6.jpg';
+import bg1 from 'common/images/backgrounds_app/bg_triangle4.jpg';
+import bg2 from 'common/images/backgrounds_app/bg_triangle5.jpg';
+import bg3 from 'common/images/backgrounds_app/bg_triangle6.jpg';
 
 export default function Profile() {
   const [currentTab, setCurrentTab] = useState(0);

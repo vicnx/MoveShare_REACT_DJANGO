@@ -10,8 +10,8 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import useUser from '../../hooks/useUser'
-import UserContext from "../../context/UserContext";
+import useUser from 'hooks/useUser'
+import UserContext from "context/UserContext";
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Avatar from '@material-ui/core/Avatar';

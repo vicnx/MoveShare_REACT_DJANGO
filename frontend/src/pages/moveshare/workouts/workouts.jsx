@@ -3,16 +3,16 @@ import {
   Container,
 } from "@material-ui/core";
 // import ExerciceList from "../../components/exercices/exercice-list";
-import WorkoutList from "../../../components/workouts/workouts-list";
-import {useWorkouts} from '../../../hooks/useWorkouts'
+import WorkoutList from "components/moveshare/workouts/workouts-list";
+import {useWorkouts} from 'hooks/useWorkouts'
 import Alert from '@material-ui/lab/Alert';
 import './workouts.css'
 
 import Loading from 'react-simple-loading';
 import BackgroundSlider from 'react-background-slider'
-import bg1 from '../../../common/images/backgrounds_app/bg_triangle1.jpg';
-import bg2 from '../../../common/images/backgrounds_app/bg_triangle2.jpg';
-import bg3 from '../../../common/images/backgrounds_app/bg_triangle3.jpg';
+import bg1 from 'common/images/backgrounds_app/bg_triangle1.jpg';
+import bg2 from 'common/images/backgrounds_app/bg_triangle2.jpg';
+import bg3 from 'common/images/backgrounds_app/bg_triangle3.jpg';
 
 
 
