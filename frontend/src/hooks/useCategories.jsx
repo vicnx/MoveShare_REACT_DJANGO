@@ -23,7 +23,6 @@ export function useCategories(refresh) {
           setLoading(false);
         })
       }
-
     },
     [refresh]
   );

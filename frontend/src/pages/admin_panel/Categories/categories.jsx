@@ -51,7 +51,7 @@ const Categories = () => {
           sortable: false,
           width: 100,
           renderCell: () => {
-              return (<Button className="btn" variant="outlined" color="primary" size="small" onClick={handleOpenModal}><EditIcon /></Button>)
+              return (<Button className="btn" variant="outlined" color="primary" size="small" onClick={(e)=>{setModalCategoryType("modify");setModalCategoryOpen(true);}}><EditIcon /></Button>)
           },
       },
         {
