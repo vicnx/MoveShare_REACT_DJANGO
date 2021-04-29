@@ -28,14 +28,10 @@ const Users = () => {
     const [ModalCategoryOpen, setModalCategoryOpen] = useState(false)
     const [ModalCategoryType, setModalCategoryType] = useState("create")
     const [errorText, seterrorText] = useState("No se ha podido eliminar la categoria, intentelo de nuevo.");
-    let idCounter = 0;
-    function addIDToItems(item) {
-      item.id = idCounter++;
-      setusersAdmin(usersAdmin => [...usersAdmin, item]);
-    }
+
     useEffect(() => {
       UserService.getListUsers().then(({data})=>{
-        data.results.forEach(user => addIDToItems(user));
+        setusersAdmin(data.results)
         setLoading(false);
       })
     }, [])
