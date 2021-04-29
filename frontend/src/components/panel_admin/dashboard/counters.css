@@ -1,34 +1,50 @@
 .contador{
-  width: 220px;
-  height: 170px;
+  width: 280px;
+  height: 190px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.74);
   border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid black;
   flex-direction: column;
   margin: 20px;
+  transition: 1s;
+  cursor: pointer;
+  overflow: hidden;
 }
+.contador_content{
+  width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+}
+
 .blue{
-  background: linear-gradient(to right, #0072ff, #00c6ff); 
+  background: radial-gradient(circle, rgb(208, 242, 255) 0%, rgb(188, 228, 255) 50%, rgb(123, 202, 255) 100%);
+}
+.contador:hover > .contador_content{
+  transform: translate(0%, 0%) scale(1.05) rotate(1deg)
+
 }
 .red{
-  background: linear-gradient(to right, #ff0000, #ff5f5f); 
+  background: radial-gradient(circle, rgb(255, 208, 208) 0%, rgb(255, 188, 188) 50%, rgb(255, 123, 123) 100%);
+
 }
 .green{
-  background: linear-gradient(to right, #15ff00, #7eff64); 
+  background: radial-gradient(circle, rgb(208, 255, 212) 0%, rgb(188, 255, 191) 50%, rgb(123, 255, 134) 100%);
+
 }
 .purple{
-  background: linear-gradient(to right, #ff00ea, #ff64c4); 
+  background: radial-gradient(circle, rgb(255, 208, 245) 0%, rgb(255, 188, 244) 50%, rgb(255, 123, 255) 100%);
 }
 .contador svg{
   font-size: 40px;
 }
 .contador span{
-  color: black;
   font-weight: bolder;
-  font-size: 50px;
+  font-size: 4vw;
   text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4); 
 
 }
@@ -53,4 +69,5 @@
   width: max-content;
   display: flex;
   justify-content: space-around;
+  transition: 0.5s;
 }

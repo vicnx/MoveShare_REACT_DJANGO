@@ -2,6 +2,10 @@
 .counter_list{
   display: flex;
   flex-wrap: wrap;
+  width: 70%;
+  justify-content: flex-start;
+}
+.dashboard_page{
+  display: flex;
   width: 100%;
-  justify-content: center;
 }

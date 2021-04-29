@@ -20,18 +20,24 @@ import { Divider} from "@material-ui/core";
 
 
 export default function Counter(params) {
+
+  
+  console.log(params);
   return (
     <StylesProvider injectFirst>
       <div className={"contador " + params.color}>
-        <div className="contador_contador">
-          <CountUp end={params.count} duration={3} />
+        <div className="contador_content">
+          <div className="contador_contador">
+            <CountUp end={params.count > 9999 ? 9999 : params.count } duration={2} /> <span>{params.count > 9999 ? "+" : null}</span>
+          </div>
+
+          <Divider className="divider"/>
+          <div className="counter_text_div">
+            <span className="counter_text">{params.text}</span>
+            {params.icono}
+          </div>
         </div>
 
-        <Divider className="divider"/>
-        <div className="counter_text_div">
-          <span className="counter_text">{params.text}</span>
-          {params.icono}
-        </div>
       </div>
     </StylesProvider>
 
