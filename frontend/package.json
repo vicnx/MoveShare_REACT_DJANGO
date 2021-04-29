@@ -20,6 +20,7 @@
     "react-scripts": "4.0.2",
     "react-select": "^4.3.0",
     "react-simple-loading": "0.0.3",
+    "react-vis": "^1.11.7",
     "rodal": "^1.8.1",
     "web-vitals": "^1.1.0",
     "wouter": "^2.7.3"

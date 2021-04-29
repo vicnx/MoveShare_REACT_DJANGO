@@ -21,7 +21,13 @@ import CategoryIcon from '@material-ui/icons/Category';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 
 import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
-
+import {  XYPlot,
+  XAxis,
+  YAxis,
+  VerticalGridLines,
+  HorizontalGridLines,
+  HorizontalBarSeries,
+  HorizontalBarSeriesCanvas} from 'react-vis';
 
 
 
@@ -34,9 +40,20 @@ const DashBoard = () => {
     const [loading, setLoading] = useState(true)
     
 
+    const data = [
+      {x: 0, y: 8},
+      {x: 1, y: 5},
+      {x: 2, y: 4},
+      {x: 3, y: 9},
+      {x: 4, y: 1},
+      {x: 5, y: 7},
+      {x: 6, y: 6},
+      {x: 7, y: 3},
+      {x: 8, y: 2},
+      {x: 9, y: 0}
+    ];
 
-
-
+    const BarSeries = HorizontalBarSeries
 
 
     useEffect(() => {
@@ -68,6 +85,16 @@ const DashBoard = () => {
           <Counter count={ExercicesAdmin ? ExercicesAdmin.length : 0} text={"EJERCICIOS"} icono={<ShoppingBasketIcon/>} color="red"/>
           <Counter count={WorkoutsAdmin ? WorkoutsAdmin.length : 0} text={"ENTRENAMIENTOS"} icono={<FitnessCenterIcon/>} color="purple"/>
           <Counter count={100000} text={"TEST LONG"} icono={<FitnessCenterIcon/>} color="purple"/>
+        </div>
+        <div className="charts">
+        <XYPlot width={300} height={300} stackBy="x">
+          <VerticalGridLines />
+          <HorizontalGridLines />
+          <XAxis />
+          <YAxis />
+          <BarSeries data={[{y: 2, x: 10}, {y: 4, x: 5}, {y: 5, x: 15}]} />
+          <BarSeries data={[{y: 2, x: 12}, {y: 4, x: 2}, {y: 5, x: 11}]} />
+        </XYPlot>
         </div>
       </div>
 
