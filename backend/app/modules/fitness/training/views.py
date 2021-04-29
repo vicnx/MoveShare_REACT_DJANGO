@@ -9,6 +9,7 @@ from rest_framework import viewsets,generics,mixins,status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.permissions import (AllowAny, IsAuthenticated, IsAuthenticatedOrReadOnly)
+from app.modules.core.permissions import IsOwner
 
 # Create your views here.
 
@@ -16,6 +17,17 @@ class TrainingViewSet(viewsets.ModelViewSet):
     queryset = Training.objects.all().order_by('name')
     serializer_class = TrainingSerializer
     lookup_field = 'slug'
+    
+    def get_permissions(self):
+        if self.request.method == 'POST':
+            self.permission_classes = [IsAuthenticated,]
+        elif self.request.method == 'PUT':
+            self.permission_classes = [IsAuthenticated,IsOwner]
+        elif self.request.method == 'DELETE':
+            self.permission_classes = [IsAuthenticated,IsOwner]
+            
+        return super(TrainingViewSet,self).get_permissions()
+
     def get_queryset(self):
         queryset = self.queryset
         author = self.request.query_params.get('author', None)

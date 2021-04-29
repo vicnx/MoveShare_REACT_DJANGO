@@ -1,6 +1,7 @@
 from rest_framework import status
 from rest_framework.generics import RetrieveUpdateAPIView, ListAPIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
+from app.modules.core.permissions import IsStaff
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import User
@@ -84,5 +85,7 @@ class UserRetrieveUpdateAPIView(RetrieveUpdateAPIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 class ListAllUsersAPIView(ListAPIView):
+    # permission_classes = (IsAuthenticated)
+    permission_classes = (IsAuthenticated,IsStaff)
     queryset = User.objects.all().order_by('id')
     serializer_class = UserSerializer
