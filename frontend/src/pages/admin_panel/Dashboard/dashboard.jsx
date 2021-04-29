@@ -35,10 +35,10 @@ import { useHistory } from "react-router-dom";
 
 const DashBoard = () => {
     const {deleteCategory,ok,error,setError} = useCategories(false)
-    const [ allusers, setAllUsers ] = useState([]);
-    const [ CategoriesAdmin , setCategoriesAdmin ] = useState([]);
-    const [ ExercicesAdmin , setExercicesAdmin ] = useState([]);
-    const [ WorkoutsAdmin , setWorkoutsAdmin ] = useState([]);
+    const [ allusersCount, setAllUsersCount ] = useState("0");
+    const [ CategoriesAdminCount , setCategoriesAdminCount ] = useState("0");
+    const [ ExercicesAdminCount , setExercicesAdminCount ] = useState("0");
+    const [ WorkoutsAdminCount , setWorkoutsAdminCount ] = useState("0");
     const [loading, setLoading] = useState(true)
   let history = useHistory();
 
@@ -61,20 +61,20 @@ const DashBoard = () => {
 
 
     useEffect(() => {
-      UserService.getListUsers().then((data)=>{
-        setAllUsers(data.data.results)
+      UserService.getListUsers().then(({data})=>{
+        setAllUsersCount(data.count)
         setLoading(false)
       })
       CategoriesService.query().then(({data})=>{
-        setCategoriesAdmin(data.results)
+        setCategoriesAdminCount(data.count)
         setLoading(false);
       })
-      ExercicesService.query().then((data)=>{
-        setExercicesAdmin(data.results)
+      ExercicesService.query().then(({data})=>{
+        setExercicesAdminCount(data.count)
         setLoading(false);
       })
-      WorkoutsService.query().then((data)=>{
-        setWorkoutsAdmin(data.results)
+      WorkoutsService.query().then(({data})=>{
+        setWorkoutsAdminCount(data.count)
         setLoading(false);
       })
 
@@ -88,10 +88,10 @@ const DashBoard = () => {
       <>
       <div className="dashboard_page">
         <div className="counter_list">
-          <Counter count={allusers ? allusers.length : 0} text={"USUARIOS"} icono={<GroupIcon/>} color="blue" action={()=>{goTo('users')}}/>
-          <Counter count={CategoriesAdmin ? CategoriesAdmin.length : 0} text={"CATEGORIAS"} icono={<CategoryIcon/>} color="green" action={()=>{goTo('categories')}}/>
-          <Counter count={ExercicesAdmin ? ExercicesAdmin.length : 0} text={"EJERCICIOS"} icono={<ShoppingBasketIcon/>} color="red" action={()=>{goTo('exercices')}}/>
-          <Counter count={WorkoutsAdmin ? WorkoutsAdmin.length : 0} text={"ENTRENAMIENTOS"} icono={<FitnessCenterIcon/>} color="purple" action={()=>{goTo('workouts')}}/>
+          <Counter count={allusersCount} text={"USUARIOS"} icono={<GroupIcon/>} color="blue" action={()=>{goTo('users')}}/>
+          <Counter count={CategoriesAdminCount} text={"CATEGORIAS"} icono={<CategoryIcon/>} color="green" action={()=>{goTo('categories')}}/>
+          <Counter count={ExercicesAdminCount} text={"EJERCICIOS"} icono={<ShoppingBasketIcon/>} color="red" action={()=>{goTo('exercices')}}/>
+          <Counter count={WorkoutsAdminCount} text={"ENTRENAMIENTOS"} icono={<FitnessCenterIcon/>} color="purple" action={()=>{goTo('workouts')}}/>
           <Counter count={100000} text={"TEST LONG"} icono={<FitnessCenterIcon/>} color="purple"/>
         </div>
         <div className="charts">

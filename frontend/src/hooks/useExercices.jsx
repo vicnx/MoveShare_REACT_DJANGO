@@ -13,17 +13,18 @@ export function useExercices({ params } = { params: null }, refresh) {
   //A refresh se le pasa el username, el limit o algo que al cambiar tengo que actualizar la lista y asi funciona correctamente y no hace bucle infinito.S
   useEffect(
     function () {
-      setLoading(true);
-      console.log(params);
-      ExercicesService.query(params).then(({ data }) => {
-        setExercices(data.results);
-        setLoading(false);
-      });
-      CategoriesService.query().then(({data})=>{
-        setCategories(data.results)
-        setLoading(false);
-      })
-    },
+        setLoading(true);
+        console.log(params);
+        ExercicesService.query(params).then(({ data }) => {
+          setExercices(data.results);
+          setLoading(false);
+        });
+        CategoriesService.query().then(({data})=>{
+          setCategories(data.results)
+          setLoading(false);
+        })
+      },
+
     [refresh]
   );
 

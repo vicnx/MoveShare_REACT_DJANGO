@@ -40,8 +40,12 @@ export function useExercice({ params } = { params: null }, refresh) {
     (exercice) => {
       setLoading(true);
       ExercicesService.destroy(exercice.slug).then(({data})=>{
-        console.log(data);
-        setLoading(false);
+        setError(false)
+        setOk(true)
+        setTimeout(() => {
+          setOk(false)
+          setLoading(false);
+        }, 1000);
       })
     }
   )

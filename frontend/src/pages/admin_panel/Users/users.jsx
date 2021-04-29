@@ -76,7 +76,7 @@ const Users = () => {
                   </div> */}
                   <div className="usersAdmin">
                       <DataGrid rows={usersAdmin} columns={columns} pageSize={20} checkboxSelection={false} />
-                      <ModalCategory open={ModalCategoryOpen} setOpen={setModalCategoryOpen} type={ModalCategoryType}/>
+                      {/* <ModalCategory open={ModalCategoryOpen} setOpen={setModalCategoryOpen} type={ModalCategoryType}/> */}
                   </div>
                   {/* <MSalert visible={ok} text="Categoria eliminada con exito!" type="success"></MSalert>
                   <MSalert visible={error} text={errorText} type="error"></MSalert> */}
