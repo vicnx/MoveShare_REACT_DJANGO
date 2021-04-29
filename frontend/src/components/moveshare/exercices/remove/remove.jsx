@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {useExercice} from 'hooks/useExercice'
 import DeleteIcon from '@material-ui/icons/Delete';
-import MSalert from 'components/moveshare/alerts/alert'
+import MSalert from 'components/alerts/alert'
 import { Button } from "@material-ui/core";
 
 import "./remove.css";

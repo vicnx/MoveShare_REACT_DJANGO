@@ -5,7 +5,7 @@ import UserContext from "context/UserContext";
 import useUser from 'hooks/useUser';
 import {useExercices} from 'hooks/useExercices'
 import {useWorkout} from 'hooks/useWorkout'
-import MSalert from 'components/moveshare/alerts/alert'
+import MSalert from 'components/alerts/alert'
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';

@@ -10,7 +10,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import {useCategories} from 'hooks/useCategories'
 import {useExercice} from 'hooks/useExercice'
-import MSalert from '../alerts/alert'
+import MSalert from '../../alerts/alert'
 
 
 //It is used to tell the Material Ui framework to search the css first

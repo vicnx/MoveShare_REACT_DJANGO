@@ -1,0 +1,15 @@
+.usersAdmin{
+  height: 90%;
+}
+.btn{
+  width: 40px;
+  padding: 0;
+  height: 40px
+}
+.optionsUsers{
+  height: 50px;
+}
+.btn-options{
+  border-color: rgb(12, 218, 29) !important;
+  color: rgb(12, 218, 29) !important;
+}

@@ -11,7 +11,7 @@ import AddIcon from '@material-ui/icons/Add';
 import Loading from 'react-simple-loading';
 import {useCategories} from 'hooks/useCategories'
 import useUser from 'hooks/useUser'
-import MSalert from 'components/moveshare/alerts/alert'
+import MSalert from 'components/alerts/alert'
 import Counter from 'components/panel_admin/dashboard/Counter'
 import {UserService} from 'services/user.service.jsx'
 import GroupIcon from '@material-ui/icons/Group';
@@ -28,6 +28,8 @@ import {  XYPlot,
   HorizontalGridLines,
   HorizontalBarSeries,
   HorizontalBarSeriesCanvas} from 'react-vis';
+import { useHistory } from "react-router-dom";
+
 
 
 
@@ -38,6 +40,8 @@ const DashBoard = () => {
     const [ ExercicesAdmin , setExercicesAdmin ] = useState([]);
     const [ WorkoutsAdmin , setWorkoutsAdmin ] = useState([]);
     const [loading, setLoading] = useState(true)
+  let history = useHistory();
+
     
 
     const data = [
@@ -76,14 +80,20 @@ const DashBoard = () => {
 
     }, [])
 
+    const goTo = (route)=>{
+      console.log(route);
+      history.push(route)
+
+    }
+
     return (
       <>
       <div className="dashboard_page">
         <div className="counter_list">
-          <Counter count={allusers ? allusers.length : 0} text={"USUARIOS"} icono={<GroupIcon/>} color="blue"/>
-          <Counter count={CategoriesAdmin ? CategoriesAdmin.length : 0} text={"CATEGORIAS"} icono={<CategoryIcon/>} color="green"/>
-          <Counter count={ExercicesAdmin ? ExercicesAdmin.length : 0} text={"EJERCICIOS"} icono={<ShoppingBasketIcon/>} color="red"/>
-          <Counter count={WorkoutsAdmin ? WorkoutsAdmin.length : 0} text={"ENTRENAMIENTOS"} icono={<FitnessCenterIcon/>} color="purple"/>
+          <Counter count={allusers ? allusers.length : 0} text={"USUARIOS"} icono={<GroupIcon/>} color="blue" action={()=>{goTo('users')}}/>
+          <Counter count={CategoriesAdmin ? CategoriesAdmin.length : 0} text={"CATEGORIAS"} icono={<CategoryIcon/>} color="green" action={()=>{goTo('categories')}}/>
+          <Counter count={ExercicesAdmin ? ExercicesAdmin.length : 0} text={"EJERCICIOS"} icono={<ShoppingBasketIcon/>} color="red" action={()=>{goTo('exercices')}}/>
+          <Counter count={WorkoutsAdmin ? WorkoutsAdmin.length : 0} text={"ENTRENAMIENTOS"} icono={<FitnessCenterIcon/>} color="purple" action={()=>{goTo('workouts')}}/>
           <Counter count={100000} text={"TEST LONG"} icono={<FitnessCenterIcon/>} color="purple"/>
         </div>
         <div className="charts">

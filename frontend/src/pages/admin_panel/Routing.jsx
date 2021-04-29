@@ -10,6 +10,7 @@ import './routing.css'
 
 import Categories from "./Categories/categories";
 import Dashboard from "./Dashboard/dashboard";
+import Users from "./Users/users";
 
 
 const PanelAdminMain = () => {
@@ -45,7 +46,7 @@ const PanelAdminMain = () => {
                             <div className="adminPage">
                                 <Switch>
                                     <Route exact path="/dashboard"><Dashboard/></Route>
-                                    <Route exact path="/users">Usuarios</Route>
+                                    <Route exact path="/users"><Users/></Route>
                                     <Route exact path="/categories"><Categories/></Route>
                                     <Redirect from='/admin' to='/dashboard' />
                                     <Redirect from='/' to='/dashboard' />

@@ -9,7 +9,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import './counters.css'
 import { StylesProvider } from "@material-ui/core/styles";
 import {useCategories} from '../../../hooks/useCategories'
-import MSalert from '../../moveshare/alerts/alert'
+import MSalert from '../../alerts/alert'
 import { useCountUp } from 'react-countup';
 import CountUp from 'react-countup';
 import GroupIcon from '@material-ui/icons/Group';
@@ -25,7 +25,7 @@ export default function Counter(params) {
   console.log(params);
   return (
     <StylesProvider injectFirst>
-      <div className={"contador " + params.color}>
+      <div className={"contador " + params.color} onClick={params.action}>
         <div className="contador_content">
           <div className="contador_contador">
             <CountUp end={params.count > 9999 ? 9999 : params.count } duration={2} /> <span>{params.count > 9999 ? "+" : null}</span>
