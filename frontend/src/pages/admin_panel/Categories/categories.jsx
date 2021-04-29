@@ -19,10 +19,12 @@ import MSalert from 'components/alerts/alert'
 const Categories = () => {
     const {deleteCategory,ok,error,setError} = useCategories(false)
 
-    const [modalVisible, setModalVisible] = useState(false);
-    const handleOpenModal = () => setModalVisible(true)
+
+    const [refresh, setrefresh] = useState(false);
     const [categoriesAdmin, setCategoriesAdmin] = useState()
     const [loading, setLoading] = useState(true)
+    const [categorySelected, setcategorySelected] = useState(null)
+
 
     const [ModalCategoryOpen, setModalCategoryOpen] = useState(false)
     const [ModalCategoryType, setModalCategoryType] = useState("create")
@@ -32,11 +34,13 @@ const Categories = () => {
 
 
     useEffect(() => {
+      console.log("CAMBIA REFRESH",refresh)
       CategoriesService.query().then(({data})=>{
         setCategoriesAdmin(data.results)
         setLoading(false);
       })
-    }, [])
+      setModalCategoryOpen(false)
+    }, [refresh])
 
 
     const columns = [
@@ -50,8 +54,8 @@ const Categories = () => {
           description: 'This column is not sortable.',
           sortable: false,
           width: 100,
-          renderCell: () => {
-              return (<Button className="btn" variant="outlined" color="primary" size="small" onClick={(e)=>{setModalCategoryType("modify");setModalCategoryOpen(true);}}><EditIcon /></Button>)
+          renderCell: (params) => {
+              return (<Button className="btn" variant="outlined" color="primary" size="small" onClick={(e)=>{setcategorySelected(params.row); setModalCategoryType("modify"); setTimeout(() => {setModalCategoryOpen(true)}, 100);}}><EditIcon /></Button>)
           },
       },
         {
@@ -61,7 +65,7 @@ const Categories = () => {
             sortable: false,
             width: 100,
             renderCell: (params) => {
-                return (<Button className="btn" variant="outlined" color="secondary" size="small" onClick={()=>{deleteCategory(params.id)}}><DeleteIcon /></Button>)
+                return (<Button className="btn" variant="outlined" color="secondary" size="small" onClick={()=>{deleteCategory(params.id);setrefresh(params.id)}}><DeleteIcon /></Button>)
             },
         },
     ];
@@ -76,7 +80,7 @@ const Categories = () => {
                   </div>
                   <div className="categoriesAdmin">
                       <DataGrid rows={categoriesAdmin} columns={columns} pageSize={20} checkboxSelection={false} />
-                      <ModalCategory open={ModalCategoryOpen} setOpen={setModalCategoryOpen} type={ModalCategoryType}/>
+                      <ModalCategory open={ModalCategoryOpen} setOpen={setModalCategoryOpen} type={ModalCategoryType} category={categorySelected} refresh={setrefresh}/>
                   </div>
                   <MSalert visible={ok} text="Categoria eliminada con exito!" type="success"></MSalert>
                   <MSalert visible={error} text={errorText} type="error"></MSalert>

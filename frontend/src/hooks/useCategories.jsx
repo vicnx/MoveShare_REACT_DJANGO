@@ -34,7 +34,7 @@ export function useCategories(refresh) {
         setOk(true)
         setTimeout(() => {
           setOk(false)
-          window.location.reload();
+          // window.location.reload();
           setLoading(false);
         }, 1000);
       }else{
@@ -52,7 +52,19 @@ export function useCategories(refresh) {
       setOk(true)
       setTimeout(() => {
         setOk(false)
-        window.location.reload();
+        // window.location.reload();
+        setLoading(false);
+      }, 1000);
+    })
+  })
+
+  const updateCategory = useCallback((category) =>{
+    CategoriesService.update(category).then(({data}) =>{
+      setError(false)
+      setOk(true)
+      setTimeout(() => {
+        setOk(false)
+        // window.location.reload();
         setLoading(false);
       }, 1000);
     })
@@ -64,6 +76,7 @@ export function useCategories(refresh) {
     categories,
     createCategory,
     deleteCategory,
+    updateCategory,
     ok,
     error,
     setError,

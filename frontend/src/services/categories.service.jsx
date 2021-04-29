@@ -15,6 +15,10 @@ const CategoriesService = {
   destroy(idcategory) {
     return ApiService.delete(`fitness/category/${idcategory}`);
   },
+
+  update(category) {
+    return ApiService.put(`fitness/category/${category.id}`, category );
+  },
 }
 
 export default CategoriesService;

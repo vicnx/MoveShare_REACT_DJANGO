@@ -11,7 +11,7 @@ from .models import Category
 # Create your views here.
 
 class CategoryViewSet(viewsets.ModelViewSet):
-    queryset = Category.objects.all().order_by('name')
+    queryset = Category.objects.all().order_by('id')
     serializer_class = CategorySerializer
     def get_permissions(self):
         if self.request.method == 'POST':
