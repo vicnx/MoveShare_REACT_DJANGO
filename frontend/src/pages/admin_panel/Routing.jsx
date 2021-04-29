@@ -9,6 +9,7 @@ import PanelAdminMenu from '../../components/panel_admin/sidebar/PanelAdminMenu'
 import './routing.css'
 
 import Categories from "./Categories/categories";
+import Dashboard from "./Dashboard/dashboard";
 
 
 const PanelAdminMain = () => {
@@ -43,7 +44,7 @@ const PanelAdminMain = () => {
                             </div>
                             <div className="adminPage">
                                 <Switch>
-                                    <Route exact path="/dashboard">Estadisticas</Route>
+                                    <Route exact path="/dashboard"><Dashboard/></Route>
                                     <Route exact path="/users">Usuarios</Route>
                                     <Route exact path="/categories"><Categories/></Route>
                                     <Redirect from='/admin' to='/dashboard' />

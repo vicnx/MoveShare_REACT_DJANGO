@@ -1,10 +1,10 @@
 import { useCallback, useContext, useState } from "react"; //evita que se vuelva a ejecutar una funcion
-import UserContext from "../context/UserContext";
-import loginService from "../services/login";
-import registerService from "../services/register";
-import {saveToken,destroyToken,getToken} from '../services/jwt.service'
-import {UserService} from '../services/user.service'
-import {ApiService} from '../services/api.service'
+import UserContext from "context/UserContext";
+import loginService from "services/login";
+import registerService from "services/register";
+import {saveToken,destroyToken,getToken} from 'services/jwt.service'
+import {UserService} from 'services/user.service'
+import {ApiService} from 'services/api.service'
 
 
 export default function useUser() {
@@ -104,6 +104,18 @@ export default function useUser() {
       }
       return false
   }
+
+
+  // const getListUsers = useCallback(
+  //   () => {
+  //     console.log(UserService);
+  //     setState({ loading: true, error: false });
+  //     UserService.getListUsers().then((data)=>{
+  //       console.log(data);
+  //       return data.data.results
+  //     })
+  //   }
+  // ); 
 
   return {
     isLogged: check_auth(),

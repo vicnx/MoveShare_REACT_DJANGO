@@ -48,7 +48,7 @@ const HomeCategories = ({quantity}) => {
       {
         
         printCategories().map((category,index) =>
-          <div className="category_preview" onClick={()=>{goCat(category.id)}}>
+          <div key={index} className="category_preview" onClick={()=>{goCat(category.id)}}>
             <div className="category_preview_left">
               <img src={category.image} onError={onError}/>
             </div>

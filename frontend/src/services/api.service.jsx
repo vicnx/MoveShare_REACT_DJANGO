@@ -7,6 +7,7 @@ export const ApiService = {
   },
 
   get(resource, slug = "") {
+    console.log(http.get(`${resource}/${slug}`));
     return http.get(`${resource}/${slug}`).catch(error => {
       throw new Error(`[MS] ApiService ${error}`);
     });
