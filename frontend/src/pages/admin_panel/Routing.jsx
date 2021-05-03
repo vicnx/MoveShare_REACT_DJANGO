@@ -12,6 +12,7 @@ import Categories from "./Categories/categories";
 import Dashboard from "./Dashboard/dashboard";
 import Users from "./Users/users";
 import Exercices from "./Exercices/exercices";
+import Workouts from "./Workouts/workouts";
 
 
 const PanelAdminMain = () => {
@@ -50,6 +51,7 @@ const PanelAdminMain = () => {
                                     <Route exact path="/users"><Users/></Route>
                                     <Route exact path="/categories"><Categories/></Route>
                                     <Route exact path="/exercices"><Exercices/></Route>
+                                    <Route exact path="/workouts"><Workouts/></Route>
                                     <Redirect from='/admin' to='/dashboard' />
                                     <Redirect from='/' to='/dashboard' />
                                 </Switch>

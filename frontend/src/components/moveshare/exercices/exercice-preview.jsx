@@ -6,6 +6,8 @@ import "./exercice-preview.css";
 import {Link } from "react-router-dom";
 import ExerciceDetail from "./exercice-details.jsx"
 import { StylesProvider } from "@material-ui/core/styles";
+import { useHistory } from "react-router-dom";
+
 
 import imageError from 'common/images/exercice.png'
 
@@ -13,6 +15,8 @@ import Fav from "./fav/fav";
 
 export default function ExercicePreview({exercice,type=null,callBack}) {
   const [modalVisible, setModalVisible] = useState(false);
+  let history = useHistory();
+
   const checkType=()=>{
     if(type=="profile"){
       return "exercice_preview_profile"
@@ -31,6 +35,10 @@ export default function ExercicePreview({exercice,type=null,callBack}) {
   const moreInfo=()=>{
     setModalVisible(true)
   }
+  const goToprofile=()=>{
+    history.push('/@'+exercice.author.username)
+
+  }
 
   return (
     <StylesProvider injectFirst>
@@ -42,7 +50,7 @@ export default function ExercicePreview({exercice,type=null,callBack}) {
             color="primary"
             className="exercice_preview_header_author"
             size="small"
-          to={'/@'+exercice.author.username} component={Link}/>
+            onClick={goToprofile}/>
           <img className="exer_preview_img" src={exercice.image} onError={onError} />
         </div>
         <div className="exercice_preview_content">

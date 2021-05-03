@@ -1,0 +1,15 @@
+.categoriesAdmin{
+  height: 90%;
+}
+.btn{
+  width: 40px;
+  padding: 0;
+  height: 40px
+}
+.optionsCategories{
+  height: 50px;
+}
+.btn-options{
+  border-color: rgb(12, 218, 29) !important;
+  color: rgb(12, 218, 29) !important;
+}
