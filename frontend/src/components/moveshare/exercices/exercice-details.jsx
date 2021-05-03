@@ -29,7 +29,9 @@ export default function ExerciceDetail({exercice,visibleModal,setvisibleModal}) 
     e.target.src=imageError
   }
   const goToProfile = (e)=>{
-    history.push('@'+exercice.author.username)
+    // history.replace('@'+exercice.author.username)
+    window.location.href = '/@'+exercice.author.username;
+
   }
 
   const closeModal=()=>{

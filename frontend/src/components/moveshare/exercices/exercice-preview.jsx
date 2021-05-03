@@ -36,7 +36,8 @@ export default function ExercicePreview({exercice,type=null,callBack}) {
     setModalVisible(true)
   }
   const goToprofile=()=>{
-    history.push('/@'+exercice.author.username)
+    // history.replace('@'+exercice.author.username)
+    window.location.href = '/@'+exercice.author.username;
 
   }
 
