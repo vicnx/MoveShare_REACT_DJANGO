@@ -34,7 +34,7 @@
   flex-direction: column;
   align-items: center;
 }
-.ex_details_right h1{
+.ex_details_right .ex_details_right_h1{
   color: var(--color_principal);
   font-weight: bolder;
 }

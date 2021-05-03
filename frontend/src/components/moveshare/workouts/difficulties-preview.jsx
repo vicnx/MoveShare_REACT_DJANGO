@@ -9,6 +9,7 @@ import {useWorkout} from 'hooks/useWorkout';
 import ExerciceDetail from "components/moveshare/exercices/exercice-details"
 import Loading from 'react-simple-loading';
 
+import imageError from 'common/images/exercice.png'
 
 
 
@@ -25,7 +26,7 @@ export default function Difficultie({difficultie}) {
   // const {workout,loading} = useWorkout({workoutid});
 
   const onError = (e) => {
-    e.target.src="https://upload.wikimedia.org/wikipedia/commons/8/84/Musculation_exercice_abdominal.png"
+    e.target.src=imageError
   }
 
   const goToProfile = (e)=>{

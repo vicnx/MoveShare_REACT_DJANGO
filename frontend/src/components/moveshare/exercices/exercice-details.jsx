@@ -45,7 +45,7 @@ export default function ExerciceDetail({exercice,visibleModal,setvisibleModal}) 
           <img className="ex_image" src={exercice.image} alt="exercice img" onError={onError}/>
         </div>
         <div className="ex_details_right">
-          <h1>{exercice.name}</h1>
+          <h1 className="ex_details_right_h1">{exercice.name}</h1>
           <div className="ex_details_right_content">
             <div className="ex_details_right_content_desc">
               <p>
