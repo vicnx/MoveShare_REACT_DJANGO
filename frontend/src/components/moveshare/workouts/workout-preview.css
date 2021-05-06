@@ -177,5 +177,6 @@
   }
   .workout_preview_section_right_bottom_bottom{
     justify-content: space-around;
+    right: 0;
   }
 }

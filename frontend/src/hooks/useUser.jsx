@@ -106,17 +106,6 @@ export default function useUser() {
   }
 
 
-  // const getListUsers = useCallback(
-  //   () => {
-  //     console.log(UserService);
-  //     setState({ loading: true, error: false });
-  //     UserService.getListUsers().then((data)=>{
-  //       console.log(data);
-  //       return data.data.results
-  //     })
-  //   }
-  // ); 
-
   return {
     isLogged: check_auth(),
     isLogginLoading : state.loading,

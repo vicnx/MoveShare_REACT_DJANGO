@@ -9,11 +9,6 @@ export function useCategories(refresh) {
   const { categories, setCategories } = useContext(ExercicesContext);
   const [error, setError] = useState(false);
   const [ok, setOk] = useState(false);
-  let history = useHistory();
-
-
-  //el parametro refresh se ha introducido debido a un bug que hay que cada vez que le paso params los cambia, entonces provoca un bucle infinito. 
-  //A refresh se le pasa el username, el limit o algo que al cambiar tengo que actualizar la lista y asi funciona correctamente y no hace bucle infinito.S
   useEffect(
     function () {
       if(refresh){
@@ -26,7 +21,6 @@ export function useCategories(refresh) {
     },
     [refresh]
   );
-
   const createCategory = useCallback((category) =>{
     CategoriesService.create({"name":category.name,"image":category.image}).then(({data}) =>{
       if(data){
@@ -57,7 +51,6 @@ export function useCategories(refresh) {
       }, 1000);
     })
   })
-
   const updateCategory = useCallback((category) =>{
     CategoriesService.update(category).then(({data}) =>{
       setError(false)
@@ -69,8 +62,6 @@ export function useCategories(refresh) {
       }, 1000);
     })
   })
-
-
   return {
     loading: loading,
     categories,

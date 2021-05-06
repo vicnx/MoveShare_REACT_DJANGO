@@ -47,15 +47,12 @@ function App() {
 
 const Check_Admin = () =>{
   const { admin } = useUser()
-  console.log("admin", admin);
-
   return(
     <>
       {
         admin ?
         <Suspense fallback={null}>
           <PanelAdminMain/>
-
         </Suspense>
         :
         <>
@@ -90,7 +87,6 @@ const Check_Admin = () =>{
       }
     </>
   )
-
 }
 
 const ActiveAdmin =()=>{
