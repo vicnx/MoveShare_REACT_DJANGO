@@ -62,6 +62,11 @@ docker-compose up
 
 ![admin_panel](readme-images/admin_panel.gif)
 
+## Built with 🛠️
+* [REACT HOOKS](https://es.reactjs.org/)
+* [Django](https://www.djangoproject.com/)
+* [Postgresql](https://www.postgresql.org/)
+
 ## Author
 
 👤 **Vicente Andani**
