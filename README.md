@@ -1,20 +1,32 @@
-# Training_app_react
-## Installation
+<h1 align="center">Welcome to Moveshare 👋</h1>
+<p>
+</p>
 
-We run `docker-compose up` (version 1.27) and wait for the containers to start.
+> A social network where you can share and view exercises and trainings with other people
 
-Once we start we enter the django container and carry out the migrations
-`python3 manage.py migrate`
+## Install
 
-We create a superuser
-`python3 manage.py createsuperuser`
-
-Then we will have to create a category from Postman
-API: `"localhost:8000/api/fitness/category"`
-
-``` 
-{
-  "name": "Chest",
-  "image": "https://www.deportesaludable.com/wp-content/uploads/2019/02/pecho.jpg"
-} 
+```sh
+docker-compose up
 ```
+
+## Usage
+
+```sh
+python3 manage.py migrate
+```
+
+## Author
+
+👤 **Vicente Andani**
+
+* Website: https://www.linkedin.com/in/vicnx/
+* Github: [@vicnx](https://github.com/vicnx)
+* LinkedIn: [@vicnx](https://linkedin.com/in/vicnx)
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
