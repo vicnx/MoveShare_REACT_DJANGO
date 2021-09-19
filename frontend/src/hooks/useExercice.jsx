@@ -27,6 +27,7 @@ export function useExercice({ params } = { params: null }, refresh) {
           setTimeout(() => {
             setOk(false)
             history.push('/exercices/')
+            window.location.reload();
             setLoading(false);
           }, 1000);
         }
