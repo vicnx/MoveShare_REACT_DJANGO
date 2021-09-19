@@ -16,6 +16,12 @@ Next we will enter the backend container (Django) and execute:
 python3 manage.py migrate
 ```
 
+To solve the error when migrating with python with the UTC dates, we will have to do the following ([MORE INFO](https://stackoverflow.com/questions/68024060/assertionerror-database-connection-isnt-set-to-utc)):
+
+```sh
+pip install psycopg2==2.8.6
+```
+
 To access the administrator functions we will also have to create a superuser.
 
 ```sh
