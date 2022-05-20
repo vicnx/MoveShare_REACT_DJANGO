@@ -2,8 +2,10 @@
 <p>
 </p>
 
-> A social network where you can share and view exercises and trainings with other people
+> A social network where you can share and view exercises and trainings with other people.
 
+> This project is part of the 2 DAW course presented as a final project and with a grade of 11.
+> 
 ## Install
 
 To run the project we will have to have docker-compose (version 1.27) installed.
